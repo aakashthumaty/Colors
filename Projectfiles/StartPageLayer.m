@@ -7,6 +7,9 @@
 
 #import "StartPageLayer.h"
 #import "GameLayer.h"
+#import "LevelSelectLayer.h"
+
+
 
 @interface StartPageLayer (PrivateMethods)
 @end
@@ -46,7 +49,7 @@
 {
     NSLog(@"switch to GameLayer");
     
-    [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [[GameLayer alloc] init]]];
+    [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [[LevelSelectLayer alloc] init]]];
 }
 
 - (void)buttonOneAction:(id)sender
@@ -64,10 +67,6 @@
     [button runAction:[CCRotateBy actionWithDuration:1 angle:360]];
     
 }
-
-
-
-
 
 @end
 

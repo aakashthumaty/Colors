@@ -19,6 +19,9 @@
     CCMenuItemImage *border;
    
     
+    int level;
+    int selectedlevel;
+    
     //timer
     int timerSeconds;
     int timerBonusSeconds;
@@ -74,7 +77,29 @@
     int operationCount;
     int result;
     CCLabelTTF *OperationCount;
+    NSString *operationCountString;
     //operations
+    
+    //bools
+    
+    bool neari1x1;
+    bool neari1x2;
+    bool neari1x3;
+    bool neari1x4;
+    bool neari2x1;
+    bool neari2x2;
+    bool neari2x3;
+    bool neari2x4;
+    bool neari3x1;
+    bool neari3x2;
+    bool neari3x3;
+    bool neari3x4;
+    bool neari4x1;
+    bool neari4x2;
+    bool neari4x3;
+    bool neari4x4;
+    
+    
     
     
     //generate random colors
