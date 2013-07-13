@@ -33,23 +33,42 @@
         levelSelectTitle.color=ccc3(0,255,0);
         [self addChild:levelSelectTitle];
         
-       
+        bool checklvl1stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl1comp"];
+
+        if (checklvl1stat == true)
+        {
+            
+            NSLog(@"lvl1perf");
+            CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
+                                                                        selectedImage:@"perfectChecks.png" target:nil selector:nil];
+            
+            
+            perfectCheckmarks.position = ccp(71,340);
+            [self addChild:perfectCheckmarks z:3];
+            
+    //        colorCombo = [CCSprite spriteWithFile:@"3colorcombos.png"];
+  //          colorCombo.position = ccp(160,50);
+//            [self addChild:colorCombo z:1];
+
+            
+        }
+            NSString *imageSetlvl1button = [NSString stringWithFormat:@"lvl1butt.png"];
+            
+            NSString *imageSetlvl1buttonsel = [NSString stringWithFormat:@"lvl1buttsel.png"];
+            
+            lvl1button = [CCMenuItemImage itemWithNormalImage:imageSetlvl1button
+                                                selectedImage:imageSetlvl1buttonsel target:self selector:@selector(gotogamelayer1:)];
+            lvl1buttonSel = [CCMenuItemImage itemWithNormalImage:imageSetlvl1buttonsel
+                                                   selectedImage:imageSetlvl1button target:nil selector:nil];
+            
+            lvl1button.position = ccp(31.5,330);
+
+      
+            
+            
+        }
         
-        
-   
-        
-    NSString *imageSetlvl1button = [NSString stringWithFormat:@"lvl1butt.png"];
-    
-    NSString *imageSetlvl1buttonsel = [NSString stringWithFormat:@"lvl1buttsel.png"];
-    
-    lvl1button = [CCMenuItemImage itemWithNormalImage:imageSetlvl1button
-                                    selectedImage:imageSetlvl1buttonsel target:self selector:@selector(gotogamelayer1:)];
-    lvl1buttonSel = [CCMenuItemImage itemWithNormalImage:imageSetlvl1buttonsel
-                                       selectedImage:imageSetlvl1button target:nil selector:nil];
-    
-    lvl1button.position = ccp(31.5,330);
-    
-    
+     
         NSString *imageSetlvl2button = [NSString stringWithFormat:@"lvl2butt.png"];
         
         NSString *imageSetlvl2buttonsel = [NSString stringWithFormat:@"lvl2buttsel.png"];
@@ -200,11 +219,12 @@
         NSString *imageSetlvl14buttonsel = [NSString stringWithFormat:@"lvl14buttsel.png"];
         
         lvl14button = [CCMenuItemImage itemWithNormalImage:imageSetlvl14button
-                                            selectedImage:imageSetlvl14buttonsel target:self selector:@selector(gotogamelayer4:)];
+                                            selectedImage:imageSetlvl14buttonsel target:self selector:@selector(gotogamelayer14:)];
         lvl14buttonSel = [CCMenuItemImage itemWithNormalImage:imageSetlvl14buttonsel
                                                selectedImage:imageSetlvl14button target:nil selector:nil];
         
         lvl14button.position = ccp(91,120);
+        
         
         
         NSString *imageSetlvl15button = [NSString stringWithFormat:@"lvl15butt.png"];
@@ -212,7 +232,7 @@
         NSString *imageSetlvl15buttonsel = [NSString stringWithFormat:@"lvl15buttsel.png"];
         
         lvl15button = [CCMenuItemImage itemWithNormalImage:imageSetlvl15button
-                                             selectedImage:imageSetlvl15buttonsel target:self selector:@selector(gotogamelayer4:)];
+                                             selectedImage:imageSetlvl15buttonsel target:self selector:@selector(gotogamelayer15:)];
         lvl15buttonSel = [CCMenuItemImage itemWithNormalImage:imageSetlvl15buttonsel
                                                selectedImage:imageSetlvl15button target:nil selector:nil];
         
@@ -224,14 +244,61 @@
         NSString *imageSetlvl16buttonsel = [NSString stringWithFormat:@"lvl16buttsel.png"];
         
         lvl16button = [CCMenuItemImage itemWithNormalImage:imageSetlvl16button
-                                             selectedImage:imageSetlvl16buttonsel target:self selector:@selector(gotogamelayer4:)];
+                                             selectedImage:imageSetlvl16buttonsel target:self selector:@selector(gotogamelayer16:)];
         lvl16buttonSel = [CCMenuItemImage itemWithNormalImage:imageSetlvl16buttonsel
                                                selectedImage:imageSetlvl16button target:nil selector:nil];
         
         lvl16button.position = ccp(208.5,120);
         
         
-        levelSelect = [CCMenu menuWithItems:lvl1button, lvl2button, lvl3button, lvl4button, lvl5button, lvl6button, lvl7button, lvl8button, lvl9button, lvl10button, lvl11button, lvl12button, lvl13button, lvl14button, lvl15button, lvl16button, nil];
+        NSString *imageSetlvl17button = [NSString stringWithFormat:@"lvl17butt.png"];
+        
+        NSString *imageSetlvl17buttonsel = [NSString stringWithFormat:@"lvl17buttsel.png"];
+        
+        lvl17button = [CCMenuItemImage itemWithNormalImage:imageSetlvl17button
+                                             selectedImage:imageSetlvl17buttonsel target:self selector:@selector(gotogamelayer17:)];
+        lvl17buttonSel = [CCMenuItemImage itemWithNormalImage:imageSetlvl17buttonsel
+                                                selectedImage:imageSetlvl17button target:nil selector:nil];
+        
+        lvl17button.position = ccp(31.5,50);
+        
+        
+        NSString *imageSetlvl18button = [NSString stringWithFormat:@"lvl18butt.png"];
+        
+        NSString *imageSetlvl18buttonsel = [NSString stringWithFormat:@"lvl18buttsel.png"];
+        
+        lvl18button = [CCMenuItemImage itemWithNormalImage:imageSetlvl18button
+                                             selectedImage:imageSetlvl18buttonsel target:self selector:@selector(gotogamelayer18:)];
+        lvl18buttonSel = [CCMenuItemImage itemWithNormalImage:imageSetlvl18buttonsel
+                                                selectedImage:imageSetlvl18button target:nil selector:nil];
+        
+        lvl18button.position = ccp(91,50);
+        
+        
+        NSString *imageSetlvl19button = [NSString stringWithFormat:@"lvl19butt.png"];
+        
+        NSString *imageSetlvl19buttonsel = [NSString stringWithFormat:@"lvl19buttsel.png"];
+        
+        lvl19button = [CCMenuItemImage itemWithNormalImage:imageSetlvl19button
+                                             selectedImage:imageSetlvl19buttonsel target:self selector:@selector(gotogamelayer19:)];
+        lvl19buttonSel = [CCMenuItemImage itemWithNormalImage:imageSetlvl19buttonsel
+                                                selectedImage:imageSetlvl19button target:nil selector:nil];
+        
+        lvl19button.position = ccp(149,50);
+        
+        
+        NSString *imageSetlvl20button = [NSString stringWithFormat:@"lvl20butt.png"];
+        
+        NSString *imageSetlvl20buttonsel = [NSString stringWithFormat:@"lvl20buttsel.png"];
+        
+        lvl20button = [CCMenuItemImage itemWithNormalImage:imageSetlvl20button
+                                             selectedImage:imageSetlvl20buttonsel target:self selector:@selector(gotogamelayer20:)];
+        lvl20buttonSel = [CCMenuItemImage itemWithNormalImage:imageSetlvl20buttonsel
+                                                selectedImage:imageSetlvl20button target:nil selector:nil];
+        
+        lvl20button.position = ccp(208.5,50);
+        
+        levelSelect = [CCMenu menuWithItems:lvl1button, lvl2button, lvl3button, lvl4button, lvl5button, lvl6button, lvl7button, lvl8button, lvl9button, lvl10button, lvl11button, lvl12button, lvl13button, lvl14button, lvl15button, lvl16button, lvl17button, lvl18button, lvl19button, lvl20button, nil];
 
         levelSelect.position = ccp(40, 30);
         
@@ -239,7 +306,7 @@
 
            return self;
     }
-}
+
 
 
 -(void) gotogamelayer1:(id)sender
@@ -351,6 +418,34 @@
 -(void) gotogamelayer16:(id)sender
 {
     [[NSUserDefaults standardUserDefaults] setInteger:16 forKey:@"level"];
+    
+    [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [[GameLayer alloc] init]]];
+    
+}
+-(void) gotogamelayer17:(id)sender
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:17 forKey:@"level"];
+    
+    [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [[GameLayer alloc] init]]];
+    
+}
+-(void) gotogamelayer18:(id)sender
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:18 forKey:@"level"];
+    
+    [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [[GameLayer alloc] init]]];
+    
+}
+-(void) gotogamelayer19:(id)sender
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:19 forKey:@"level"];
+    
+    [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [[GameLayer alloc] init]]];
+    
+}
+-(void) gotogamelayer20:(id)sender
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:20 forKey:@"level"];
     
     [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [[GameLayer alloc] init]]];
     

@@ -14,6 +14,8 @@
 
     
     
+    CCMenuItemImage *colorCombo;
+    
     
     CCMenuItemImage *Background;
     CCMenuItemImage *border;
@@ -72,8 +74,15 @@
     int selectedNumber2;
     //button selected
     
+    //perfect count
+    int perfectCount;
+    CCLabelTTF *perfectCountLabel;
+    NSString *perfectCountString;
+    
+    
     
     //operations
+    NSNumber *theOperation;
     int operationCount;
     int result;
     CCLabelTTF *OperationCount;

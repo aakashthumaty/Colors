@@ -44,69 +44,66 @@ bool neari4x4 = false;
     
     
     
-    
-        
         //background
-        
+    
     if (level == 1)
-    {
-         
-        operationCount = 4;
-
-        Background = [CCSprite spriteWithFile:@"gridlvl1.png"];
+    {//perfect = 4
+        perfectCount = 4;
+        Background = [CCSprite spriteWithFile:@"gridlvl1.1.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
+        
+               
     }
     
     if (level == 2)
-    {
-        operationCount = 6;
+    {//perfect = 4
+        perfectCount = 6;
         Background = [CCSprite spriteWithFile:@"gridlvl2.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
     }
     if (level == 3)
-    {
-        operationCount = 5;
+    {//perfect = 4
+        perfectCount = 4;
         Background = [CCSprite spriteWithFile:@"gridlvl3.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
     }
     if (level == 4)
     {
-        operationCount = 5;
+        perfectCount = 4;
         Background = [CCSprite spriteWithFile:@"gridlvl4.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
         
     }
     if (level == 5)
-    {
-        operationCount = 5;
+    {perfectCount = 6;
         Background = [CCSprite spriteWithFile:@"gridlvl5.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
         
     }
     if (level == 6)
-    {
-        operationCount = 5;
+    {//perfect = 6
+        perfectCount = 6;
         Background = [CCSprite spriteWithFile:@"gridlvl6.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
         
     }
-    if (level == 7)
-    {
-        operationCount = 5;
+    if (level == 8)
+    {//perfect = 12
+        perfectCount = 12;
         Background = [CCSprite spriteWithFile:@"gridlvl7.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
         
     }
-    if (level == 8)
-    {
-        operationCount = 5;
+    if (level == 7)
+    {//perfect = 8
+        //change
         Background = [CCSprite spriteWithFile:@"gridlvl8.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
@@ -114,7 +111,7 @@ bool neari4x4 = false;
     }
     if (level == 9)
     {
-        operationCount = 5;
+        perfectCount = 6;
         Background = [CCSprite spriteWithFile:@"gridlvl9.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
@@ -122,15 +119,15 @@ bool neari4x4 = false;
     }
     if (level == 10)
     {
-        operationCount = 5;
-        Background = [CCSprite spriteWithFile:@"gridlvl10.png"];
+        perfectCount = 10;
+        Background = [CCSprite spriteWithFile:@"gridlvl10.10.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
         
     }
     if (level == 11)
     {
-        operationCount = 5;
+        perfectCount = 8;
         Background = [CCSprite spriteWithFile:@"gridlvl11.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
@@ -138,7 +135,7 @@ bool neari4x4 = false;
     }
     if (level == 12)
     {
-        operationCount = 5;
+        perfectCount = 12;
         Background = [CCSprite spriteWithFile:@"gridlvl12.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
@@ -146,23 +143,23 @@ bool neari4x4 = false;
     }
     if (level == 13)
     {
-        operationCount = 5;
-        Background = [CCSprite spriteWithFile:@"gridlvl13.png"];
+        perfectCount = 6;
+        Background = [CCSprite spriteWithFile:@"gridlvl13.13.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
         
     }
     if (level == 14)
     {
-        operationCount = 5;
-        Background = [CCSprite spriteWithFile:@"gridlvl14.png"];
+        perfectCount = 20;
+        Background = [CCSprite spriteWithFile:@"gridlvl14.14.png"];
         Background.position = ccp(160,253);
-        [self addChild:Background z:-1];
+        [self addChild:Background];
         
     }
     if (level == 15)
     {
-        operationCount = 5;
+        perfectCount = 8;
         Background = [CCSprite spriteWithFile:@"gridlvl15.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
@@ -170,7 +167,7 @@ bool neari4x4 = false;
     }
     if (level == 16)
     {
-        operationCount = 5;
+        perfectCount = 8;
         Background = [CCSprite spriteWithFile:@"gridlvl16.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
@@ -178,7 +175,7 @@ bool neari4x4 = false;
     }
     if (level == 17)
     {
-        operationCount = 5;
+        
         Background = [CCSprite spriteWithFile:@"gridlvl17.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
@@ -186,7 +183,7 @@ bool neari4x4 = false;
     }
     if (level == 18)
     {
-        operationCount = 5;
+        
         Background = [CCSprite spriteWithFile:@"gridlvl18.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
@@ -194,27 +191,52 @@ bool neari4x4 = false;
     }
     if (level == 19)
     {
-        operationCount = 5;
+        
         Background = [CCSprite spriteWithFile:@"gridlvl19.png"];
-        Background.position = ccp(160,253);
+        Background.position = ccp(160,254);
+        [self addChild:Background z:-1];
+        
+    }
+    if (level == 20)
+    {
+        
+        Background = [CCSprite spriteWithFile:@"gridlvl20.png"];
+        Background.position = ccp(160,254);
         [self addChild:Background z:-1];
         
     }
     
     
+  
+    
+    
+    colorCombo = [CCSprite spriteWithFile:@"3colorcombos.png"];
+    colorCombo.position = ccp(160,50);
+    [self addChild:colorCombo z:1];
+
+    
       //background
     
+    perfectCountString = [NSString stringWithFormat:@"perfect = %i", perfectCount];
+    perfectCountLabel = [CCLabelTTF labelWithString:perfectCountString
+                                         dimensions:CGSizeMake(200,100) alignment:UITextAlignmentCenter
+                                           fontName:@"Arial" fontSize:15.0];
+    perfectCountLabel.position = ccp(150, 360);
+
     
+    
+    [self addChild:perfectCountLabel z:1];
+
     
     
         //operation
-    operationCountString = [NSString stringWithFormat:@"mixes left = %i", operationCount];
+    operationCountString = [NSString stringWithFormat:@"mixes = %i", operationCount];
 
     
     OperationCount = [CCLabelTTF labelWithString:operationCountString
                                       dimensions:CGSizeMake(200,100) alignment:UITextAlignmentCenter
-                                        fontName:@"Arial" fontSize:25.0];
-    OperationCount.position = ccp(100, 370);
+                                        fontName:@"Arial" fontSize:15.0];
+    OperationCount.position = ccp(73, 360);
     [self addChild:OperationCount z:1];
     
         
@@ -244,6 +266,7 @@ bool neari4x4 = false;
     
     [self schedule:@selector(timerUpdate:) interval:1];
 
+    [self scheduleUpdate];
     //TIMER
     
 //////////////////////// LVL 1 ////////////////////////////////
@@ -895,9 +918,12 @@ bool neari4x4 = false;
 
     //////////////////////// LVL 3 ////////////////////////////////
 
+    
+    //////////////////////// LVL 4 ////////////////////////////////
+
     if(level == 4)
     {
-        i1x1 = 1;
+        i1x1 = 2;
         NSString *imageSet1x1 = [NSString stringWithFormat:@"circle%d.png", i1x1];
         NSString *imageSet1x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x1];
         int1x1 = [CCMenuItemImage itemWithNormalImage:imageSet1x1
@@ -909,7 +935,7 @@ bool neari4x4 = false;
         int1x1toggle.position = ccp(31.5,120);
         
         
-        i1x2 = 1;
+        i1x2 = 2;
         NSString *imageSet1x2 = [NSString stringWithFormat:@"circle%d.png", i1x2];
         NSString *imageSet1x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x2];
         
@@ -921,7 +947,7 @@ bool neari4x4 = false;
                                                selector:@selector(int1x2ToggleTapped:) items:int1x2, int1x2Sel, nil];
         int1x2toggle.position = ccp(91,120);
         
-        i1x3 = 1;
+        i1x3 = 2;
         NSString *imageSet1x3 = [NSString stringWithFormat:@"circle%d.png", i1x3];
         NSString *imageSet1x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x3];
         
@@ -933,7 +959,228 @@ bool neari4x4 = false;
                                                selector:@selector(int1x3ToggleTapped:) items:int1x3, int1x3Sel, nil];
         int1x3toggle.position = ccp(149,120);
         
-        i1x4 = 1;
+        i1x4 = 2;
+        NSString *imageSet1x4 = [NSString stringWithFormat:@"circle%d.png", i1x4];
+        NSString *imageSet1x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x4];
+        
+        NSLog(@"%@", imageSet1x4);
+        int1x4 = [CCMenuItemImage itemWithNormalImage:imageSet1x4
+                                        selectedImage:imageSet1x4Sel target:nil selector:nil];
+        int1x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x4Sel
+                                           selectedImage:imageSet1x4 target:nil selector:nil];
+        int1x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x4ToggleTapped:) items:int1x4, int1x4Sel, nil];
+        int1x4toggle.position = ccp(208.5,120);
+        
+        
+        i2x1 = 0;
+        NSString *imageSet2x1 = [NSString stringWithFormat:@"circle%d.png", i2x1];
+        NSString *imageSet2x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x1];
+        
+        int2x1 = [CCMenuItemImage itemWithNormalImage:imageSet2x1
+                                        selectedImage:imageSet2x1Sel target:nil selector:nil];
+        int2x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x1Sel
+                                           selectedImage:imageSet2x1 target:nil selector:nil];
+        int2x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x1ToggleTapped:) items:int2x1, int2x1Sel, nil];
+        int2x1toggle.position = ccp(31.5,190);
+        
+        
+        
+        i2x2 = 2;
+        
+        NSString *imageSet2x2 = [NSString stringWithFormat:@"circle%d.png", i2x2];
+        NSString *imageSet2x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x2];
+        
+        int2x2 = [CCMenuItemImage itemWithNormalImage:imageSet2x2
+                                        selectedImage:imageSet2x2Sel target:nil selector:nil];
+        int2x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x2Sel
+                                           selectedImage:imageSet2x2 target:nil selector:nil];
+        int2x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x2ToggleTapped:) items:int2x2, int2x2Sel, nil];
+        int2x2toggle.position = ccp(91,190);
+        
+        
+        i2x3 = 2;
+        
+        NSString *imageSet2x3 = [NSString stringWithFormat:@"circle%d.png", i2x3];
+        NSString *imageSet2x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x3];
+        
+        int2x3 = [CCMenuItemImage itemWithNormalImage:imageSet2x3
+                                        selectedImage:imageSet2x3Sel target:nil selector:nil];
+        int2x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x3Sel
+                                           selectedImage:imageSet2x3 target:nil selector:nil];
+        int2x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x3ToggleTapped:) items:int2x3, int2x3Sel, nil];
+        int2x3toggle.position = ccp(149,190);
+        
+        i2x4 = 0;
+        NSString *imageSet2x4 = [NSString stringWithFormat:@"circle%d.png", i2x4];
+        NSString *imageSet2x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x4];
+        
+        int2x4 = [CCMenuItemImage itemWithNormalImage:imageSet2x4
+                                        selectedImage:imageSet2x4Sel target:nil selector:nil];
+        int2x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x4Sel
+                                           selectedImage:imageSet2x4 target:nil selector:nil];
+        int2x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x4ToggleTapped:) items:int2x4, int2x4Sel, nil];
+        int2x4toggle.position = ccp(208.5,190);
+        
+        
+        i3x1 = 0;
+        NSString *imageSet3x1 = [NSString stringWithFormat:@"circle%d.png", i3x1];
+        NSString *imageSet3x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x1];
+        
+        int3x1 = [CCMenuItemImage itemWithNormalImage:imageSet3x1
+                                        selectedImage:imageSet3x1Sel target:nil selector:nil];
+        int3x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x1Sel
+                                           selectedImage:imageSet3x1 target:nil selector:nil];
+        int3x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x1ToggleTapped:) items:int3x1, int3x1Sel, nil];
+        int3x1toggle.position = ccp(31.5,260);
+        
+        
+        i3x2 = 1;
+        NSString *imageSet3x2 = [NSString stringWithFormat:@"circle%d.png", i3x2];
+        NSString *imageSet3x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x2];
+        
+        int3x2 = [CCMenuItemImage itemWithNormalImage:imageSet3x2
+                                        selectedImage:imageSet3x2Sel target:nil selector:nil];
+        int3x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x2Sel
+                                           selectedImage:imageSet3x2 target:nil selector:nil];
+        int3x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x2ToggleTapped:) items:int3x2, int3x2Sel, nil];
+        int3x2toggle.position = ccp(91,260);
+        
+        
+        i3x3 = 1;
+        
+        NSString *imageSet3x3 = [NSString stringWithFormat:@"circle%d.png", i3x3];
+        NSString *imageSet3x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x3];
+        
+        int3x3 = [CCMenuItemImage itemWithNormalImage:imageSet3x3
+                                        selectedImage:imageSet3x3Sel target:nil selector:nil];
+        int3x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x3Sel
+                                           selectedImage:imageSet3x3 target:nil selector:nil];
+        int3x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x3ToggleTapped:) items:int3x3, int3x3Sel, nil];
+        int3x3toggle.position = ccp(149,260);
+        
+        i3x4 = 0;
+        
+        NSString *imageSet3x4 = [NSString stringWithFormat:@"circle%d.png", i3x4];
+        NSString *imageSet3x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x4];
+        
+        int3x4 = [CCMenuItemImage itemWithNormalImage:imageSet3x4
+                                        selectedImage:imageSet3x4Sel target:nil selector:nil];
+        int3x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x4Sel
+                                           selectedImage:imageSet3x4 target:nil selector:nil];
+        int3x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x4ToggleTapped:) items:int3x4, int3x4Sel, nil];
+        int3x4toggle.position = ccp(208.5,260);
+        
+        i4x1 = 1;
+        NSString *imageSet4x1 = [NSString stringWithFormat:@"circle%d.png", i4x1];
+        NSString *imageSet4x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x1];
+        
+        int4x1 = [CCMenuItemImage itemWithNormalImage:imageSet4x1
+                                        selectedImage:imageSet4x1Sel target:nil selector:nil];
+        int4x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x1Sel
+                                           selectedImage:imageSet4x1 target:nil selector:nil];
+        int4x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x1ToggleTapped:) items:int4x1, int4x1Sel, nil];
+        int4x1toggle.position = ccp(31.5,330);
+        
+        i4x2 = 1;
+        NSString *imageSet4x2 = [NSString stringWithFormat:@"circle%d.png", i4x2];
+        NSString *imageSet4x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x2];
+        
+        int4x2 = [CCMenuItemImage itemWithNormalImage:imageSet4x2
+                                        selectedImage:imageSet4x2Sel target:nil selector:nil];
+        int4x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x2Sel
+                                           selectedImage:imageSet4x2 target:nil selector:nil];
+        int4x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x2ToggleTapped:) items:int4x2, int4x2Sel, nil];
+        int4x2toggle.position = ccp(91,330);
+        
+        i4x3 = 1;
+        NSString *imageSet4x3 = [NSString stringWithFormat:@"circle%d.png", i4x3];
+        NSString *imageSet4x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x3];
+        
+        int4x3 = [CCMenuItemImage itemWithNormalImage:imageSet4x3
+                                        selectedImage:imageSet4x3Sel target:nil selector:nil];
+        int4x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x3Sel
+                                           selectedImage:imageSet4x3 target:nil selector:nil];
+        int4x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x3ToggleTapped:) items:int4x3, int4x3Sel, nil];
+        int4x3toggle.position = ccp(149,330);
+        
+        i4x4 = 1;
+        NSString *imageSet4x4 = [NSString stringWithFormat:@"circle%d.png", i4x4];
+        NSString *imageSet4x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x4];
+        
+        int4x4 = [CCMenuItemImage itemWithNormalImage:imageSet4x4
+                                        selectedImage:imageSet4x4Sel target:nil selector:nil];
+        int4x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x4Sel
+                                           selectedImage:imageSet4x4 target:nil selector:nil];
+        int4x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
+        int4x4toggle.position = ccp(208.5,330);
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        
+        
+        game.position = ccp(40, 30);
+        
+        [self addChild: game];
+    }
+
+    
+    //////////////////////// LVL 4 ////////////////////////////////
+
+    
+    //////////////////////// LVL 5 ////////////////////////////////
+
+    
+    
+    if(level == 5)
+    {
+        i1x1 = 2;
+        NSString *imageSet1x1 = [NSString stringWithFormat:@"circle%d.png", i1x1];
+        NSString *imageSet1x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x1];
+        int1x1 = [CCMenuItemImage itemWithNormalImage:imageSet1x1
+                                        selectedImage:imageSet1x1Sel target:nil selector:nil];
+        int1x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x1Sel
+                                           selectedImage:imageSet1x1 target:nil selector:nil];
+        int1x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x1ToggleTapped:) items:int1x1, int1x1Sel, nil];
+        int1x1toggle.position = ccp(31.5,120);
+        
+        
+        i1x2 = 2;
+        NSString *imageSet1x2 = [NSString stringWithFormat:@"circle%d.png", i1x2];
+        NSString *imageSet1x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x2];
+        
+        int1x2 = [CCMenuItemImage itemWithNormalImage:imageSet1x2
+                                        selectedImage:imageSet1x2Sel target:nil selector:nil];
+        int1x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x2Sel
+                                           selectedImage:imageSet1x2 target:nil selector:nil];
+        int1x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x2ToggleTapped:) items:int1x2, int1x2Sel, nil];
+        int1x2toggle.position = ccp(91,120);
+        
+        i1x3 = 2;
+        NSString *imageSet1x3 = [NSString stringWithFormat:@"circle%d.png", i1x3];
+        NSString *imageSet1x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x3];
+        
+        int1x3 = [CCMenuItemImage itemWithNormalImage:imageSet1x3
+                                        selectedImage:imageSet1x3Sel target:nil selector:nil];
+        int1x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x3Sel
+                                           selectedImage:imageSet1x3 target:nil selector:nil];
+        int1x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x3ToggleTapped:) items:int1x3, int1x3Sel, nil];
+        int1x3toggle.position = ccp(149,120);
+        
+        i1x4 = 2;
         NSString *imageSet1x4 = [NSString stringWithFormat:@"circle%d.png", i1x4];
         NSString *imageSet1x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x4];
         
@@ -1014,6 +1261,227 @@ bool neari4x4 = false;
         int3x1toggle.position = ccp(31.5,260);
         
         
+        i3x2 = 2;
+        NSString *imageSet3x2 = [NSString stringWithFormat:@"circle%d.png", i3x2];
+        NSString *imageSet3x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x2];
+        
+        int3x2 = [CCMenuItemImage itemWithNormalImage:imageSet3x2
+                                        selectedImage:imageSet3x2Sel target:nil selector:nil];
+        int3x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x2Sel
+                                           selectedImage:imageSet3x2 target:nil selector:nil];
+        int3x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x2ToggleTapped:) items:int3x2, int3x2Sel, nil];
+        int3x2toggle.position = ccp(91,260);
+        
+        
+        i3x3 = 2;
+        
+        NSString *imageSet3x3 = [NSString stringWithFormat:@"circle%d.png", i3x3];
+        NSString *imageSet3x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x3];
+        
+        int3x3 = [CCMenuItemImage itemWithNormalImage:imageSet3x3
+                                        selectedImage:imageSet3x3Sel target:nil selector:nil];
+        int3x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x3Sel
+                                           selectedImage:imageSet3x3 target:nil selector:nil];
+        int3x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x3ToggleTapped:) items:int3x3, int3x3Sel, nil];
+        int3x3toggle.position = ccp(149,260);
+        
+        i3x4 = 2;
+        
+        NSString *imageSet3x4 = [NSString stringWithFormat:@"circle%d.png", i3x4];
+        NSString *imageSet3x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x4];
+        
+        int3x4 = [CCMenuItemImage itemWithNormalImage:imageSet3x4
+                                        selectedImage:imageSet3x4Sel target:nil selector:nil];
+        int3x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x4Sel
+                                           selectedImage:imageSet3x4 target:nil selector:nil];
+        int3x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x4ToggleTapped:) items:int3x4, int3x4Sel, nil];
+        int3x4toggle.position = ccp(208.5,260);
+        
+        i4x1 = 0;
+        NSString *imageSet4x1 = [NSString stringWithFormat:@"circle%d.png", i4x1];
+        NSString *imageSet4x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x1];
+        
+        int4x1 = [CCMenuItemImage itemWithNormalImage:imageSet4x1
+                                        selectedImage:imageSet4x1Sel target:nil selector:nil];
+        int4x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x1Sel
+                                           selectedImage:imageSet4x1 target:nil selector:nil];
+        int4x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x1ToggleTapped:) items:int4x1, int4x1Sel, nil];
+        int4x1toggle.position = ccp(31.5,330);
+        
+        i4x2 = 0;
+        NSString *imageSet4x2 = [NSString stringWithFormat:@"circle%d.png", i4x2];
+        NSString *imageSet4x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x2];
+        
+        int4x2 = [CCMenuItemImage itemWithNormalImage:imageSet4x2
+                                        selectedImage:imageSet4x2Sel target:nil selector:nil];
+        int4x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x2Sel
+                                           selectedImage:imageSet4x2 target:nil selector:nil];
+        int4x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x2ToggleTapped:) items:int4x2, int4x2Sel, nil];
+        int4x2toggle.position = ccp(91,330);
+        
+        i4x3 = 0;
+        NSString *imageSet4x3 = [NSString stringWithFormat:@"circle%d.png", i4x3];
+        NSString *imageSet4x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x3];
+        
+        int4x3 = [CCMenuItemImage itemWithNormalImage:imageSet4x3
+                                        selectedImage:imageSet4x3Sel target:nil selector:nil];
+        int4x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x3Sel
+                                           selectedImage:imageSet4x3 target:nil selector:nil];
+        int4x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x3ToggleTapped:) items:int4x3, int4x3Sel, nil];
+        int4x3toggle.position = ccp(149,330);
+        
+        i4x4 = 0;
+        NSString *imageSet4x4 = [NSString stringWithFormat:@"circle%d.png", i4x4];
+        NSString *imageSet4x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x4];
+        
+        int4x4 = [CCMenuItemImage itemWithNormalImage:imageSet4x4
+                                        selectedImage:imageSet4x4Sel target:nil selector:nil];
+        int4x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x4Sel
+                                           selectedImage:imageSet4x4 target:nil selector:nil];
+        int4x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
+        int4x4toggle.position = ccp(208.5,330);
+        
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        
+        
+        game.position = ccp(40, 30);
+        
+        [self addChild: game];
+    }
+
+    //////////////////////// LVL 5 ////////////////////////////////
+
+    
+    
+    //////////////////////// LVL 6 ////////////////////////////////
+
+    
+    if(level == 6)
+    {
+        i1x1 = 2;
+        NSString *imageSet1x1 = [NSString stringWithFormat:@"circle%d.png", i1x1];
+        NSString *imageSet1x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x1];
+        int1x1 = [CCMenuItemImage itemWithNormalImage:imageSet1x1
+                                        selectedImage:imageSet1x1Sel target:nil selector:nil];
+        int1x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x1Sel
+                                           selectedImage:imageSet1x1 target:nil selector:nil];
+        int1x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x1ToggleTapped:) items:int1x1, int1x1Sel, nil];
+        int1x1toggle.position = ccp(31.5,120);
+        
+        
+        i1x2 = 0;
+        NSString *imageSet1x2 = [NSString stringWithFormat:@"circle%d.png", i1x2];
+        NSString *imageSet1x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x2];
+        
+        int1x2 = [CCMenuItemImage itemWithNormalImage:imageSet1x2
+                                        selectedImage:imageSet1x2Sel target:nil selector:nil];
+        int1x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x2Sel
+                                           selectedImage:imageSet1x2 target:nil selector:nil];
+        int1x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x2ToggleTapped:) items:int1x2, int1x2Sel, nil];
+        int1x2toggle.position = ccp(91,120);
+        
+        i1x3 = 0;
+        NSString *imageSet1x3 = [NSString stringWithFormat:@"circle%d.png", i1x3];
+        NSString *imageSet1x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x3];
+        
+        int1x3 = [CCMenuItemImage itemWithNormalImage:imageSet1x3
+                                        selectedImage:imageSet1x3Sel target:nil selector:nil];
+        int1x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x3Sel
+                                           selectedImage:imageSet1x3 target:nil selector:nil];
+        int1x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x3ToggleTapped:) items:int1x3, int1x3Sel, nil];
+        int1x3toggle.position = ccp(149,120);
+        
+        i1x4 = 2;
+        NSString *imageSet1x4 = [NSString stringWithFormat:@"circle%d.png", i1x4];
+        NSString *imageSet1x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x4];
+        
+        NSLog(@"%@", imageSet1x4);
+        int1x4 = [CCMenuItemImage itemWithNormalImage:imageSet1x4
+                                        selectedImage:imageSet1x4Sel target:nil selector:nil];
+        int1x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x4Sel
+                                           selectedImage:imageSet1x4 target:nil selector:nil];
+        int1x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x4ToggleTapped:) items:int1x4, int1x4Sel, nil];
+        int1x4toggle.position = ccp(208.5,120);
+        
+        
+        i2x1 = 1;
+        NSString *imageSet2x1 = [NSString stringWithFormat:@"circle%d.png", i2x1];
+        NSString *imageSet2x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x1];
+        
+        int2x1 = [CCMenuItemImage itemWithNormalImage:imageSet2x1
+                                        selectedImage:imageSet2x1Sel target:nil selector:nil];
+        int2x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x1Sel
+                                           selectedImage:imageSet2x1 target:nil selector:nil];
+        int2x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x1ToggleTapped:) items:int2x1, int2x1Sel, nil];
+        int2x1toggle.position = ccp(31.5,190);
+        
+        
+        
+        i2x2 = 0;
+        
+        NSString *imageSet2x2 = [NSString stringWithFormat:@"circle%d.png", i2x2];
+        NSString *imageSet2x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x2];
+        
+        int2x2 = [CCMenuItemImage itemWithNormalImage:imageSet2x2
+                                        selectedImage:imageSet2x2Sel target:nil selector:nil];
+        int2x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x2Sel
+                                           selectedImage:imageSet2x2 target:nil selector:nil];
+        int2x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x2ToggleTapped:) items:int2x2, int2x2Sel, nil];
+        int2x2toggle.position = ccp(91,190);
+        
+        
+        i2x3 = 0;
+        
+        NSString *imageSet2x3 = [NSString stringWithFormat:@"circle%d.png", i2x3];
+        NSString *imageSet2x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x3];
+        
+        int2x3 = [CCMenuItemImage itemWithNormalImage:imageSet2x3
+                                        selectedImage:imageSet2x3Sel target:nil selector:nil];
+        int2x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x3Sel
+                                           selectedImage:imageSet2x3 target:nil selector:nil];
+        int2x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x3ToggleTapped:) items:int2x3, int2x3Sel, nil];
+        int2x3toggle.position = ccp(149,190);
+        
+        i2x4 = 1;
+        NSString *imageSet2x4 = [NSString stringWithFormat:@"circle%d.png", i2x4];
+        NSString *imageSet2x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x4];
+        
+        int2x4 = [CCMenuItemImage itemWithNormalImage:imageSet2x4
+                                        selectedImage:imageSet2x4Sel target:nil selector:nil];
+        int2x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x4Sel
+                                           selectedImage:imageSet2x4 target:nil selector:nil];
+        int2x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x4ToggleTapped:) items:int2x4, int2x4Sel, nil];
+        int2x4toggle.position = ccp(208.5,190);
+        
+        
+        i3x1 = 2;
+        NSString *imageSet3x1 = [NSString stringWithFormat:@"circle%d.png", i3x1];
+        NSString *imageSet3x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x1];
+        
+        int3x1 = [CCMenuItemImage itemWithNormalImage:imageSet3x1
+                                        selectedImage:imageSet3x1Sel target:nil selector:nil];
+        int3x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x1Sel
+                                           selectedImage:imageSet3x1 target:nil selector:nil];
+        int3x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x1ToggleTapped:) items:int3x1, int3x1Sel, nil];
+        int3x1toggle.position = ccp(31.5,260);
+        
+        
         i3x2 = 1;
         NSString *imageSet3x2 = [NSString stringWithFormat:@"circle%d.png", i3x2];
         NSString *imageSet3x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x2];
@@ -1041,6 +1509,229 @@ bool neari4x4 = false;
         int3x3toggle.position = ccp(149,260);
         
         i3x4 = 2;
+        
+        NSString *imageSet3x4 = [NSString stringWithFormat:@"circle%d.png", i3x4];
+        NSString *imageSet3x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x4];
+        
+        int3x4 = [CCMenuItemImage itemWithNormalImage:imageSet3x4
+                                        selectedImage:imageSet3x4Sel target:nil selector:nil];
+        int3x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x4Sel
+                                           selectedImage:imageSet3x4 target:nil selector:nil];
+        int3x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x4ToggleTapped:) items:int3x4, int3x4Sel, nil];
+        int3x4toggle.position = ccp(208.5,260);
+        
+        i4x1 = 0;
+        NSString *imageSet4x1 = [NSString stringWithFormat:@"circle%d.png", i4x1];
+        NSString *imageSet4x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x1];
+        
+        int4x1 = [CCMenuItemImage itemWithNormalImage:imageSet4x1
+                                        selectedImage:imageSet4x1Sel target:nil selector:nil];
+        int4x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x1Sel
+                                           selectedImage:imageSet4x1 target:nil selector:nil];
+        int4x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x1ToggleTapped:) items:int4x1, int4x1Sel, nil];
+        int4x1toggle.position = ccp(31.5,330);
+        
+        i4x2 = 1;
+        NSString *imageSet4x2 = [NSString stringWithFormat:@"circle%d.png", i4x2];
+        NSString *imageSet4x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x2];
+        
+        int4x2 = [CCMenuItemImage itemWithNormalImage:imageSet4x2
+                                        selectedImage:imageSet4x2Sel target:nil selector:nil];
+        int4x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x2Sel
+                                           selectedImage:imageSet4x2 target:nil selector:nil];
+        int4x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x2ToggleTapped:) items:int4x2, int4x2Sel, nil];
+        int4x2toggle.position = ccp(91,330);
+        
+        i4x3 = 1;
+        NSString *imageSet4x3 = [NSString stringWithFormat:@"circle%d.png", i4x3];
+        NSString *imageSet4x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x3];
+        
+        int4x3 = [CCMenuItemImage itemWithNormalImage:imageSet4x3
+                                        selectedImage:imageSet4x3Sel target:nil selector:nil];
+        int4x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x3Sel
+                                           selectedImage:imageSet4x3 target:nil selector:nil];
+        int4x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x3ToggleTapped:) items:int4x3, int4x3Sel, nil];
+        int4x3toggle.position = ccp(149,330);
+        
+        i4x4 = 0;
+        NSString *imageSet4x4 = [NSString stringWithFormat:@"circle%d.png", i4x4];
+        NSString *imageSet4x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x4];
+        
+        int4x4 = [CCMenuItemImage itemWithNormalImage:imageSet4x4
+                                        selectedImage:imageSet4x4Sel target:nil selector:nil];
+        int4x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x4Sel
+                                           selectedImage:imageSet4x4 target:nil selector:nil];
+        int4x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
+        int4x4toggle.position = ccp(208.5,330);
+        
+
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        
+        
+        game.position = ccp(40, 30);
+        
+        [self addChild: game];
+    }
+    
+        
+        
+        //////////////////////// LVL 6 ////////////////////////////////
+    
+    
+    
+        //////////////////////// LVL 7 ////////////////////////////////
+   
+    if(level == 7)
+    {
+        i1x1 = 1;
+        NSString *imageSet1x1 = [NSString stringWithFormat:@"circle%d.png", i1x1];
+        NSString *imageSet1x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x1];
+        int1x1 = [CCMenuItemImage itemWithNormalImage:imageSet1x1
+                                        selectedImage:imageSet1x1Sel target:nil selector:nil];
+        int1x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x1Sel
+                                           selectedImage:imageSet1x1 target:nil selector:nil];
+        int1x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x1ToggleTapped:) items:int1x1, int1x1Sel, nil];
+        int1x1toggle.position = ccp(31.5,120);
+        
+        
+        i1x2 = 1;
+        NSString *imageSet1x2 = [NSString stringWithFormat:@"circle%d.png", i1x2];
+        NSString *imageSet1x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x2];
+        
+        int1x2 = [CCMenuItemImage itemWithNormalImage:imageSet1x2
+                                        selectedImage:imageSet1x2Sel target:nil selector:nil];
+        int1x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x2Sel
+                                           selectedImage:imageSet1x2 target:nil selector:nil];
+        int1x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x2ToggleTapped:) items:int1x2, int1x2Sel, nil];
+        int1x2toggle.position = ccp(91,120);
+        
+        i1x3 = 1;
+        NSString *imageSet1x3 = [NSString stringWithFormat:@"circle%d.png", i1x3];
+        NSString *imageSet1x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x3];
+        
+        int1x3 = [CCMenuItemImage itemWithNormalImage:imageSet1x3
+                                        selectedImage:imageSet1x3Sel target:nil selector:nil];
+        int1x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x3Sel
+                                           selectedImage:imageSet1x3 target:nil selector:nil];
+        int1x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x3ToggleTapped:) items:int1x3, int1x3Sel, nil];
+        int1x3toggle.position = ccp(149,120);
+        
+        i1x4 = 1;
+        NSString *imageSet1x4 = [NSString stringWithFormat:@"circle%d.png", i1x4];
+        NSString *imageSet1x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x4];
+        
+        NSLog(@"%@", imageSet1x4);
+        int1x4 = [CCMenuItemImage itemWithNormalImage:imageSet1x4
+                                        selectedImage:imageSet1x4Sel target:nil selector:nil];
+        int1x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x4Sel
+                                           selectedImage:imageSet1x4 target:nil selector:nil];
+        int1x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x4ToggleTapped:) items:int1x4, int1x4Sel, nil];
+        int1x4toggle.position = ccp(208.5,120);
+        
+        
+        i2x1 = 1;
+        NSString *imageSet2x1 = [NSString stringWithFormat:@"circle%d.png", i2x1];
+        NSString *imageSet2x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x1];
+        
+        int2x1 = [CCMenuItemImage itemWithNormalImage:imageSet2x1
+                                        selectedImage:imageSet2x1Sel target:nil selector:nil];
+        int2x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x1Sel
+                                           selectedImage:imageSet2x1 target:nil selector:nil];
+        int2x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x1ToggleTapped:) items:int2x1, int2x1Sel, nil];
+        int2x1toggle.position = ccp(31.5,190);
+        
+        
+        
+        i2x2 = 2;
+        
+        NSString *imageSet2x2 = [NSString stringWithFormat:@"circle%d.png", i2x2];
+        NSString *imageSet2x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x2];
+        
+        int2x2 = [CCMenuItemImage itemWithNormalImage:imageSet2x2
+                                        selectedImage:imageSet2x2Sel target:nil selector:nil];
+        int2x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x2Sel
+                                           selectedImage:imageSet2x2 target:nil selector:nil];
+        int2x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x2ToggleTapped:) items:int2x2, int2x2Sel, nil];
+        int2x2toggle.position = ccp(91,190);
+        
+        
+        i2x3 = 2;
+        
+        NSString *imageSet2x3 = [NSString stringWithFormat:@"circle%d.png", i2x3];
+        NSString *imageSet2x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x3];
+        
+        int2x3 = [CCMenuItemImage itemWithNormalImage:imageSet2x3
+                                        selectedImage:imageSet2x3Sel target:nil selector:nil];
+        int2x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x3Sel
+                                           selectedImage:imageSet2x3 target:nil selector:nil];
+        int2x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x3ToggleTapped:) items:int2x3, int2x3Sel, nil];
+        int2x3toggle.position = ccp(149,190);
+        
+        i2x4 = 1;
+        NSString *imageSet2x4 = [NSString stringWithFormat:@"circle%d.png", i2x4];
+        NSString *imageSet2x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x4];
+        
+        int2x4 = [CCMenuItemImage itemWithNormalImage:imageSet2x4
+                                        selectedImage:imageSet2x4Sel target:nil selector:nil];
+        int2x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x4Sel
+                                           selectedImage:imageSet2x4 target:nil selector:nil];
+        int2x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x4ToggleTapped:) items:int2x4, int2x4Sel, nil];
+        int2x4toggle.position = ccp(208.5,190);
+        
+        
+        i3x1 = 1;
+        NSString *imageSet3x1 = [NSString stringWithFormat:@"circle%d.png", i3x1];
+        NSString *imageSet3x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x1];
+        
+        int3x1 = [CCMenuItemImage itemWithNormalImage:imageSet3x1
+                                        selectedImage:imageSet3x1Sel target:nil selector:nil];
+        int3x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x1Sel
+                                           selectedImage:imageSet3x1 target:nil selector:nil];
+        int3x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x1ToggleTapped:) items:int3x1, int3x1Sel, nil];
+        int3x1toggle.position = ccp(31.5,260);
+        
+        
+        i3x2 = 2;
+        NSString *imageSet3x2 = [NSString stringWithFormat:@"circle%d.png", i3x2];
+        NSString *imageSet3x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x2];
+        
+        int3x2 = [CCMenuItemImage itemWithNormalImage:imageSet3x2
+                                        selectedImage:imageSet3x2Sel target:nil selector:nil];
+        int3x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x2Sel
+                                           selectedImage:imageSet3x2 target:nil selector:nil];
+        int3x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x2ToggleTapped:) items:int3x2, int3x2Sel, nil];
+        int3x2toggle.position = ccp(91,260);
+        
+        
+        i3x3 = 2;
+        
+        NSString *imageSet3x3 = [NSString stringWithFormat:@"circle%d.png", i3x3];
+        NSString *imageSet3x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x3];
+        
+        int3x3 = [CCMenuItemImage itemWithNormalImage:imageSet3x3
+                                        selectedImage:imageSet3x3Sel target:nil selector:nil];
+        int3x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x3Sel
+                                           selectedImage:imageSet3x3 target:nil selector:nil];
+        int3x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x3ToggleTapped:) items:int3x3, int3x3Sel, nil];
+        int3x3toggle.position = ccp(149,260);
+        
+        i3x4 = 1;
         
         NSString *imageSet3x4 = [NSString stringWithFormat:@"circle%d.png", i3x4];
         NSString *imageSet3x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x4];
@@ -1100,21 +1791,28 @@ bool neari4x4 = false;
         int4x4toggle = [CCMenuItemToggle itemWithTarget:self
                                                selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
         int4x4toggle.position = ccp(208.5,330);
+        
+        
         game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
         
         
         game.position = ccp(40, 30);
         
         [self addChild: game];
-    }
+}
+        
+        
+        
+        //////////////////////// LVL 7 ////////////////////////////////
+    
+    
+    
+    
+        //////////////////////// LVL 8 ////////////////////////////////
 
-    
-    
-    
-    
-    if(level == 5)
+    if(level == 8)
     {
-        i1x1 = arc4random_uniform(3);
+        i1x1 = 2;
         NSString *imageSet1x1 = [NSString stringWithFormat:@"circle%d.png", i1x1];
         NSString *imageSet1x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x1];
         int1x1 = [CCMenuItemImage itemWithNormalImage:imageSet1x1
@@ -1126,7 +1824,7 @@ bool neari4x4 = false;
         int1x1toggle.position = ccp(31.5,120);
         
         
-        i1x2 = arc4random_uniform(3);
+        i1x2 = 2;
         NSString *imageSet1x2 = [NSString stringWithFormat:@"circle%d.png", i1x2];
         NSString *imageSet1x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x2];
         
@@ -1138,7 +1836,7 @@ bool neari4x4 = false;
                                                selector:@selector(int1x2ToggleTapped:) items:int1x2, int1x2Sel, nil];
         int1x2toggle.position = ccp(91,120);
         
-        i1x3 = arc4random_uniform(3);
+        i1x3 = 2;
         NSString *imageSet1x3 = [NSString stringWithFormat:@"circle%d.png", i1x3];
         NSString *imageSet1x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x3];
         
@@ -1150,7 +1848,7 @@ bool neari4x4 = false;
                                                selector:@selector(int1x3ToggleTapped:) items:int1x3, int1x3Sel, nil];
         int1x3toggle.position = ccp(149,120);
         
-        i1x4 = arc4random_uniform(3);
+        i1x4 = 2;
         NSString *imageSet1x4 = [NSString stringWithFormat:@"circle%d.png", i1x4];
         NSString *imageSet1x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x4];
         
@@ -1164,7 +1862,7 @@ bool neari4x4 = false;
         int1x4toggle.position = ccp(208.5,120);
         
         
-        i2x1 = arc4random_uniform(3);
+        i2x1 = 1;
         NSString *imageSet2x1 = [NSString stringWithFormat:@"circle%d.png", i2x1];
         NSString *imageSet2x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x1];
         
@@ -1178,7 +1876,7 @@ bool neari4x4 = false;
         
         
         
-        i2x2 = arc4random_uniform(3);
+        i2x2 = 2;
         
         NSString *imageSet2x2 = [NSString stringWithFormat:@"circle%d.png", i2x2];
         NSString *imageSet2x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x2];
@@ -1192,7 +1890,7 @@ bool neari4x4 = false;
         int2x2toggle.position = ccp(91,190);
         
         
-        i2x3 = arc4random_uniform(3);
+        i2x3 = 2;
         
         NSString *imageSet2x3 = [NSString stringWithFormat:@"circle%d.png", i2x3];
         NSString *imageSet2x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x3];
@@ -1205,7 +1903,7 @@ bool neari4x4 = false;
                                                selector:@selector(int2x3ToggleTapped:) items:int2x3, int2x3Sel, nil];
         int2x3toggle.position = ccp(149,190);
         
-        i2x4 = arc4random_uniform(3);
+        i2x4 = 1;
         NSString *imageSet2x4 = [NSString stringWithFormat:@"circle%d.png", i2x4];
         NSString *imageSet2x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x4];
         
@@ -1218,11 +1916,7 @@ bool neari4x4 = false;
         int2x4toggle.position = ccp(208.5,190);
         
         
-        do {    i3x1 = arc4random_uniform(3);
-            
-            
-        }
-        while ( i3x1 == 1);
+        i3x1 = 0;
         NSString *imageSet3x1 = [NSString stringWithFormat:@"circle%d.png", i3x1];
         NSString *imageSet3x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x1];
         
@@ -1235,11 +1929,7 @@ bool neari4x4 = false;
         int3x1toggle.position = ccp(31.5,260);
         
         
-        do {    i3x2 = arc4random_uniform(3);
-            
-            
-        }
-        while ( i3x2 == 1);
+        i3x2 = 2;
         NSString *imageSet3x2 = [NSString stringWithFormat:@"circle%d.png", i3x2];
         NSString *imageSet3x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x2];
         
@@ -1252,11 +1942,8 @@ bool neari4x4 = false;
         int3x2toggle.position = ccp(91,260);
         
         
-        do {    i3x3 = arc4random_uniform(3);
-            
-            
-        }
-        while ( i3x3 == 1);
+        i3x3 = 2;
+        
         NSString *imageSet3x3 = [NSString stringWithFormat:@"circle%d.png", i3x3];
         NSString *imageSet3x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x3];
         
@@ -1268,11 +1955,8 @@ bool neari4x4 = false;
                                                selector:@selector(int3x3ToggleTapped:) items:int3x3, int3x3Sel, nil];
         int3x3toggle.position = ccp(149,260);
         
-        do {    i3x4 = arc4random_uniform(3);
-            
-            
-        }
-        while ( i3x4 == 1);
+        i3x4 = 0;
+        
         NSString *imageSet3x4 = [NSString stringWithFormat:@"circle%d.png", i3x4];
         NSString *imageSet3x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x4];
         
@@ -1284,7 +1968,7 @@ bool neari4x4 = false;
                                                selector:@selector(int3x4ToggleTapped:) items:int3x4, int3x4Sel, nil];
         int3x4toggle.position = ccp(208.5,260);
         
-        i4x1 = arc4random_uniform(3);
+        i4x1 = 2;
         NSString *imageSet4x1 = [NSString stringWithFormat:@"circle%d.png", i4x1];
         NSString *imageSet4x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x1];
         
@@ -1296,7 +1980,7 @@ bool neari4x4 = false;
                                                selector:@selector(int4x1ToggleTapped:) items:int4x1, int4x1Sel, nil];
         int4x1toggle.position = ccp(31.5,330);
         
-        i4x2 = arc4random_uniform(3);
+        i4x2 = 2;
         NSString *imageSet4x2 = [NSString stringWithFormat:@"circle%d.png", i4x2];
         NSString *imageSet4x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x2];
         
@@ -1308,7 +1992,7 @@ bool neari4x4 = false;
                                                selector:@selector(int4x2ToggleTapped:) items:int4x2, int4x2Sel, nil];
         int4x2toggle.position = ccp(91,330);
         
-        i4x3 = arc4random_uniform(3);
+        i4x3 = 2;
         NSString *imageSet4x3 = [NSString stringWithFormat:@"circle%d.png", i4x3];
         NSString *imageSet4x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x3];
         
@@ -1320,7 +2004,7 @@ bool neari4x4 = false;
                                                selector:@selector(int4x3ToggleTapped:) items:int4x3, int4x3Sel, nil];
         int4x3toggle.position = ccp(149,330);
         
-        i4x4 = arc4random_uniform(3);
+        i4x4 = 2;
         NSString *imageSet4x4 = [NSString stringWithFormat:@"circle%d.png", i4x4];
         NSString *imageSet4x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x4];
         
@@ -1332,6 +2016,7 @@ bool neari4x4 = false;
                                                selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
         int4x4toggle.position = ccp(208.5,330);
         
+        
         game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
         
         
@@ -1339,15 +2024,16 @@ bool neari4x4 = false;
         
         [self addChild: game];
     }
-
     
     
+    //////////////////////// LVL 8 ////////////////////////////////
     
     
+    //////////////////////// LVL 9 ////////////////////////////////
     
-    if(level == 6)
+    if(level == 9)
     {
-        i1x1 = arc4random_uniform(3);
+        i1x1 = 0;
         NSString *imageSet1x1 = [NSString stringWithFormat:@"circle%d.png", i1x1];
         NSString *imageSet1x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x1];
         int1x1 = [CCMenuItemImage itemWithNormalImage:imageSet1x1
@@ -1359,7 +2045,7 @@ bool neari4x4 = false;
         int1x1toggle.position = ccp(31.5,120);
         
         
-        i1x2 = arc4random_uniform(3);
+        i1x2 = 0;
         NSString *imageSet1x2 = [NSString stringWithFormat:@"circle%d.png", i1x2];
         NSString *imageSet1x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x2];
         
@@ -1371,7 +2057,7 @@ bool neari4x4 = false;
                                                selector:@selector(int1x2ToggleTapped:) items:int1x2, int1x2Sel, nil];
         int1x2toggle.position = ccp(91,120);
         
-        i1x3 = arc4random_uniform(3);
+        i1x3 = 0;
         NSString *imageSet1x3 = [NSString stringWithFormat:@"circle%d.png", i1x3];
         NSString *imageSet1x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x3];
         
@@ -1383,7 +2069,7 @@ bool neari4x4 = false;
                                                selector:@selector(int1x3ToggleTapped:) items:int1x3, int1x3Sel, nil];
         int1x3toggle.position = ccp(149,120);
         
-        i1x4 = arc4random_uniform(3);
+        i1x4 = 0;
         NSString *imageSet1x4 = [NSString stringWithFormat:@"circle%d.png", i1x4];
         NSString *imageSet1x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x4];
         
@@ -1397,7 +2083,7 @@ bool neari4x4 = false;
         int1x4toggle.position = ccp(208.5,120);
         
         
-        i2x1 = arc4random_uniform(3);
+        i2x1 = 0;
         NSString *imageSet2x1 = [NSString stringWithFormat:@"circle%d.png", i2x1];
         NSString *imageSet2x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x1];
         
@@ -1411,7 +2097,7 @@ bool neari4x4 = false;
         
         
         
-        i2x2 = arc4random_uniform(3);
+        i2x2 = 0;
         
         NSString *imageSet2x2 = [NSString stringWithFormat:@"circle%d.png", i2x2];
         NSString *imageSet2x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x2];
@@ -1425,7 +2111,7 @@ bool neari4x4 = false;
         int2x2toggle.position = ccp(91,190);
         
         
-        i2x3 = arc4random_uniform(3);
+        i2x3 = 0;
         
         NSString *imageSet2x3 = [NSString stringWithFormat:@"circle%d.png", i2x3];
         NSString *imageSet2x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x3];
@@ -1438,7 +2124,7 @@ bool neari4x4 = false;
                                                selector:@selector(int2x3ToggleTapped:) items:int2x3, int2x3Sel, nil];
         int2x3toggle.position = ccp(149,190);
         
-        i2x4 = arc4random_uniform(3);
+        i2x4 = 0;
         NSString *imageSet2x4 = [NSString stringWithFormat:@"circle%d.png", i2x4];
         NSString *imageSet2x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x4];
         
@@ -1451,11 +2137,7 @@ bool neari4x4 = false;
         int2x4toggle.position = ccp(208.5,190);
         
         
-        do {    i3x1 = arc4random_uniform(3);
-            
-            
-        }
-        while ( i3x1 == 1);
+        i3x1 = 0;
         NSString *imageSet3x1 = [NSString stringWithFormat:@"circle%d.png", i3x1];
         NSString *imageSet3x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x1];
         
@@ -1468,11 +2150,7 @@ bool neari4x4 = false;
         int3x1toggle.position = ccp(31.5,260);
         
         
-        do {    i3x2 = arc4random_uniform(3);
-            
-            
-        }
-        while ( i3x2 == 1);
+        i3x2 = 0;
         NSString *imageSet3x2 = [NSString stringWithFormat:@"circle%d.png", i3x2];
         NSString *imageSet3x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x2];
         
@@ -1485,11 +2163,8 @@ bool neari4x4 = false;
         int3x2toggle.position = ccp(91,260);
         
         
-        do {    i3x3 = arc4random_uniform(3);
-            
-            
-        }
-        while ( i3x3 == 1);
+        i3x3 = 0;
+        
         NSString *imageSet3x3 = [NSString stringWithFormat:@"circle%d.png", i3x3];
         NSString *imageSet3x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x3];
         
@@ -1501,11 +2176,8 @@ bool neari4x4 = false;
                                                selector:@selector(int3x3ToggleTapped:) items:int3x3, int3x3Sel, nil];
         int3x3toggle.position = ccp(149,260);
         
-        do {    i3x4 = arc4random_uniform(3);
-            
-            
-        }
-        while ( i3x4 == 1);
+        i3x4 = 0;
+        
         NSString *imageSet3x4 = [NSString stringWithFormat:@"circle%d.png", i3x4];
         NSString *imageSet3x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x4];
         
@@ -1517,7 +2189,7 @@ bool neari4x4 = false;
                                                selector:@selector(int3x4ToggleTapped:) items:int3x4, int3x4Sel, nil];
         int3x4toggle.position = ccp(208.5,260);
         
-        i4x1 = arc4random_uniform(3);
+        i4x1 = 2;
         NSString *imageSet4x1 = [NSString stringWithFormat:@"circle%d.png", i4x1];
         NSString *imageSet4x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x1];
         
@@ -1529,7 +2201,7 @@ bool neari4x4 = false;
                                                selector:@selector(int4x1ToggleTapped:) items:int4x1, int4x1Sel, nil];
         int4x1toggle.position = ccp(31.5,330);
         
-        i4x2 = arc4random_uniform(3);
+        i4x2 = 2;
         NSString *imageSet4x2 = [NSString stringWithFormat:@"circle%d.png", i4x2];
         NSString *imageSet4x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x2];
         
@@ -1541,7 +2213,7 @@ bool neari4x4 = false;
                                                selector:@selector(int4x2ToggleTapped:) items:int4x2, int4x2Sel, nil];
         int4x2toggle.position = ccp(91,330);
         
-        i4x3 = arc4random_uniform(3);
+        i4x3 = 2;
         NSString *imageSet4x3 = [NSString stringWithFormat:@"circle%d.png", i4x3];
         NSString *imageSet4x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x3];
         
@@ -1553,7 +2225,7 @@ bool neari4x4 = false;
                                                selector:@selector(int4x3ToggleTapped:) items:int4x3, int4x3Sel, nil];
         int4x3toggle.position = ccp(149,330);
         
-        i4x4 = arc4random_uniform(3);
+        i4x4 = 2;
         NSString *imageSet4x4 = [NSString stringWithFormat:@"circle%d.png", i4x4];
         NSString *imageSet4x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x4];
         
@@ -1565,6 +2237,7 @@ bool neari4x4 = false;
                                                selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
         int4x4toggle.position = ccp(208.5,330);
         
+        
         game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
         
         
@@ -1572,7 +2245,1556 @@ bool neari4x4 = false;
         
         [self addChild: game];
     }
-
+    
+    
+    //////////////////////// LVL 9 ////////////////////////////////
+    
+    //////////////////////// LVL 10 ////////////////////////////////
+    
+    if(level == 10)
+    {
+        i1x1 = 0;
+        NSString *imageSet1x1 = [NSString stringWithFormat:@"circle%d.png", i1x1];
+        NSString *imageSet1x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x1];
+        int1x1 = [CCMenuItemImage itemWithNormalImage:imageSet1x1
+                                        selectedImage:imageSet1x1Sel target:nil selector:nil];
+        int1x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x1Sel
+                                           selectedImage:imageSet1x1 target:nil selector:nil];
+        int1x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x1ToggleTapped:) items:int1x1, int1x1Sel, nil];
+        int1x1toggle.position = ccp(31.5,120);
+        
+        
+        i1x2 = 0;
+        NSString *imageSet1x2 = [NSString stringWithFormat:@"circle%d.png", i1x2];
+        NSString *imageSet1x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x2];
+        
+        int1x2 = [CCMenuItemImage itemWithNormalImage:imageSet1x2
+                                        selectedImage:imageSet1x2Sel target:nil selector:nil];
+        int1x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x2Sel
+                                           selectedImage:imageSet1x2 target:nil selector:nil];
+        int1x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x2ToggleTapped:) items:int1x2, int1x2Sel, nil];
+        int1x2toggle.position = ccp(91,120);
+        
+        i1x3 = 0;
+        NSString *imageSet1x3 = [NSString stringWithFormat:@"circle%d.png", i1x3];
+        NSString *imageSet1x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x3];
+        
+        int1x3 = [CCMenuItemImage itemWithNormalImage:imageSet1x3
+                                        selectedImage:imageSet1x3Sel target:nil selector:nil];
+        int1x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x3Sel
+                                           selectedImage:imageSet1x3 target:nil selector:nil];
+        int1x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x3ToggleTapped:) items:int1x3, int1x3Sel, nil];
+        int1x3toggle.position = ccp(149,120);
+        
+        i1x4 = 0;
+        NSString *imageSet1x4 = [NSString stringWithFormat:@"circle%d.png", i1x4];
+        NSString *imageSet1x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x4];
+        
+        NSLog(@"%@", imageSet1x4);
+        int1x4 = [CCMenuItemImage itemWithNormalImage:imageSet1x4
+                                        selectedImage:imageSet1x4Sel target:nil selector:nil];
+        int1x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x4Sel
+                                           selectedImage:imageSet1x4 target:nil selector:nil];
+        int1x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x4ToggleTapped:) items:int1x4, int1x4Sel, nil];
+        int1x4toggle.position = ccp(208.5,120);
+        
+        
+        i2x1 = 0;
+        NSString *imageSet2x1 = [NSString stringWithFormat:@"circle%d.png", i2x1];
+        NSString *imageSet2x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x1];
+        
+        int2x1 = [CCMenuItemImage itemWithNormalImage:imageSet2x1
+                                        selectedImage:imageSet2x1Sel target:nil selector:nil];
+        int2x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x1Sel
+                                           selectedImage:imageSet2x1 target:nil selector:nil];
+        int2x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x1ToggleTapped:) items:int2x1, int2x1Sel, nil];
+        int2x1toggle.position = ccp(31.5,190);
+        
+        
+        
+        i2x2 = 1;
+        
+        NSString *imageSet2x2 = [NSString stringWithFormat:@"circle%d.png", i2x2];
+        NSString *imageSet2x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x2];
+        
+        int2x2 = [CCMenuItemImage itemWithNormalImage:imageSet2x2
+                                        selectedImage:imageSet2x2Sel target:nil selector:nil];
+        int2x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x2Sel
+                                           selectedImage:imageSet2x2 target:nil selector:nil];
+        int2x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x2ToggleTapped:) items:int2x2, int2x2Sel, nil];
+        int2x2toggle.position = ccp(91,190);
+        
+        
+        i2x3 = 1;
+        
+        NSString *imageSet2x3 = [NSString stringWithFormat:@"circle%d.png", i2x3];
+        NSString *imageSet2x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x3];
+        
+        int2x3 = [CCMenuItemImage itemWithNormalImage:imageSet2x3
+                                        selectedImage:imageSet2x3Sel target:nil selector:nil];
+        int2x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x3Sel
+                                           selectedImage:imageSet2x3 target:nil selector:nil];
+        int2x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x3ToggleTapped:) items:int2x3, int2x3Sel, nil];
+        int2x3toggle.position = ccp(149,190);
+        
+        i2x4 = 0;
+        NSString *imageSet2x4 = [NSString stringWithFormat:@"circle%d.png", i2x4];
+        NSString *imageSet2x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x4];
+        
+        int2x4 = [CCMenuItemImage itemWithNormalImage:imageSet2x4
+                                        selectedImage:imageSet2x4Sel target:nil selector:nil];
+        int2x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x4Sel
+                                           selectedImage:imageSet2x4 target:nil selector:nil];
+        int2x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x4ToggleTapped:) items:int2x4, int2x4Sel, nil];
+        int2x4toggle.position = ccp(208.5,190);
+        
+        
+        i3x1 = 2;
+        NSString *imageSet3x1 = [NSString stringWithFormat:@"circle%d.png", i3x1];
+        NSString *imageSet3x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x1];
+        
+        int3x1 = [CCMenuItemImage itemWithNormalImage:imageSet3x1
+                                        selectedImage:imageSet3x1Sel target:nil selector:nil];
+        int3x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x1Sel
+                                           selectedImage:imageSet3x1 target:nil selector:nil];
+        int3x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x1ToggleTapped:) items:int3x1, int3x1Sel, nil];
+        int3x1toggle.position = ccp(31.5,260);
+        
+        
+        i3x2 = 1;
+        NSString *imageSet3x2 = [NSString stringWithFormat:@"circle%d.png", i3x2];
+        NSString *imageSet3x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x2];
+        
+        int3x2 = [CCMenuItemImage itemWithNormalImage:imageSet3x2
+                                        selectedImage:imageSet3x2Sel target:nil selector:nil];
+        int3x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x2Sel
+                                           selectedImage:imageSet3x2 target:nil selector:nil];
+        int3x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x2ToggleTapped:) items:int3x2, int3x2Sel, nil];
+        int3x2toggle.position = ccp(91,260);
+        
+        
+        i3x3 = 1;
+        
+        NSString *imageSet3x3 = [NSString stringWithFormat:@"circle%d.png", i3x3];
+        NSString *imageSet3x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x3];
+        
+        int3x3 = [CCMenuItemImage itemWithNormalImage:imageSet3x3
+                                        selectedImage:imageSet3x3Sel target:nil selector:nil];
+        int3x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x3Sel
+                                           selectedImage:imageSet3x3 target:nil selector:nil];
+        int3x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x3ToggleTapped:) items:int3x3, int3x3Sel, nil];
+        int3x3toggle.position = ccp(149,260);
+        
+        i3x4 = 2;
+        
+        NSString *imageSet3x4 = [NSString stringWithFormat:@"circle%d.png", i3x4];
+        NSString *imageSet3x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x4];
+        
+        int3x4 = [CCMenuItemImage itemWithNormalImage:imageSet3x4
+                                        selectedImage:imageSet3x4Sel target:nil selector:nil];
+        int3x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x4Sel
+                                           selectedImage:imageSet3x4 target:nil selector:nil];
+        int3x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x4ToggleTapped:) items:int3x4, int3x4Sel, nil];
+        int3x4toggle.position = ccp(208.5,260);
+        
+        i4x1 = 0;
+        NSString *imageSet4x1 = [NSString stringWithFormat:@"circle%d.png", i4x1];
+        NSString *imageSet4x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x1];
+        
+        int4x1 = [CCMenuItemImage itemWithNormalImage:imageSet4x1
+                                        selectedImage:imageSet4x1Sel target:nil selector:nil];
+        int4x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x1Sel
+                                           selectedImage:imageSet4x1 target:nil selector:nil];
+        int4x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x1ToggleTapped:) items:int4x1, int4x1Sel, nil];
+        int4x1toggle.position = ccp(31.5,330);
+        
+        i4x2 = 1;
+        NSString *imageSet4x2 = [NSString stringWithFormat:@"circle%d.png", i4x2];
+        NSString *imageSet4x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x2];
+        
+        int4x2 = [CCMenuItemImage itemWithNormalImage:imageSet4x2
+                                        selectedImage:imageSet4x2Sel target:nil selector:nil];
+        int4x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x2Sel
+                                           selectedImage:imageSet4x2 target:nil selector:nil];
+        int4x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x2ToggleTapped:) items:int4x2, int4x2Sel, nil];
+        int4x2toggle.position = ccp(91,330);
+        
+        i4x3 = 1;
+        NSString *imageSet4x3 = [NSString stringWithFormat:@"circle%d.png", i4x3];
+        NSString *imageSet4x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x3];
+        
+        int4x3 = [CCMenuItemImage itemWithNormalImage:imageSet4x3
+                                        selectedImage:imageSet4x3Sel target:nil selector:nil];
+        int4x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x3Sel
+                                           selectedImage:imageSet4x3 target:nil selector:nil];
+        int4x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x3ToggleTapped:) items:int4x3, int4x3Sel, nil];
+        int4x3toggle.position = ccp(149,330);
+        
+        i4x4 = 0;
+        NSString *imageSet4x4 = [NSString stringWithFormat:@"circle%d.png", i4x4];
+        NSString *imageSet4x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x4];
+        
+        int4x4 = [CCMenuItemImage itemWithNormalImage:imageSet4x4
+                                        selectedImage:imageSet4x4Sel target:nil selector:nil];
+        int4x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x4Sel
+                                           selectedImage:imageSet4x4 target:nil selector:nil];
+        int4x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
+        int4x4toggle.position = ccp(208.5,330);
+        
+        
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        
+        
+        game.position = ccp(40, 30);
+        
+        [self addChild: game];
+    }
+    
+    
+    //////////////////////// LVL 10 ////////////////////////////////
+    
+    
+    //////////////////////// LVL 11 ////////////////////////////////
+    
+    if(level == 11)
+    {
+        i1x1 = 1;
+        NSString *imageSet1x1 = [NSString stringWithFormat:@"circle%d.png", i1x1];
+        NSString *imageSet1x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x1];
+        int1x1 = [CCMenuItemImage itemWithNormalImage:imageSet1x1
+                                        selectedImage:imageSet1x1Sel target:nil selector:nil];
+        int1x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x1Sel
+                                           selectedImage:imageSet1x1 target:nil selector:nil];
+        int1x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x1ToggleTapped:) items:int1x1, int1x1Sel, nil];
+        int1x1toggle.position = ccp(31.5,120);
+        
+        
+        i1x2 = 2;
+        NSString *imageSet1x2 = [NSString stringWithFormat:@"circle%d.png", i1x2];
+        NSString *imageSet1x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x2];
+        
+        int1x2 = [CCMenuItemImage itemWithNormalImage:imageSet1x2
+                                        selectedImage:imageSet1x2Sel target:nil selector:nil];
+        int1x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x2Sel
+                                           selectedImage:imageSet1x2 target:nil selector:nil];
+        int1x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x2ToggleTapped:) items:int1x2, int1x2Sel, nil];
+        int1x2toggle.position = ccp(91,120);
+        
+        i1x3 = 2;
+        NSString *imageSet1x3 = [NSString stringWithFormat:@"circle%d.png", i1x3];
+        NSString *imageSet1x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x3];
+        
+        int1x3 = [CCMenuItemImage itemWithNormalImage:imageSet1x3
+                                        selectedImage:imageSet1x3Sel target:nil selector:nil];
+        int1x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x3Sel
+                                           selectedImage:imageSet1x3 target:nil selector:nil];
+        int1x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x3ToggleTapped:) items:int1x3, int1x3Sel, nil];
+        int1x3toggle.position = ccp(149,120);
+        
+        i1x4 = 1;
+        NSString *imageSet1x4 = [NSString stringWithFormat:@"circle%d.png", i1x4];
+        NSString *imageSet1x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x4];
+        
+        NSLog(@"%@", imageSet1x4);
+        int1x4 = [CCMenuItemImage itemWithNormalImage:imageSet1x4
+                                        selectedImage:imageSet1x4Sel target:nil selector:nil];
+        int1x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x4Sel
+                                           selectedImage:imageSet1x4 target:nil selector:nil];
+        int1x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x4ToggleTapped:) items:int1x4, int1x4Sel, nil];
+        int1x4toggle.position = ccp(208.5,120);
+        
+        
+        i2x1 = 2;
+        NSString *imageSet2x1 = [NSString stringWithFormat:@"circle%d.png", i2x1];
+        NSString *imageSet2x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x1];
+        
+        int2x1 = [CCMenuItemImage itemWithNormalImage:imageSet2x1
+                                        selectedImage:imageSet2x1Sel target:nil selector:nil];
+        int2x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x1Sel
+                                           selectedImage:imageSet2x1 target:nil selector:nil];
+        int2x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x1ToggleTapped:) items:int2x1, int2x1Sel, nil];
+        int2x1toggle.position = ccp(31.5,190);
+        
+        
+        
+        i2x2 = 2;
+        
+        NSString *imageSet2x2 = [NSString stringWithFormat:@"circle%d.png", i2x2];
+        NSString *imageSet2x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x2];
+        
+        int2x2 = [CCMenuItemImage itemWithNormalImage:imageSet2x2
+                                        selectedImage:imageSet2x2Sel target:nil selector:nil];
+        int2x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x2Sel
+                                           selectedImage:imageSet2x2 target:nil selector:nil];
+        int2x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x2ToggleTapped:) items:int2x2, int2x2Sel, nil];
+        int2x2toggle.position = ccp(91,190);
+        
+        
+        i2x3 = 2;
+        
+        NSString *imageSet2x3 = [NSString stringWithFormat:@"circle%d.png", i2x3];
+        NSString *imageSet2x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x3];
+        
+        int2x3 = [CCMenuItemImage itemWithNormalImage:imageSet2x3
+                                        selectedImage:imageSet2x3Sel target:nil selector:nil];
+        int2x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x3Sel
+                                           selectedImage:imageSet2x3 target:nil selector:nil];
+        int2x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x3ToggleTapped:) items:int2x3, int2x3Sel, nil];
+        int2x3toggle.position = ccp(149,190);
+        
+        i2x4 = 2;
+        NSString *imageSet2x4 = [NSString stringWithFormat:@"circle%d.png", i2x4];
+        NSString *imageSet2x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x4];
+        
+        int2x4 = [CCMenuItemImage itemWithNormalImage:imageSet2x4
+                                        selectedImage:imageSet2x4Sel target:nil selector:nil];
+        int2x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x4Sel
+                                           selectedImage:imageSet2x4 target:nil selector:nil];
+        int2x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x4ToggleTapped:) items:int2x4, int2x4Sel, nil];
+        int2x4toggle.position = ccp(208.5,190);
+        
+        
+        i3x1 = 2;
+        NSString *imageSet3x1 = [NSString stringWithFormat:@"circle%d.png", i3x1];
+        NSString *imageSet3x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x1];
+        
+        int3x1 = [CCMenuItemImage itemWithNormalImage:imageSet3x1
+                                        selectedImage:imageSet3x1Sel target:nil selector:nil];
+        int3x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x1Sel
+                                           selectedImage:imageSet3x1 target:nil selector:nil];
+        int3x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x1ToggleTapped:) items:int3x1, int3x1Sel, nil];
+        int3x1toggle.position = ccp(31.5,260);
+        
+        
+        i3x2 = 2;
+        NSString *imageSet3x2 = [NSString stringWithFormat:@"circle%d.png", i3x2];
+        NSString *imageSet3x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x2];
+        
+        int3x2 = [CCMenuItemImage itemWithNormalImage:imageSet3x2
+                                        selectedImage:imageSet3x2Sel target:nil selector:nil];
+        int3x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x2Sel
+                                           selectedImage:imageSet3x2 target:nil selector:nil];
+        int3x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x2ToggleTapped:) items:int3x2, int3x2Sel, nil];
+        int3x2toggle.position = ccp(91,260);
+        
+        
+        i3x3 = 2;
+        
+        NSString *imageSet3x3 = [NSString stringWithFormat:@"circle%d.png", i3x3];
+        NSString *imageSet3x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x3];
+        
+        int3x3 = [CCMenuItemImage itemWithNormalImage:imageSet3x3
+                                        selectedImage:imageSet3x3Sel target:nil selector:nil];
+        int3x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x3Sel
+                                           selectedImage:imageSet3x3 target:nil selector:nil];
+        int3x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x3ToggleTapped:) items:int3x3, int3x3Sel, nil];
+        int3x3toggle.position = ccp(149,260);
+        
+        i3x4 = 2;
+        
+        NSString *imageSet3x4 = [NSString stringWithFormat:@"circle%d.png", i3x4];
+        NSString *imageSet3x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x4];
+        
+        int3x4 = [CCMenuItemImage itemWithNormalImage:imageSet3x4
+                                        selectedImage:imageSet3x4Sel target:nil selector:nil];
+        int3x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x4Sel
+                                           selectedImage:imageSet3x4 target:nil selector:nil];
+        int3x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x4ToggleTapped:) items:int3x4, int3x4Sel, nil];
+        int3x4toggle.position = ccp(208.5,260);
+        
+        i4x1 = 0;
+        NSString *imageSet4x1 = [NSString stringWithFormat:@"circle%d.png", i4x1];
+        NSString *imageSet4x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x1];
+        
+        int4x1 = [CCMenuItemImage itemWithNormalImage:imageSet4x1
+                                        selectedImage:imageSet4x1Sel target:nil selector:nil];
+        int4x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x1Sel
+                                           selectedImage:imageSet4x1 target:nil selector:nil];
+        int4x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x1ToggleTapped:) items:int4x1, int4x1Sel, nil];
+        int4x1toggle.position = ccp(31.5,330);
+        
+        i4x2 = 2;
+        NSString *imageSet4x2 = [NSString stringWithFormat:@"circle%d.png", i4x2];
+        NSString *imageSet4x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x2];
+        
+        int4x2 = [CCMenuItemImage itemWithNormalImage:imageSet4x2
+                                        selectedImage:imageSet4x2Sel target:nil selector:nil];
+        int4x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x2Sel
+                                           selectedImage:imageSet4x2 target:nil selector:nil];
+        int4x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x2ToggleTapped:) items:int4x2, int4x2Sel, nil];
+        int4x2toggle.position = ccp(91,330);
+        
+        i4x3 = 2;
+        NSString *imageSet4x3 = [NSString stringWithFormat:@"circle%d.png", i4x3];
+        NSString *imageSet4x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x3];
+        
+        int4x3 = [CCMenuItemImage itemWithNormalImage:imageSet4x3
+                                        selectedImage:imageSet4x3Sel target:nil selector:nil];
+        int4x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x3Sel
+                                           selectedImage:imageSet4x3 target:nil selector:nil];
+        int4x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x3ToggleTapped:) items:int4x3, int4x3Sel, nil];
+        int4x3toggle.position = ccp(149,330);
+        
+        i4x4 = 0;
+        NSString *imageSet4x4 = [NSString stringWithFormat:@"circle%d.png", i4x4];
+        NSString *imageSet4x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x4];
+        
+        int4x4 = [CCMenuItemImage itemWithNormalImage:imageSet4x4
+                                        selectedImage:imageSet4x4Sel target:nil selector:nil];
+        int4x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x4Sel
+                                           selectedImage:imageSet4x4 target:nil selector:nil];
+        int4x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
+        int4x4toggle.position = ccp(208.5,330);
+        
+        
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        
+        
+        game.position = ccp(40, 30);
+        
+        [self addChild: game];
+    }
+    
+    
+    //////////////////////// LVL 11 ////////////////////////////////
+    
+    
+    //////////////////////// LVL 12 ////////////////////////////////
+    
+    if(level == 12)
+    {
+        i1x1 = 2;
+        NSString *imageSet1x1 = [NSString stringWithFormat:@"circle%d.png", i1x1];
+        NSString *imageSet1x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x1];
+        int1x1 = [CCMenuItemImage itemWithNormalImage:imageSet1x1
+                                        selectedImage:imageSet1x1Sel target:nil selector:nil];
+        int1x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x1Sel
+                                           selectedImage:imageSet1x1 target:nil selector:nil];
+        int1x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x1ToggleTapped:) items:int1x1, int1x1Sel, nil];
+        int1x1toggle.position = ccp(31.5,120);
+        
+        
+        i1x2 = 2;
+        NSString *imageSet1x2 = [NSString stringWithFormat:@"circle%d.png", i1x2];
+        NSString *imageSet1x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x2];
+        
+        int1x2 = [CCMenuItemImage itemWithNormalImage:imageSet1x2
+                                        selectedImage:imageSet1x2Sel target:nil selector:nil];
+        int1x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x2Sel
+                                           selectedImage:imageSet1x2 target:nil selector:nil];
+        int1x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x2ToggleTapped:) items:int1x2, int1x2Sel, nil];
+        int1x2toggle.position = ccp(91,120);
+        
+        i1x3 = 2;
+        NSString *imageSet1x3 = [NSString stringWithFormat:@"circle%d.png", i1x3];
+        NSString *imageSet1x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x3];
+        
+        int1x3 = [CCMenuItemImage itemWithNormalImage:imageSet1x3
+                                        selectedImage:imageSet1x3Sel target:nil selector:nil];
+        int1x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x3Sel
+                                           selectedImage:imageSet1x3 target:nil selector:nil];
+        int1x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x3ToggleTapped:) items:int1x3, int1x3Sel, nil];
+        int1x3toggle.position = ccp(149,120);
+        
+        i1x4 = 2;
+        NSString *imageSet1x4 = [NSString stringWithFormat:@"circle%d.png", i1x4];
+        NSString *imageSet1x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x4];
+        
+        NSLog(@"%@", imageSet1x4);
+        int1x4 = [CCMenuItemImage itemWithNormalImage:imageSet1x4
+                                        selectedImage:imageSet1x4Sel target:nil selector:nil];
+        int1x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x4Sel
+                                           selectedImage:imageSet1x4 target:nil selector:nil];
+        int1x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x4ToggleTapped:) items:int1x4, int1x4Sel, nil];
+        int1x4toggle.position = ccp(208.5,120);
+        
+        
+        i2x1 = 2;
+        NSString *imageSet2x1 = [NSString stringWithFormat:@"circle%d.png", i2x1];
+        NSString *imageSet2x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x1];
+        
+        int2x1 = [CCMenuItemImage itemWithNormalImage:imageSet2x1
+                                        selectedImage:imageSet2x1Sel target:nil selector:nil];
+        int2x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x1Sel
+                                           selectedImage:imageSet2x1 target:nil selector:nil];
+        int2x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x1ToggleTapped:) items:int2x1, int2x1Sel, nil];
+        int2x1toggle.position = ccp(31.5,190);
+        
+        
+        
+        i2x2 = 2;
+        
+        NSString *imageSet2x2 = [NSString stringWithFormat:@"circle%d.png", i2x2];
+        NSString *imageSet2x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x2];
+        
+        int2x2 = [CCMenuItemImage itemWithNormalImage:imageSet2x2
+                                        selectedImage:imageSet2x2Sel target:nil selector:nil];
+        int2x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x2Sel
+                                           selectedImage:imageSet2x2 target:nil selector:nil];
+        int2x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x2ToggleTapped:) items:int2x2, int2x2Sel, nil];
+        int2x2toggle.position = ccp(91,190);
+        
+        
+        i2x3 = 2;
+        
+        NSString *imageSet2x3 = [NSString stringWithFormat:@"circle%d.png", i2x3];
+        NSString *imageSet2x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x3];
+        
+        int2x3 = [CCMenuItemImage itemWithNormalImage:imageSet2x3
+                                        selectedImage:imageSet2x3Sel target:nil selector:nil];
+        int2x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x3Sel
+                                           selectedImage:imageSet2x3 target:nil selector:nil];
+        int2x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x3ToggleTapped:) items:int2x3, int2x3Sel, nil];
+        int2x3toggle.position = ccp(149,190);
+        
+        i2x4 = 2;
+        NSString *imageSet2x4 = [NSString stringWithFormat:@"circle%d.png", i2x4];
+        NSString *imageSet2x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x4];
+        
+        int2x4 = [CCMenuItemImage itemWithNormalImage:imageSet2x4
+                                        selectedImage:imageSet2x4Sel target:nil selector:nil];
+        int2x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x4Sel
+                                           selectedImage:imageSet2x4 target:nil selector:nil];
+        int2x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x4ToggleTapped:) items:int2x4, int2x4Sel, nil];
+        int2x4toggle.position = ccp(208.5,190);
+        
+        
+        i3x1 = 0;
+        NSString *imageSet3x1 = [NSString stringWithFormat:@"circle%d.png", i3x1];
+        NSString *imageSet3x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x1];
+        
+        int3x1 = [CCMenuItemImage itemWithNormalImage:imageSet3x1
+                                        selectedImage:imageSet3x1Sel target:nil selector:nil];
+        int3x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x1Sel
+                                           selectedImage:imageSet3x1 target:nil selector:nil];
+        int3x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x1ToggleTapped:) items:int3x1, int3x1Sel, nil];
+        int3x1toggle.position = ccp(31.5,260);
+        
+        
+        i3x2 = 0;
+        NSString *imageSet3x2 = [NSString stringWithFormat:@"circle%d.png", i3x2];
+        NSString *imageSet3x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x2];
+        
+        int3x2 = [CCMenuItemImage itemWithNormalImage:imageSet3x2
+                                        selectedImage:imageSet3x2Sel target:nil selector:nil];
+        int3x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x2Sel
+                                           selectedImage:imageSet3x2 target:nil selector:nil];
+        int3x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x2ToggleTapped:) items:int3x2, int3x2Sel, nil];
+        int3x2toggle.position = ccp(91,260);
+        
+        
+        i3x3 = 0;
+        
+        NSString *imageSet3x3 = [NSString stringWithFormat:@"circle%d.png", i3x3];
+        NSString *imageSet3x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x3];
+        
+        int3x3 = [CCMenuItemImage itemWithNormalImage:imageSet3x3
+                                        selectedImage:imageSet3x3Sel target:nil selector:nil];
+        int3x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x3Sel
+                                           selectedImage:imageSet3x3 target:nil selector:nil];
+        int3x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x3ToggleTapped:) items:int3x3, int3x3Sel, nil];
+        int3x3toggle.position = ccp(149,260);
+        
+        i3x4 = 0;
+        
+        NSString *imageSet3x4 = [NSString stringWithFormat:@"circle%d.png", i3x4];
+        NSString *imageSet3x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x4];
+        
+        int3x4 = [CCMenuItemImage itemWithNormalImage:imageSet3x4
+                                        selectedImage:imageSet3x4Sel target:nil selector:nil];
+        int3x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x4Sel
+                                           selectedImage:imageSet3x4 target:nil selector:nil];
+        int3x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x4ToggleTapped:) items:int3x4, int3x4Sel, nil];
+        int3x4toggle.position = ccp(208.5,260);
+        
+        i4x1 = 0;
+        NSString *imageSet4x1 = [NSString stringWithFormat:@"circle%d.png", i4x1];
+        NSString *imageSet4x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x1];
+        
+        int4x1 = [CCMenuItemImage itemWithNormalImage:imageSet4x1
+                                        selectedImage:imageSet4x1Sel target:nil selector:nil];
+        int4x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x1Sel
+                                           selectedImage:imageSet4x1 target:nil selector:nil];
+        int4x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x1ToggleTapped:) items:int4x1, int4x1Sel, nil];
+        int4x1toggle.position = ccp(31.5,330);
+        
+        i4x2 = 0;
+        NSString *imageSet4x2 = [NSString stringWithFormat:@"circle%d.png", i4x2];
+        NSString *imageSet4x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x2];
+        
+        int4x2 = [CCMenuItemImage itemWithNormalImage:imageSet4x2
+                                        selectedImage:imageSet4x2Sel target:nil selector:nil];
+        int4x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x2Sel
+                                           selectedImage:imageSet4x2 target:nil selector:nil];
+        int4x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x2ToggleTapped:) items:int4x2, int4x2Sel, nil];
+        int4x2toggle.position = ccp(91,330);
+        
+        i4x3 = 0;
+        NSString *imageSet4x3 = [NSString stringWithFormat:@"circle%d.png", i4x3];
+        NSString *imageSet4x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x3];
+        
+        int4x3 = [CCMenuItemImage itemWithNormalImage:imageSet4x3
+                                        selectedImage:imageSet4x3Sel target:nil selector:nil];
+        int4x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x3Sel
+                                           selectedImage:imageSet4x3 target:nil selector:nil];
+        int4x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x3ToggleTapped:) items:int4x3, int4x3Sel, nil];
+        int4x3toggle.position = ccp(149,330);
+        
+        i4x4 = 0;
+        NSString *imageSet4x4 = [NSString stringWithFormat:@"circle%d.png", i4x4];
+        NSString *imageSet4x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x4];
+        
+        int4x4 = [CCMenuItemImage itemWithNormalImage:imageSet4x4
+                                        selectedImage:imageSet4x4Sel target:nil selector:nil];
+        int4x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x4Sel
+                                           selectedImage:imageSet4x4 target:nil selector:nil];
+        int4x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
+        int4x4toggle.position = ccp(208.5,330);
+        
+        
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        
+        
+        game.position = ccp(40, 30);
+        
+        [self addChild: game];
+    }
+    
+    
+    //////////////////////// LVL 12 ////////////////////////////////
+    
+    
+    //////////////////////// LVL 13 ////////////////////////////////
+    
+    if(level == 13)
+    {
+        i1x1 = 2;
+        NSString *imageSet1x1 = [NSString stringWithFormat:@"circle%d.png", i1x1];
+        NSString *imageSet1x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x1];
+        int1x1 = [CCMenuItemImage itemWithNormalImage:imageSet1x1
+                                        selectedImage:imageSet1x1Sel target:nil selector:nil];
+        int1x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x1Sel
+                                           selectedImage:imageSet1x1 target:nil selector:nil];
+        int1x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x1ToggleTapped:) items:int1x1, int1x1Sel, nil];
+        int1x1toggle.position = ccp(31.5,120);
+        
+        
+        i1x2 = 2;
+        NSString *imageSet1x2 = [NSString stringWithFormat:@"circle%d.png", i1x2];
+        NSString *imageSet1x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x2];
+        
+        int1x2 = [CCMenuItemImage itemWithNormalImage:imageSet1x2
+                                        selectedImage:imageSet1x2Sel target:nil selector:nil];
+        int1x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x2Sel
+                                           selectedImage:imageSet1x2 target:nil selector:nil];
+        int1x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x2ToggleTapped:) items:int1x2, int1x2Sel, nil];
+        int1x2toggle.position = ccp(91,120);
+        
+        i1x3 = 2;
+        NSString *imageSet1x3 = [NSString stringWithFormat:@"circle%d.png", i1x3];
+        NSString *imageSet1x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x3];
+        
+        int1x3 = [CCMenuItemImage itemWithNormalImage:imageSet1x3
+                                        selectedImage:imageSet1x3Sel target:nil selector:nil];
+        int1x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x3Sel
+                                           selectedImage:imageSet1x3 target:nil selector:nil];
+        int1x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x3ToggleTapped:) items:int1x3, int1x3Sel, nil];
+        int1x3toggle.position = ccp(149,120);
+        
+        i1x4 = 2;
+        NSString *imageSet1x4 = [NSString stringWithFormat:@"circle%d.png", i1x4];
+        NSString *imageSet1x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x4];
+        
+        NSLog(@"%@", imageSet1x4);
+        int1x4 = [CCMenuItemImage itemWithNormalImage:imageSet1x4
+                                        selectedImage:imageSet1x4Sel target:nil selector:nil];
+        int1x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x4Sel
+                                           selectedImage:imageSet1x4 target:nil selector:nil];
+        int1x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x4ToggleTapped:) items:int1x4, int1x4Sel, nil];
+        int1x4toggle.position = ccp(208.5,120);
+        
+        
+        i2x1 = 2;
+        NSString *imageSet2x1 = [NSString stringWithFormat:@"circle%d.png", i2x1];
+        NSString *imageSet2x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x1];
+        
+        int2x1 = [CCMenuItemImage itemWithNormalImage:imageSet2x1
+                                        selectedImage:imageSet2x1Sel target:nil selector:nil];
+        int2x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x1Sel
+                                           selectedImage:imageSet2x1 target:nil selector:nil];
+        int2x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x1ToggleTapped:) items:int2x1, int2x1Sel, nil];
+        int2x1toggle.position = ccp(31.5,190);
+        
+        
+        
+        i2x2 = 1;
+        
+        NSString *imageSet2x2 = [NSString stringWithFormat:@"circle%d.png", i2x2];
+        NSString *imageSet2x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x2];
+        
+        int2x2 = [CCMenuItemImage itemWithNormalImage:imageSet2x2
+                                        selectedImage:imageSet2x2Sel target:nil selector:nil];
+        int2x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x2Sel
+                                           selectedImage:imageSet2x2 target:nil selector:nil];
+        int2x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x2ToggleTapped:) items:int2x2, int2x2Sel, nil];
+        int2x2toggle.position = ccp(91,190);
+        
+        
+        i2x3 = 1;
+        
+        NSString *imageSet2x3 = [NSString stringWithFormat:@"circle%d.png", i2x3];
+        NSString *imageSet2x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x3];
+        
+        int2x3 = [CCMenuItemImage itemWithNormalImage:imageSet2x3
+                                        selectedImage:imageSet2x3Sel target:nil selector:nil];
+        int2x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x3Sel
+                                           selectedImage:imageSet2x3 target:nil selector:nil];
+        int2x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x3ToggleTapped:) items:int2x3, int2x3Sel, nil];
+        int2x3toggle.position = ccp(149,190);
+        
+        i2x4 = 2;
+        NSString *imageSet2x4 = [NSString stringWithFormat:@"circle%d.png", i2x4];
+        NSString *imageSet2x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x4];
+        
+        int2x4 = [CCMenuItemImage itemWithNormalImage:imageSet2x4
+                                        selectedImage:imageSet2x4Sel target:nil selector:nil];
+        int2x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x4Sel
+                                           selectedImage:imageSet2x4 target:nil selector:nil];
+        int2x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x4ToggleTapped:) items:int2x4, int2x4Sel, nil];
+        int2x4toggle.position = ccp(208.5,190);
+        
+        
+        i3x1 = 0;
+        NSString *imageSet3x1 = [NSString stringWithFormat:@"circle%d.png", i3x1];
+        NSString *imageSet3x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x1];
+        
+        int3x1 = [CCMenuItemImage itemWithNormalImage:imageSet3x1
+                                        selectedImage:imageSet3x1Sel target:nil selector:nil];
+        int3x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x1Sel
+                                           selectedImage:imageSet3x1 target:nil selector:nil];
+        int3x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x1ToggleTapped:) items:int3x1, int3x1Sel, nil];
+        int3x1toggle.position = ccp(31.5,260);
+        
+        
+        i3x2 = 1;
+        NSString *imageSet3x2 = [NSString stringWithFormat:@"circle%d.png", i3x2];
+        NSString *imageSet3x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x2];
+        
+        int3x2 = [CCMenuItemImage itemWithNormalImage:imageSet3x2
+                                        selectedImage:imageSet3x2Sel target:nil selector:nil];
+        int3x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x2Sel
+                                           selectedImage:imageSet3x2 target:nil selector:nil];
+        int3x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x2ToggleTapped:) items:int3x2, int3x2Sel, nil];
+        int3x2toggle.position = ccp(91,260);
+        
+        
+        i3x3 = 1;
+        
+        NSString *imageSet3x3 = [NSString stringWithFormat:@"circle%d.png", i3x3];
+        NSString *imageSet3x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x3];
+        
+        int3x3 = [CCMenuItemImage itemWithNormalImage:imageSet3x3
+                                        selectedImage:imageSet3x3Sel target:nil selector:nil];
+        int3x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x3Sel
+                                           selectedImage:imageSet3x3 target:nil selector:nil];
+        int3x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x3ToggleTapped:) items:int3x3, int3x3Sel, nil];
+        int3x3toggle.position = ccp(149,260);
+        
+        i3x4 = 0;
+        
+        NSString *imageSet3x4 = [NSString stringWithFormat:@"circle%d.png", i3x4];
+        NSString *imageSet3x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x4];
+        
+        int3x4 = [CCMenuItemImage itemWithNormalImage:imageSet3x4
+                                        selectedImage:imageSet3x4Sel target:nil selector:nil];
+        int3x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x4Sel
+                                           selectedImage:imageSet3x4 target:nil selector:nil];
+        int3x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x4ToggleTapped:) items:int3x4, int3x4Sel, nil];
+        int3x4toggle.position = ccp(208.5,260);
+        
+        i4x1 = 0;
+        NSString *imageSet4x1 = [NSString stringWithFormat:@"circle%d.png", i4x1];
+        NSString *imageSet4x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x1];
+        
+        int4x1 = [CCMenuItemImage itemWithNormalImage:imageSet4x1
+                                        selectedImage:imageSet4x1Sel target:nil selector:nil];
+        int4x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x1Sel
+                                           selectedImage:imageSet4x1 target:nil selector:nil];
+        int4x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x1ToggleTapped:) items:int4x1, int4x1Sel, nil];
+        int4x1toggle.position = ccp(31.5,330);
+        
+        i4x2 = 0;
+        NSString *imageSet4x2 = [NSString stringWithFormat:@"circle%d.png", i4x2];
+        NSString *imageSet4x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x2];
+        
+        int4x2 = [CCMenuItemImage itemWithNormalImage:imageSet4x2
+                                        selectedImage:imageSet4x2Sel target:nil selector:nil];
+        int4x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x2Sel
+                                           selectedImage:imageSet4x2 target:nil selector:nil];
+        int4x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x2ToggleTapped:) items:int4x2, int4x2Sel, nil];
+        int4x2toggle.position = ccp(91,330);
+        
+        i4x3 = 0;
+        NSString *imageSet4x3 = [NSString stringWithFormat:@"circle%d.png", i4x3];
+        NSString *imageSet4x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x3];
+        
+        int4x3 = [CCMenuItemImage itemWithNormalImage:imageSet4x3
+                                        selectedImage:imageSet4x3Sel target:nil selector:nil];
+        int4x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x3Sel
+                                           selectedImage:imageSet4x3 target:nil selector:nil];
+        int4x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x3ToggleTapped:) items:int4x3, int4x3Sel, nil];
+        int4x3toggle.position = ccp(149,330);
+        
+        i4x4 = 0;
+        NSString *imageSet4x4 = [NSString stringWithFormat:@"circle%d.png", i4x4];
+        NSString *imageSet4x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x4];
+        
+        int4x4 = [CCMenuItemImage itemWithNormalImage:imageSet4x4
+                                        selectedImage:imageSet4x4Sel target:nil selector:nil];
+        int4x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x4Sel
+                                           selectedImage:imageSet4x4 target:nil selector:nil];
+        int4x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
+        int4x4toggle.position = ccp(208.5,330);
+        
+        
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        
+        
+        game.position = ccp(40, 30);
+        
+        [self addChild: game];
+    }
+    
+    
+    //////////////////////// LVL 13 ////////////////////////////////
+    
+    
+    //////////////////////// LVL 14 ////////////////////////////////
+    
+    if(level == 14)
+    {
+        i1x1 = 1;
+        NSString *imageSet1x1 = [NSString stringWithFormat:@"circle%d.png", i1x1];
+        NSString *imageSet1x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x1];
+        int1x1 = [CCMenuItemImage itemWithNormalImage:imageSet1x1
+                                        selectedImage:imageSet1x1Sel target:nil selector:nil];
+        int1x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x1Sel
+                                           selectedImage:imageSet1x1 target:nil selector:nil];
+        int1x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x1ToggleTapped:) items:int1x1, int1x1Sel, nil];
+        int1x1toggle.position = ccp(31.5,120);
+        
+        
+        i1x2 = 2;
+        NSString *imageSet1x2 = [NSString stringWithFormat:@"circle%d.png", i1x2];
+        NSString *imageSet1x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x2];
+        
+        int1x2 = [CCMenuItemImage itemWithNormalImage:imageSet1x2
+                                        selectedImage:imageSet1x2Sel target:nil selector:nil];
+        int1x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x2Sel
+                                           selectedImage:imageSet1x2 target:nil selector:nil];
+        int1x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x2ToggleTapped:) items:int1x2, int1x2Sel, nil];
+        int1x2toggle.position = ccp(91,120);
+        
+        i1x3 = 2;
+        NSString *imageSet1x3 = [NSString stringWithFormat:@"circle%d.png", i1x3];
+        NSString *imageSet1x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x3];
+        
+        int1x3 = [CCMenuItemImage itemWithNormalImage:imageSet1x3
+                                        selectedImage:imageSet1x3Sel target:nil selector:nil];
+        int1x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x3Sel
+                                           selectedImage:imageSet1x3 target:nil selector:nil];
+        int1x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x3ToggleTapped:) items:int1x3, int1x3Sel, nil];
+        int1x3toggle.position = ccp(149,120);
+        
+        i1x4 = 1;
+        NSString *imageSet1x4 = [NSString stringWithFormat:@"circle%d.png", i1x4];
+        NSString *imageSet1x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x4];
+        
+        NSLog(@"%@", imageSet1x4);
+        int1x4 = [CCMenuItemImage itemWithNormalImage:imageSet1x4
+                                        selectedImage:imageSet1x4Sel target:nil selector:nil];
+        int1x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x4Sel
+                                           selectedImage:imageSet1x4 target:nil selector:nil];
+        int1x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x4ToggleTapped:) items:int1x4, int1x4Sel, nil];
+        int1x4toggle.position = ccp(208.5,120);
+        
+        
+        i2x1 = 1;
+        NSString *imageSet2x1 = [NSString stringWithFormat:@"circle%d.png", i2x1];
+        NSString *imageSet2x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x1];
+        
+        int2x1 = [CCMenuItemImage itemWithNormalImage:imageSet2x1
+                                        selectedImage:imageSet2x1Sel target:nil selector:nil];
+        int2x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x1Sel
+                                           selectedImage:imageSet2x1 target:nil selector:nil];
+        int2x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x1ToggleTapped:) items:int2x1, int2x1Sel, nil];
+        int2x1toggle.position = ccp(31.5,190);
+        
+        
+        
+        i2x2 = 1;
+        
+        NSString *imageSet2x2 = [NSString stringWithFormat:@"circle%d.png", i2x2];
+        NSString *imageSet2x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x2];
+        
+        int2x2 = [CCMenuItemImage itemWithNormalImage:imageSet2x2
+                                        selectedImage:imageSet2x2Sel target:nil selector:nil];
+        int2x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x2Sel
+                                           selectedImage:imageSet2x2 target:nil selector:nil];
+        int2x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x2ToggleTapped:) items:int2x2, int2x2Sel, nil];
+        int2x2toggle.position = ccp(91,190);
+        
+        
+        i2x3 = 1;
+        
+        NSString *imageSet2x3 = [NSString stringWithFormat:@"circle%d.png", i2x3];
+        NSString *imageSet2x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x3];
+        
+        int2x3 = [CCMenuItemImage itemWithNormalImage:imageSet2x3
+                                        selectedImage:imageSet2x3Sel target:nil selector:nil];
+        int2x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x3Sel
+                                           selectedImage:imageSet2x3 target:nil selector:nil];
+        int2x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x3ToggleTapped:) items:int2x3, int2x3Sel, nil];
+        int2x3toggle.position = ccp(149,190);
+        
+        i2x4 = 1;
+        NSString *imageSet2x4 = [NSString stringWithFormat:@"circle%d.png", i2x4];
+        NSString *imageSet2x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x4];
+        
+        int2x4 = [CCMenuItemImage itemWithNormalImage:imageSet2x4
+                                        selectedImage:imageSet2x4Sel target:nil selector:nil];
+        int2x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x4Sel
+                                           selectedImage:imageSet2x4 target:nil selector:nil];
+        int2x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x4ToggleTapped:) items:int2x4, int2x4Sel, nil];
+        int2x4toggle.position = ccp(208.5,190);
+        
+        
+        i3x1 = 1;
+        NSString *imageSet3x1 = [NSString stringWithFormat:@"circle%d.png", i3x1];
+        NSString *imageSet3x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x1];
+        
+        int3x1 = [CCMenuItemImage itemWithNormalImage:imageSet3x1
+                                        selectedImage:imageSet3x1Sel target:nil selector:nil];
+        int3x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x1Sel
+                                           selectedImage:imageSet3x1 target:nil selector:nil];
+        int3x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x1ToggleTapped:) items:int3x1, int3x1Sel, nil];
+        int3x1toggle.position = ccp(31.5,260);
+        
+        
+        i3x2 = 1;
+        NSString *imageSet3x2 = [NSString stringWithFormat:@"circle%d.png", i3x2];
+        NSString *imageSet3x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x2];
+        
+        int3x2 = [CCMenuItemImage itemWithNormalImage:imageSet3x2
+                                        selectedImage:imageSet3x2Sel target:nil selector:nil];
+        int3x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x2Sel
+                                           selectedImage:imageSet3x2 target:nil selector:nil];
+        int3x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x2ToggleTapped:) items:int3x2, int3x2Sel, nil];
+        int3x2toggle.position = ccp(91,260);
+        
+        
+        i3x3 = 1;
+        
+        NSString *imageSet3x3 = [NSString stringWithFormat:@"circle%d.png", i3x3];
+        NSString *imageSet3x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x3];
+        
+        int3x3 = [CCMenuItemImage itemWithNormalImage:imageSet3x3
+                                        selectedImage:imageSet3x3Sel target:nil selector:nil];
+        int3x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x3Sel
+                                           selectedImage:imageSet3x3 target:nil selector:nil];
+        int3x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x3ToggleTapped:) items:int3x3, int3x3Sel, nil];
+        int3x3toggle.position = ccp(149,260);
+        
+        i3x4 = 1;
+        
+        NSString *imageSet3x4 = [NSString stringWithFormat:@"circle%d.png", i3x4];
+        NSString *imageSet3x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x4];
+        
+        int3x4 = [CCMenuItemImage itemWithNormalImage:imageSet3x4
+                                        selectedImage:imageSet3x4Sel target:nil selector:nil];
+        int3x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x4Sel
+                                           selectedImage:imageSet3x4 target:nil selector:nil];
+        int3x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x4ToggleTapped:) items:int3x4, int3x4Sel, nil];
+        int3x4toggle.position = ccp(208.5,260);
+        
+        i4x1 = 1;
+        NSString *imageSet4x1 = [NSString stringWithFormat:@"circle%d.png", i4x1];
+        NSString *imageSet4x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x1];
+        
+        int4x1 = [CCMenuItemImage itemWithNormalImage:imageSet4x1
+                                        selectedImage:imageSet4x1Sel target:nil selector:nil];
+        int4x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x1Sel
+                                           selectedImage:imageSet4x1 target:nil selector:nil];
+        int4x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x1ToggleTapped:) items:int4x1, int4x1Sel, nil];
+        int4x1toggle.position = ccp(31.5,330);
+        
+        i4x2 = 0;
+        NSString *imageSet4x2 = [NSString stringWithFormat:@"circle%d.png", i4x2];
+        NSString *imageSet4x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x2];
+        
+        int4x2 = [CCMenuItemImage itemWithNormalImage:imageSet4x2
+                                        selectedImage:imageSet4x2Sel target:nil selector:nil];
+        int4x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x2Sel
+                                           selectedImage:imageSet4x2 target:nil selector:nil];
+        int4x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x2ToggleTapped:) items:int4x2, int4x2Sel, nil];
+        int4x2toggle.position = ccp(91,330);
+        
+        i4x3 = 0;
+        NSString *imageSet4x3 = [NSString stringWithFormat:@"circle%d.png", i4x3];
+        NSString *imageSet4x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x3];
+        
+        int4x3 = [CCMenuItemImage itemWithNormalImage:imageSet4x3
+                                        selectedImage:imageSet4x3Sel target:nil selector:nil];
+        int4x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x3Sel
+                                           selectedImage:imageSet4x3 target:nil selector:nil];
+        int4x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x3ToggleTapped:) items:int4x3, int4x3Sel, nil];
+        int4x3toggle.position = ccp(149,330);
+        
+        i4x4 = 1;
+        NSString *imageSet4x4 = [NSString stringWithFormat:@"circle%d.png", i4x4];
+        NSString *imageSet4x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x4];
+        
+        int4x4 = [CCMenuItemImage itemWithNormalImage:imageSet4x4
+                                        selectedImage:imageSet4x4Sel target:nil selector:nil];
+        int4x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x4Sel
+                                           selectedImage:imageSet4x4 target:nil selector:nil];
+        int4x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
+        int4x4toggle.position = ccp(208.5,330);
+        
+        
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        
+        
+        game.position = ccp(40, 30);
+        
+        [self addChild: game];
+    }
+    
+    
+    //////////////////////// LVL 14 ////////////////////////////////
+    
+    
+    
+    //////////////////////// LVL 15 ////////////////////////////////
+    
+    if(level == 15)
+    {
+        i1x1 = 0;
+        NSString *imageSet1x1 = [NSString stringWithFormat:@"circle%d.png", i1x1];
+        NSString *imageSet1x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x1];
+        int1x1 = [CCMenuItemImage itemWithNormalImage:imageSet1x1
+                                        selectedImage:imageSet1x1Sel target:nil selector:nil];
+        int1x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x1Sel
+                                           selectedImage:imageSet1x1 target:nil selector:nil];
+        int1x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x1ToggleTapped:) items:int1x1, int1x1Sel, nil];
+        int1x1toggle.position = ccp(31.5,120);
+        
+        
+        i1x2 = 0;
+        NSString *imageSet1x2 = [NSString stringWithFormat:@"circle%d.png", i1x2];
+        NSString *imageSet1x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x2];
+        
+        int1x2 = [CCMenuItemImage itemWithNormalImage:imageSet1x2
+                                        selectedImage:imageSet1x2Sel target:nil selector:nil];
+        int1x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x2Sel
+                                           selectedImage:imageSet1x2 target:nil selector:nil];
+        int1x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x2ToggleTapped:) items:int1x2, int1x2Sel, nil];
+        int1x2toggle.position = ccp(91,120);
+        
+        i1x3 = 0;
+        NSString *imageSet1x3 = [NSString stringWithFormat:@"circle%d.png", i1x3];
+        NSString *imageSet1x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x3];
+        
+        int1x3 = [CCMenuItemImage itemWithNormalImage:imageSet1x3
+                                        selectedImage:imageSet1x3Sel target:nil selector:nil];
+        int1x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x3Sel
+                                           selectedImage:imageSet1x3 target:nil selector:nil];
+        int1x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x3ToggleTapped:) items:int1x3, int1x3Sel, nil];
+        int1x3toggle.position = ccp(149,120);
+        
+        i1x4 = 0;
+        NSString *imageSet1x4 = [NSString stringWithFormat:@"circle%d.png", i1x4];
+        NSString *imageSet1x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x4];
+        
+        NSLog(@"%@", imageSet1x4);
+        int1x4 = [CCMenuItemImage itemWithNormalImage:imageSet1x4
+                                        selectedImage:imageSet1x4Sel target:nil selector:nil];
+        int1x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x4Sel
+                                           selectedImage:imageSet1x4 target:nil selector:nil];
+        int1x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x4ToggleTapped:) items:int1x4, int1x4Sel, nil];
+        int1x4toggle.position = ccp(208.5,120);
+        
+        
+        i2x1 = 1;
+        NSString *imageSet2x1 = [NSString stringWithFormat:@"circle%d.png", i2x1];
+        NSString *imageSet2x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x1];
+        
+        int2x1 = [CCMenuItemImage itemWithNormalImage:imageSet2x1
+                                        selectedImage:imageSet2x1Sel target:nil selector:nil];
+        int2x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x1Sel
+                                           selectedImage:imageSet2x1 target:nil selector:nil];
+        int2x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x1ToggleTapped:) items:int2x1, int2x1Sel, nil];
+        int2x1toggle.position = ccp(31.5,190);
+        
+        
+        
+        i2x2 = 1;
+        
+        NSString *imageSet2x2 = [NSString stringWithFormat:@"circle%d.png", i2x2];
+        NSString *imageSet2x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x2];
+        
+        int2x2 = [CCMenuItemImage itemWithNormalImage:imageSet2x2
+                                        selectedImage:imageSet2x2Sel target:nil selector:nil];
+        int2x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x2Sel
+                                           selectedImage:imageSet2x2 target:nil selector:nil];
+        int2x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x2ToggleTapped:) items:int2x2, int2x2Sel, nil];
+        int2x2toggle.position = ccp(91,190);
+        
+        
+        i2x3 = 1;
+        
+        NSString *imageSet2x3 = [NSString stringWithFormat:@"circle%d.png", i2x3];
+        NSString *imageSet2x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x3];
+        
+        int2x3 = [CCMenuItemImage itemWithNormalImage:imageSet2x3
+                                        selectedImage:imageSet2x3Sel target:nil selector:nil];
+        int2x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x3Sel
+                                           selectedImage:imageSet2x3 target:nil selector:nil];
+        int2x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x3ToggleTapped:) items:int2x3, int2x3Sel, nil];
+        int2x3toggle.position = ccp(149,190);
+        
+        i2x4 = 1;
+        NSString *imageSet2x4 = [NSString stringWithFormat:@"circle%d.png", i2x4];
+        NSString *imageSet2x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x4];
+        
+        int2x4 = [CCMenuItemImage itemWithNormalImage:imageSet2x4
+                                        selectedImage:imageSet2x4Sel target:nil selector:nil];
+        int2x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x4Sel
+                                           selectedImage:imageSet2x4 target:nil selector:nil];
+        int2x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x4ToggleTapped:) items:int2x4, int2x4Sel, nil];
+        int2x4toggle.position = ccp(208.5,190);
+        
+        
+        i3x1 = 1;
+        NSString *imageSet3x1 = [NSString stringWithFormat:@"circle%d.png", i3x1];
+        NSString *imageSet3x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x1];
+        
+        int3x1 = [CCMenuItemImage itemWithNormalImage:imageSet3x1
+                                        selectedImage:imageSet3x1Sel target:nil selector:nil];
+        int3x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x1Sel
+                                           selectedImage:imageSet3x1 target:nil selector:nil];
+        int3x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x1ToggleTapped:) items:int3x1, int3x1Sel, nil];
+        int3x1toggle.position = ccp(31.5,260);
+        
+        
+        i3x2 = 0;
+        NSString *imageSet3x2 = [NSString stringWithFormat:@"circle%d.png", i3x2];
+        NSString *imageSet3x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x2];
+        
+        int3x2 = [CCMenuItemImage itemWithNormalImage:imageSet3x2
+                                        selectedImage:imageSet3x2Sel target:nil selector:nil];
+        int3x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x2Sel
+                                           selectedImage:imageSet3x2 target:nil selector:nil];
+        int3x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x2ToggleTapped:) items:int3x2, int3x2Sel, nil];
+        int3x2toggle.position = ccp(91,260);
+        
+        
+        i3x3 = 0;
+        
+        NSString *imageSet3x3 = [NSString stringWithFormat:@"circle%d.png", i3x3];
+        NSString *imageSet3x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x3];
+        
+        int3x3 = [CCMenuItemImage itemWithNormalImage:imageSet3x3
+                                        selectedImage:imageSet3x3Sel target:nil selector:nil];
+        int3x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x3Sel
+                                           selectedImage:imageSet3x3 target:nil selector:nil];
+        int3x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x3ToggleTapped:) items:int3x3, int3x3Sel, nil];
+        int3x3toggle.position = ccp(149,260);
+        
+        i3x4 = 1;
+        
+        NSString *imageSet3x4 = [NSString stringWithFormat:@"circle%d.png", i3x4];
+        NSString *imageSet3x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x4];
+        
+        int3x4 = [CCMenuItemImage itemWithNormalImage:imageSet3x4
+                                        selectedImage:imageSet3x4Sel target:nil selector:nil];
+        int3x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x4Sel
+                                           selectedImage:imageSet3x4 target:nil selector:nil];
+        int3x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x4ToggleTapped:) items:int3x4, int3x4Sel, nil];
+        int3x4toggle.position = ccp(208.5,260);
+        
+        i4x1 = 1;
+        NSString *imageSet4x1 = [NSString stringWithFormat:@"circle%d.png", i4x1];
+        NSString *imageSet4x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x1];
+        
+        int4x1 = [CCMenuItemImage itemWithNormalImage:imageSet4x1
+                                        selectedImage:imageSet4x1Sel target:nil selector:nil];
+        int4x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x1Sel
+                                           selectedImage:imageSet4x1 target:nil selector:nil];
+        int4x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x1ToggleTapped:) items:int4x1, int4x1Sel, nil];
+        int4x1toggle.position = ccp(31.5,330);
+        
+        i4x2 = 0;
+        NSString *imageSet4x2 = [NSString stringWithFormat:@"circle%d.png", i4x2];
+        NSString *imageSet4x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x2];
+        
+        int4x2 = [CCMenuItemImage itemWithNormalImage:imageSet4x2
+                                        selectedImage:imageSet4x2Sel target:nil selector:nil];
+        int4x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x2Sel
+                                           selectedImage:imageSet4x2 target:nil selector:nil];
+        int4x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x2ToggleTapped:) items:int4x2, int4x2Sel, nil];
+        int4x2toggle.position = ccp(91,330);
+        
+        i4x3 = 0;
+        NSString *imageSet4x3 = [NSString stringWithFormat:@"circle%d.png", i4x3];
+        NSString *imageSet4x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x3];
+        
+        int4x3 = [CCMenuItemImage itemWithNormalImage:imageSet4x3
+                                        selectedImage:imageSet4x3Sel target:nil selector:nil];
+        int4x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x3Sel
+                                           selectedImage:imageSet4x3 target:nil selector:nil];
+        int4x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x3ToggleTapped:) items:int4x3, int4x3Sel, nil];
+        int4x3toggle.position = ccp(149,330);
+        
+        i4x4 = 1;
+        NSString *imageSet4x4 = [NSString stringWithFormat:@"circle%d.png", i4x4];
+        NSString *imageSet4x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x4];
+        
+        int4x4 = [CCMenuItemImage itemWithNormalImage:imageSet4x4
+                                        selectedImage:imageSet4x4Sel target:nil selector:nil];
+        int4x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x4Sel
+                                           selectedImage:imageSet4x4 target:nil selector:nil];
+        int4x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
+        int4x4toggle.position = ccp(208.5,330);
+        
+        
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        
+        
+        game.position = ccp(40, 30);
+        
+        [self addChild: game];
+    }
+    
+    
+    //////////////////////// LVL 15 ////////////////////////////////
+    
+    
+    //////////////////////// LVL 16 ////////////////////////////////
+    
+    if(level == 16)
+    {
+        i1x1 = 1;
+        NSString *imageSet1x1 = [NSString stringWithFormat:@"circle%d.png", i1x1];
+        NSString *imageSet1x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x1];
+        int1x1 = [CCMenuItemImage itemWithNormalImage:imageSet1x1
+                                        selectedImage:imageSet1x1Sel target:nil selector:nil];
+        int1x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x1Sel
+                                           selectedImage:imageSet1x1 target:nil selector:nil];
+        int1x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x1ToggleTapped:) items:int1x1, int1x1Sel, nil];
+        int1x1toggle.position = ccp(31.5,120);
+        
+        
+        i1x2 = 2;
+        NSString *imageSet1x2 = [NSString stringWithFormat:@"circle%d.png", i1x2];
+        NSString *imageSet1x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x2];
+        
+        int1x2 = [CCMenuItemImage itemWithNormalImage:imageSet1x2
+                                        selectedImage:imageSet1x2Sel target:nil selector:nil];
+        int1x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x2Sel
+                                           selectedImage:imageSet1x2 target:nil selector:nil];
+        int1x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x2ToggleTapped:) items:int1x2, int1x2Sel, nil];
+        int1x2toggle.position = ccp(91,120);
+        
+        i1x3 = 2;
+        NSString *imageSet1x3 = [NSString stringWithFormat:@"circle%d.png", i1x3];
+        NSString *imageSet1x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x3];
+        
+        int1x3 = [CCMenuItemImage itemWithNormalImage:imageSet1x3
+                                        selectedImage:imageSet1x3Sel target:nil selector:nil];
+        int1x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x3Sel
+                                           selectedImage:imageSet1x3 target:nil selector:nil];
+        int1x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x3ToggleTapped:) items:int1x3, int1x3Sel, nil];
+        int1x3toggle.position = ccp(149,120);
+        
+        i1x4 = 1;
+        NSString *imageSet1x4 = [NSString stringWithFormat:@"circle%d.png", i1x4];
+        NSString *imageSet1x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i1x4];
+        
+        NSLog(@"%@", imageSet1x4);
+        int1x4 = [CCMenuItemImage itemWithNormalImage:imageSet1x4
+                                        selectedImage:imageSet1x4Sel target:nil selector:nil];
+        int1x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet1x4Sel
+                                           selectedImage:imageSet1x4 target:nil selector:nil];
+        int1x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int1x4ToggleTapped:) items:int1x4, int1x4Sel, nil];
+        int1x4toggle.position = ccp(208.5,120);
+        
+        
+        i2x1 = 2;
+        NSString *imageSet2x1 = [NSString stringWithFormat:@"circle%d.png", i2x1];
+        NSString *imageSet2x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x1];
+        
+        int2x1 = [CCMenuItemImage itemWithNormalImage:imageSet2x1
+                                        selectedImage:imageSet2x1Sel target:nil selector:nil];
+        int2x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x1Sel
+                                           selectedImage:imageSet2x1 target:nil selector:nil];
+        int2x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x1ToggleTapped:) items:int2x1, int2x1Sel, nil];
+        int2x1toggle.position = ccp(31.5,190);
+        
+        
+        
+        i2x2 = 1;
+        
+        NSString *imageSet2x2 = [NSString stringWithFormat:@"circle%d.png", i2x2];
+        NSString *imageSet2x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x2];
+        
+        int2x2 = [CCMenuItemImage itemWithNormalImage:imageSet2x2
+                                        selectedImage:imageSet2x2Sel target:nil selector:nil];
+        int2x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x2Sel
+                                           selectedImage:imageSet2x2 target:nil selector:nil];
+        int2x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x2ToggleTapped:) items:int2x2, int2x2Sel, nil];
+        int2x2toggle.position = ccp(91,190);
+        
+        
+        i2x3 = 1;
+        
+        NSString *imageSet2x3 = [NSString stringWithFormat:@"circle%d.png", i2x3];
+        NSString *imageSet2x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x3];
+        
+        int2x3 = [CCMenuItemImage itemWithNormalImage:imageSet2x3
+                                        selectedImage:imageSet2x3Sel target:nil selector:nil];
+        int2x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x3Sel
+                                           selectedImage:imageSet2x3 target:nil selector:nil];
+        int2x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x3ToggleTapped:) items:int2x3, int2x3Sel, nil];
+        int2x3toggle.position = ccp(149,190);
+        
+        i2x4 = 2;
+        NSString *imageSet2x4 = [NSString stringWithFormat:@"circle%d.png", i2x4];
+        NSString *imageSet2x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i2x4];
+        
+        int2x4 = [CCMenuItemImage itemWithNormalImage:imageSet2x4
+                                        selectedImage:imageSet2x4Sel target:nil selector:nil];
+        int2x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet2x4Sel
+                                           selectedImage:imageSet2x4 target:nil selector:nil];
+        int2x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int2x4ToggleTapped:) items:int2x4, int2x4Sel, nil];
+        int2x4toggle.position = ccp(208.5,190);
+        
+        
+        i3x1 = 2;
+        NSString *imageSet3x1 = [NSString stringWithFormat:@"circle%d.png", i3x1];
+        NSString *imageSet3x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x1];
+        
+        int3x1 = [CCMenuItemImage itemWithNormalImage:imageSet3x1
+                                        selectedImage:imageSet3x1Sel target:nil selector:nil];
+        int3x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x1Sel
+                                           selectedImage:imageSet3x1 target:nil selector:nil];
+        int3x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x1ToggleTapped:) items:int3x1, int3x1Sel, nil];
+        int3x1toggle.position = ccp(31.5,260);
+        
+        
+        i3x2 = 1;
+        NSString *imageSet3x2 = [NSString stringWithFormat:@"circle%d.png", i3x2];
+        NSString *imageSet3x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x2];
+        
+        int3x2 = [CCMenuItemImage itemWithNormalImage:imageSet3x2
+                                        selectedImage:imageSet3x2Sel target:nil selector:nil];
+        int3x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x2Sel
+                                           selectedImage:imageSet3x2 target:nil selector:nil];
+        int3x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x2ToggleTapped:) items:int3x2, int3x2Sel, nil];
+        int3x2toggle.position = ccp(91,260);
+        
+        
+        i3x3 = 1;
+        
+        NSString *imageSet3x3 = [NSString stringWithFormat:@"circle%d.png", i3x3];
+        NSString *imageSet3x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x3];
+        
+        int3x3 = [CCMenuItemImage itemWithNormalImage:imageSet3x3
+                                        selectedImage:imageSet3x3Sel target:nil selector:nil];
+        int3x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x3Sel
+                                           selectedImage:imageSet3x3 target:nil selector:nil];
+        int3x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x3ToggleTapped:) items:int3x3, int3x3Sel, nil];
+        int3x3toggle.position = ccp(149,260);
+        
+        i3x4 = 2;
+        
+        NSString *imageSet3x4 = [NSString stringWithFormat:@"circle%d.png", i3x4];
+        NSString *imageSet3x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i3x4];
+        
+        int3x4 = [CCMenuItemImage itemWithNormalImage:imageSet3x4
+                                        selectedImage:imageSet3x4Sel target:nil selector:nil];
+        int3x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet3x4Sel
+                                           selectedImage:imageSet3x4 target:nil selector:nil];
+        int3x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int3x4ToggleTapped:) items:int3x4, int3x4Sel, nil];
+        int3x4toggle.position = ccp(208.5,260);
+        
+        i4x1 = 1;
+        NSString *imageSet4x1 = [NSString stringWithFormat:@"circle%d.png", i4x1];
+        NSString *imageSet4x1Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x1];
+        
+        int4x1 = [CCMenuItemImage itemWithNormalImage:imageSet4x1
+                                        selectedImage:imageSet4x1Sel target:nil selector:nil];
+        int4x1Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x1Sel
+                                           selectedImage:imageSet4x1 target:nil selector:nil];
+        int4x1toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x1ToggleTapped:) items:int4x1, int4x1Sel, nil];
+        int4x1toggle.position = ccp(31.5,330);
+        
+        i4x2 = 2;
+        NSString *imageSet4x2 = [NSString stringWithFormat:@"circle%d.png", i4x2];
+        NSString *imageSet4x2Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x2];
+        
+        int4x2 = [CCMenuItemImage itemWithNormalImage:imageSet4x2
+                                        selectedImage:imageSet4x2Sel target:nil selector:nil];
+        int4x2Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x2Sel
+                                           selectedImage:imageSet4x2 target:nil selector:nil];
+        int4x2toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x2ToggleTapped:) items:int4x2, int4x2Sel, nil];
+        int4x2toggle.position = ccp(91,330);
+        
+        i4x3 = 2;
+        NSString *imageSet4x3 = [NSString stringWithFormat:@"circle%d.png", i4x3];
+        NSString *imageSet4x3Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x3];
+        
+        int4x3 = [CCMenuItemImage itemWithNormalImage:imageSet4x3
+                                        selectedImage:imageSet4x3Sel target:nil selector:nil];
+        int4x3Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x3Sel
+                                           selectedImage:imageSet4x3 target:nil selector:nil];
+        int4x3toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x3ToggleTapped:) items:int4x3, int4x3Sel, nil];
+        int4x3toggle.position = ccp(149,330);
+        
+        i4x4 = 1;
+        NSString *imageSet4x4 = [NSString stringWithFormat:@"circle%d.png", i4x4];
+        NSString *imageSet4x4Sel = [NSString stringWithFormat:@"circle%dsel.png", i4x4];
+        
+        int4x4 = [CCMenuItemImage itemWithNormalImage:imageSet4x4
+                                        selectedImage:imageSet4x4Sel target:nil selector:nil];
+        int4x4Sel = [CCMenuItemImage itemWithNormalImage:imageSet4x4Sel
+                                           selectedImage:imageSet4x4 target:nil selector:nil];
+        int4x4toggle = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
+        int4x4toggle.position = ccp(208.5,330);
+        
+        
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        
+        
+        game.position = ccp(40, 30);
+        
+        [self addChild: game];
+    }
+    
+    
+    //////////////////////// LVL 16 ////////////////////////////////
     return self;
 	
 }
@@ -1615,7 +3837,7 @@ else if(timerSeconds == 0)
 -(void) pauseButtonTapped: (id)sender
 {
     [[CCDirector sharedDirector] pause];
-    
+
     
     
     pauseLayer = [CCLayerColor layerWithColor: ccc4(0, 0, 0, 250) width: 320 height: 480];
@@ -1658,7 +3880,7 @@ else if(timerSeconds == 0)
     level++;
     NSLog(@"level is %d", level);
 
-    [[CCDirector sharedDirector] replaceScene: [[GameLayer alloc] init]];
+    [[CCDirector sharedDirector] replaceScene: [[LevelSelectLayer alloc] init]];
 
 }
 
@@ -1689,17 +3911,29 @@ else if(timerSeconds == 0)
 //************************************IsGameOver?*****************************
 
 //15,120  225,330
+
+-(void)isPerfect
+{
+    
+}
 -(void)CheckGameOver
 {
     if(level == 1)
     {
-        if ((i2x2 == 2 && i2x3 == 2 && i3x2 == 2 && i3x3 == 2)|| i2x2 == 2 && i2x3 == 2 && i3x2 == 2 && i3x3 == 2 && operationCount == 0)
+        if (i2x2 == 2 && i2x3 == 2 && i3x2 == 2 && i3x3 == 2)
         {
         
             [self GameOverLevelCompleted];
             bool lvl1comp = true;
+            // write to storage
+            [[NSUserDefaults standardUserDefaults] setBool:lvl1comp forKey:@"lvl1comp"];
+            //read from storage
+            bool checklvl1stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvlcomp"];
+            [self schedule:@selector(isPerfect)];
         }
     }
+        
+    
     if(level == 2)
     {
         if(i2x2 == 0 && i2x3 == 0 && i3x2 == 0 && i3x3 == 0 && i4x2 == 0 && i4x3 == 0)
@@ -1716,6 +3950,113 @@ else if(timerSeconds == 0)
             bool lvl3comp = true;
         }
     }
+    if(level == 4)
+    {
+        if(i3x2 == 2 && i3x3 == 2 && i2x2 == 1 && i2x3 == 1 )
+        {
+            [self GameOverLevelCompleted];
+            bool lvl4comp = true;
+        }
+    }
+    if(level == 5)
+    {
+        if(i3x2 == 0 && i3x3 == 0 && i2x2 == 2 && i2x3 == 2 )
+        {
+            [self GameOverLevelCompleted];
+            bool lvl5comp = true;
+        }
+    }
+    if(level == 6)
+    {
+        if(i3x2 == 2 && i3x3 == 2 && i2x2 == 1 && i2x3 == 1 && i4x2 == 0 && i4x3 == 0)
+        {
+            [self GameOverLevelCompleted];
+            bool lvl6comp = true;
+        }
+    }
+    if(level == 7)
+    {
+        if(i1x1 == 2 && i1x4 == 2 && i4x1 == 2 && i4x4 == 2)
+        {
+            [self GameOverLevelCompleted];
+            bool lvl8comp = true;
+        }
+    }
+
+    if(level == 8)
+    {
+        if(i1x2 == 1 && i1x3 == 1 && i2x2 == 1 && i2x3 == 1 && i3x2 == 0 && i3x3 == 0 && i4x2 == 0 && i4x3 == 0 )
+        {
+            [self GameOverLevelCompleted];
+            bool lvl8comp = true;
+        }
+    }
+    if(level == 9)
+    {
+        if(i2x2 == 2 && i2x3 == 2 && i3x2 == 2 && i3x3 == 2)
+        {
+            [self GameOverLevelCompleted];
+            bool lvl9comp = true;
+        }
+    }
+    if(level == 10)
+    {
+        if(i2x2 == 0 && i2x3 == 0 && i3x2 == 0 && i3x3 == 0 && i4x2 == 0 && i4x3 == 0 )
+        {
+            [self GameOverLevelCompleted];
+            bool lvl10comp = true;
+        }
+    }
+    if(level == 11)
+    {
+        if(i2x2 == 0 && i2x3 == 0 && i3x2 == 0 && i3x3 == 0)
+        {
+            [self GameOverLevelCompleted];
+            bool lvl11comp = true;
+        }
+    }
+    if(level == 12)
+    {
+        if(i2x1 == 1 && i3x1 == 1 && i2x2 == 1 && i2x3 == 1 && i3x2 == 1 && i3x3 == 1 && i2x4 == 1 && i3x4 == 1 )
+        {
+            [self GameOverLevelCompleted];
+            bool lvl12comp = true;
+        }
+    }
+    if(level == 13)
+    {
+        if(i3x2 == 0 && i3x3 ==0 && i2x2 == 2 && i2x3 == 2)
+        {
+            [self GameOverLevelCompleted];
+            bool lvl13comp = true;
+        }
+    }
+    if(level == 14)
+    {
+        if(i1x2 == 1 && i1x3 == 1 && i2x1 == 0 && i3x1 == 0 && i4x2 == 1 && i4x3 == 1 && i2x4 == 2 && i3x4 == 2 )
+        {
+            [self GameOverLevelCompleted];
+            bool lvl14comp = true;
+        }
+    }
+    if(level == 15)
+    {
+        if(i4x1 == 2 && i4x2 == 2 && i4x3 == 2 && i4x4 == 2)
+        {
+            [self GameOverLevelCompleted];
+            bool lvl15comp = true;
+        }
+    }
+    if(level == 16)
+    {
+        if(i1x2 == 2 && i1x3 == 2 && i1x4 == 2 && i1x1 == 2 && i2x1 == 2 && i2x4 == 2 && i3x1 == 2 && i3x4 == 2 && i4x1 == 2 && i4x2 == 2 && i4x3 == 2 && i4x4 == 2)
+        {
+            [self GameOverLevelCompleted];
+            bool lvl16comp = true;
+        }
+    }
+    
+    
 }
 
 
@@ -1742,16 +4083,30 @@ else if(timerSeconds == 0)
     
     
     
-        
+if(perfectCount == operationCount)
+{
+    gameOver = [CCLabelTTF labelWithString:@"PERFECT!" fontName:@"Arial" fontSize:20];
+    gameOver.position = ccp(160, 330);
+    [self addChild:gameOver z:9];
+    
+    
+    gameOver = [CCLabelTTF labelWithString:@"You owned this level!" fontName:@"Arial" fontSize:20];
+    gameOver.position = ccp(160, 300);
+    [self addChild:gameOver z:9];
+}
+else
+{
         gameOver = [CCLabelTTF labelWithString:@"NICE JOB!" fontName:@"Arial" fontSize:20];
         gameOver.position = ccp(160, 330);
         [self addChild:gameOver z:9];
     
     
-        gameOver = [CCLabelTTF labelWithString:@"You beat the level!" fontName:@"Arial" fontSize:20];
-        gameOver.position = ccp(160, 300);
+    gameOver = [CCLabelTTF labelWithString:@"You passed the level!" dimensions:CGSizeMake(200,100) alignment:UITextAlignmentCenter
+        fontName:@"Arial" fontSize:20];
+        gameOver.position = ccp(160, 260);
         [self addChild:gameOver z:9];
     
+}
     
     
     mainMenuPause = [CCMenuItemImage itemWithNormalImage:@"MainMenu.png" selectedImage:@"menuPausebuttonSel.png" target:self selector:@selector(menuButtonTapped:)];
@@ -2802,9 +5157,9 @@ else if(timerSeconds == 0)
 //Operation
 -(void) doOperation
 {
-    operationCount--;
+    operationCount++;
     
-    [OperationCount setString:[NSString stringWithFormat:@"Mixes Left = %i", operationCount]];
+    [OperationCount setString:[NSString stringWithFormat:@"mixes = %i", operationCount]];
     
   
     //0 = green; 1 = red; 2 = light blue; 3 = pink; 4 = blue; 5 = yellow
@@ -3002,22 +5357,12 @@ else if(timerSeconds == 0)
 
     //0 = green; 1 = red; 2 = light blue; 3 = pink; 4 = blue; 5 = yellow
 
-    [self checkOperationCount];
     NSLog(@"result is %i", result);
 }
 
 
 
 
--(void) checkOperationCount
-{
-    if(operationCount == -1)
-        
-    {
-        [self GameOverYouLose];
-
-    }
-}
 
 //Operation
 
@@ -3305,5 +5650,23 @@ else if(timerSeconds == 0)
 
 
 //***************** color switching Operation *********************
+
+
+-(void) update:(ccTime)delta
+
+
+{
+    
+    if(operationCount < perfectCount)
+    {
+        perfectCountLabel.color=ccc3(0,255,0);
+    }
+    else if(perfectCount < operationCount)
+    {
+        perfectCountLabel.color=ccc3(255,0,0);
+    }
+    
+    
+}
 
 @end

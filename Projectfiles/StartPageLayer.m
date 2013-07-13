@@ -48,8 +48,12 @@
 -(void) playGame: (id)sender
 {
     NSLog(@"switch to GameLayer");
+   
     
-    [[CCDirector sharedDirector] replaceScene: [CCTransitionFade transitionWithDuration:0.5f scene: [[LevelSelectLayer alloc] init]]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionZoomFlipAngular transitionWithDuration:0.75 scene:[[LevelSelectLayer alloc]init]]];
+
+    
+      // [[CCDirector sharedDirector] replaceScene:[CCTransitionSlideInR transitionWithDuration:0.75 scene:[[LevelSelectLayer alloc]init]]];
 }
 
 - (void)buttonOneAction:(id)sender

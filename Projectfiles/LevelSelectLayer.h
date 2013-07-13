@@ -94,5 +94,16 @@
     CCMenuItem *lvl16button;
     CCMenuItem *lvl16buttonSel;
 
+    CCMenuItem *lvl17button;
+    CCMenuItem *lvl17buttonSel;
+    
+    CCMenuItem *lvl18button;
+    CCMenuItem *lvl18buttonSel;
+    
+    CCMenuItem *lvl19button;
+    CCMenuItem *lvl19buttonSel;
+    
+    CCMenuItem *lvl20button;
+    CCMenuItem *lvl20buttonSel;
 }
 @end
