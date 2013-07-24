@@ -10,11 +10,13 @@
 #import "kobold2d.h"
 
 @interface GameLayer : CCLayerColor 
-{
+{CCMenu *lvlButts;
+    CCMenuItem *question;
+    CCMenu *questionMenu;
+    
+    CCMenuItem *backButton;
 
-    
-    
-    CCMenuItemImage *colorCombo;
+    CCSprite *colorCombo;
     
     
     CCMenuItemImage *Background;
@@ -46,7 +48,7 @@
     
     
     //pause
-    
+    CCLayerColor *questionLayer;
     
     //gameover
     

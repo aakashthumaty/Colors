@@ -33,7 +33,7 @@ local config =
 		GLViewNumberOfSamples = 0,
 
 		Enable2DProjection = NO,
-		EnableRetinaDisplaySupport = YES,
+		EnableRetinaDisplaySupport = NO,
 		EnableGLViewNodeHitTesting = NO,
 		EnableStatusBar = NO,
 
