@@ -34,16 +34,24 @@
         [self addChild:back z:11];
 
         
-        CCMenuItemImage *lvlpack1 = [CCMenuItemImage itemFromNormalImage:@"pack1butt.png"
-                                                           selectedImage:@"pack1buttclicked.png" target:self selector:@selector(gotolvlpack1:)];
+        CCMenuItemImage *lvlpack1 = [CCMenuItemImage itemFromNormalImage:@"pack1.png"
+                                                           selectedImage:@"pack1tapped.png" target:self selector:@selector(gotolvlpack1:)];
         
         
         lvlpack1.position = ccp(160,360);
+
+//
+//        CCMenuItemFont *lvlpack1 = [CCMenuItemFont itemFromString: @"Level Pack 1 \n3 Colors"
+//                                                       target:self selector:@selector(gotolvlpack1:)];
+//        
+//        [lvlpack1 setFontName:@"Arial"];
+//        [lvlpack1 setFontSize:25];
+//        lvlpack1.color = ccc3(0,200,0);
+//        lvlpack1.position = ccp(160,360);
         
         
         
-        
-        CCMenuItemImage *lvlpack2 = [CCMenuItemImage itemFromNormalImage:@"pack2butt.png"
+        CCMenuItemImage *lvlpack2 = [CCMenuItemImage itemFromNormalImage:@"pack2.png"
                                                       selectedImage:@"pack2buttclicked.png" target:self selector:@selector(gotolvlpack2:)];
         
         lvlpack2.position = ccp(160, 240);
@@ -51,7 +59,7 @@
        
         
         
-        CCMenuItemImage *lvlpack3 = [CCMenuItemImage itemFromNormalImage:@"pack3butt.png"
+        CCMenuItemImage *lvlpack3 = [CCMenuItemImage itemFromNormalImage:@"pack3.png"
                                                            selectedImage:@"pack3buttclicked.png" target:self selector:@selector(gotolvlpack3:)];
         
         lvlpack3.position = ccp(160, 120);

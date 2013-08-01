@@ -9,6 +9,8 @@
 
 @interface StartPageLayer : CCLayerColor
 {
+    bool timeTrialMode;
+    int randomLevel;
 }
 
 @end

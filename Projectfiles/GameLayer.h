@@ -10,18 +10,28 @@
 #import "kobold2d.h"
 
 @interface GameLayer : CCLayerColor 
-{CCMenu *lvlButts;
+{
+    
+    CCLabelTTF *levelTitle;
+    NSString *levelTitleString;
+
+    bool timeTrial;
+    bool gameIsOver;
+    CCMenu *lvlButts;
+    
+    CCMenu *back;
+
     CCMenuItem *question;
     CCMenu *questionMenu;
     
     CCMenuItem *backButton;
 
-    CCSprite *colorCombo;
+    CCMenuItemImage *colorCombo;
     
     
     CCMenuItemImage *Background;
     CCMenuItemImage *border;
-   
+    CCSprite *rectangle;
     
     int level;
     int selectedlevel;
@@ -44,6 +54,7 @@
     CCMenuItemImage *mainMenuPause;
     CCMenuItemImage *resumePause;
     CCMenuItemImage *restartPause;
+    CCMenuItemImage * next;
     CCLayerColor *pauseLayer;
     
     
@@ -236,7 +247,13 @@
     CCMenuItem *int4x4Sel;
     CCMenuItemToggle *int4x4toggle;
     //generate random colors
+    
+    
+    
+    bool playedTutorial;
+    CCLabelBMFont* tut;
 }
+- (void)startTutorial;
 
 
 @end

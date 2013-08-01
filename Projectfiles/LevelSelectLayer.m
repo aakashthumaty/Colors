@@ -6,6 +6,10 @@
 //
 //
 
+
+
+//remember to change the else statements for the 1 dot turnouts
+
 #import "LevelSelectLayer.h"
 #import "GameLayer.h"
 #import "LevelPackLayer.h"
@@ -49,7 +53,6 @@
         if (checklvl1stat == true)
     {
             
-            NSLog(@"check if lvl1perf");
         
         
         int isLevel1Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl1score"];
@@ -57,24 +60,41 @@
        
                 if(isLevel1Perf == perfectCount)
                     {
-                        
+
 
                             CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                 selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                            perfectCheckmarks.position = ccp(71,340);
+                            perfectCheckmarks.position = ccp(71,339);
                             [self addChild:perfectCheckmarks z:3];
                     }
-                else if ( perfectCount + 3 > isLevel1Perf > perfectCount)
+     
+
+                else if (isLevel1Perf > perfectCount && isLevel1Perf < perfectCount + 3)
                     {
-                            CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                        selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                        
+
+                            CCMenuItemImage *okayCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                        selectedImage:@"okaychecks.png" target:nil selector:nil];
             
             
-                        perfectCheckmarks.position = ccp(71,340);
-                        [self addChild:perfectCheckmarks z:3];
+                        okayCheckmarks.position = ccp(71,339);
+                        [self addChild:okayCheckmarks z:3];
                     }
+                else
+                {
+                    
+
+                    CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                                selectedImage:@"check.png" target:nil selector:nil];
+                    
+                    
+                    perfectCheckmarks.position = ccp(71,339);
+                    [self addChild:perfectCheckmarks z:3];
+                    
+                }
+
            
         }
     
@@ -96,7 +116,6 @@
         if (checklvl2stat == true)
         {
             
-            NSLog(@"check if lvl2perf");
             
             
             int isLevel2Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl2score"];
@@ -110,18 +129,31 @@
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(131,339);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (perfectCount + 3 >isLevel2Perf > perfectCount)
+            else if (isLevel2Perf > perfectCount && isLevel2Perf < perfectCount + 3)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(131,339);
                 [self addChild:perfectCheckmarks z:3];
             }
+            else
+            {
+                
+
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(131,339);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+
         }
 
     
@@ -143,33 +175,40 @@
         if (checklvl3stat == true)
         {
             
-            NSLog(@"check if lvl3perf");
             
             
-            int isLevel3Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl3score"];
+            int islevel3Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl3score"];
             int perfectCount = 4;
             
             
             
-            if(perfectCount + 3 >isLevel3Perf == perfectCount)
-            {
-                NSLog(@"it is %d", isLevel3Perf);
-
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
-                
-                
-                perfectCheckmarks.position = ccp(200,340);
-                [self addChild:perfectCheckmarks z:3];
-            }
-            else if (isLevel3Perf == perfectCount)
+            if(islevel3Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
-                                                                            selectedImage:@"perfectchecks.png" target:nil selector:nil];
+                                                                            selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(189,340);
+                perfectCheckmarks.position = ccp(189,339);
                 [self addChild:perfectCheckmarks z:3];
+            }
+            else if (islevel3Perf > perfectCount && islevel3Perf < perfectCount + 3)
+            {
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(189,339);
+                [self addChild:perfectCheckmarks z:3];
+            }
+            else
+            {
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(189,339);
+                [self addChild:perfectCheckmarks z:3];
+                
             }
         }
 
@@ -192,32 +231,42 @@
         if (checklvl4stat == true)
         {
             
-            NSLog(@"check if lvl4perf");
             
             
-            int isLevel4Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl4score"];
+            int islevel4Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl4score"];
             int perfectCount = 4;
             
             
             
-            if(isLevel4Perf == perfectCount)
+            if(islevel4Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(250,340);
+                perfectCheckmarks.position = ccp(250,339);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel4Perf > perfectCount + 3 )
+            else if (islevel4Perf < perfectCount + 3 && islevel4Perf > perfectCount)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(211,340);
+                perfectCheckmarks.position = ccp(250,339);
                 [self addChild:perfectCheckmarks z:3];
             }
+            else if(islevel4Perf > perfectCount + 2)
+            {
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(250,339);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+
         }
 
         
@@ -240,32 +289,49 @@
         if (checklvl5stat == true)
         {
             
-            NSLog(@"check if lvl5perf");
             
             
-            int isLevel5Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl5score"];
+            int islevel5Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl5score"];
             int perfectCount = 6;
             
-            
-            
-            if(isLevel5Perf == perfectCount)
+            if(islevel5Perf == perfectCount)
             {
+                
+                
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(71,250);
+                perfectCheckmarks.position = ccp(71,269);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel5Perf > perfectCount + 3 )
+            
+            
+            else if (islevel5Perf > perfectCount && islevel5Perf < perfectCount + 3)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(71,250);
-                [self addChild:perfectCheckmarks z:3];
+                CCMenuItemImage *okayCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                         selectedImage:@"okaychecks.png" target:nil selector:nil];
+                
+                
+                okayCheckmarks.position = ccp(71,269);
+                [self addChild:okayCheckmarks z:3];
             }
+            else
+            {
+                
+                
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(71,269);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+            
+            
         }
 
         
@@ -288,32 +354,44 @@
         if (checklvl6stat == true)
         {
             
-            NSLog(@"check if lvl6perf");
             
             
-            int isLevel6Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl6score"];
+            int islevel6Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl6score"];
             int perfectCount = 6;
             
             
             
-            if(isLevel6Perf == perfectCount)
+            if(islevel6Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(111,250);
+                perfectCheckmarks.position = ccp(131,269);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel6Perf > perfectCount + 3 )
+            else if (islevel6Perf > perfectCount && islevel6Perf < perfectCount + 3)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(111,250);
+                perfectCheckmarks.position = ccp(131,269);
                 [self addChild:perfectCheckmarks z:3];
             }
+            else
+            {
+                
+                
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(131,269);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+            
         }
 
         
@@ -331,37 +409,45 @@
         
         lvl6button.position = ccp(91,260);
         
-        
         bool checklvl7stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl7comp"];
         
         if (checklvl7stat == true)
         {
             
-            NSLog(@"check if lvl7perf");
             
             
-            int isLevel7Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl7score"];
-            int perfectCount = 6;
+            int islevel7Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl7score"];
+            int perfectCount = 8;
             
             
             
-            if(isLevel7Perf == perfectCount)
+            if(islevel7Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(189,269);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel7Perf > perfectCount + 3 )
+            else if (islevel7Perf < perfectCount + 3 && islevel7Perf > perfectCount )
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(189,269);
                 [self addChild:perfectCheckmarks z:3];
+            }
+            else
+            {
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(189,269);
+                [self addChild:perfectCheckmarks z:3];
+                
             }
         }
 
@@ -382,37 +468,48 @@
         
         
         
+        
         bool checklvl8stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl8comp"];
         
         if (checklvl8stat == true)
         {
             
-            NSLog(@"check if lvl8perf");
             
             
-            int isLevel8Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl8score"];
-            int perfectCount = 6;
+            int islevel8Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl8score"];
+            int perfectCount = 12;
             
             
             
-            if(isLevel8Perf == perfectCount)
+            if(islevel8Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(250,269);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel8Perf > perfectCount + 3 )
+            else if (islevel8Perf < perfectCount + 3 && islevel8Perf > perfectCount)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(250,269);
                 [self addChild:perfectCheckmarks z:3];
             }
+            else if(islevel8Perf > perfectCount + 2)
+            {
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(250,269);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+            
         }
 
         
@@ -436,32 +533,49 @@
         if (checklvl9stat == true)
         {
             
-            NSLog(@"check if lvl9perf");
             
             
-            int isLevel9Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl9score"];
+            int islevel9Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl9score"];
             int perfectCount = 6;
             
-            
-            
-            if(isLevel9Perf == perfectCount)
+            if(islevel9Perf == perfectCount)
             {
+                
+                
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(71,199);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel9Perf > perfectCount + 3 )
+            
+            
+            else if (islevel9Perf > perfectCount && islevel9Perf < perfectCount + 3)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                         selectedImage:@"okaychecks.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(71,199);
                 [self addChild:perfectCheckmarks z:3];
             }
+            else
+            {
+                
+                
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(71,199);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+            
+            
         }
 
         
@@ -487,32 +601,44 @@
         if (checklvl10stat == true)
         {
             
-            NSLog(@"check if lvl10perf");
             
             
-            int isLevel10Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl10score"];
-            int perfectCount = 6;
+            int islevel10Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl10score"];
+            int perfectCount = 10;
             
             
             
-            if(isLevel10Perf == perfectCount)
+            if(islevel10Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(131,199);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel10Perf > perfectCount + 3 )
+            else if (islevel10Perf > perfectCount && islevel10Perf < perfectCount + 3)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(131,199);
                 [self addChild:perfectCheckmarks z:3];
             }
+            else
+            {
+                
+                
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(131,199);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+            
         }
 
         
@@ -536,31 +662,40 @@
         if (checklvl11stat == true)
         {
             
-            NSLog(@"check if lvl11perf");
             
             
-            int isLevel11Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl11score"];
-            int perfectCount = 6;
+            int islevel11Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl11score"];
+            int perfectCount = 7;
             
             
             
-            if(isLevel11Perf == perfectCount)
+            if(islevel11Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(189,199);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel11Perf > perfectCount + 3 )
+            else if (islevel11Perf > perfectCount && islevel11Perf < perfectCount + 3)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(189,199);
                 [self addChild:perfectCheckmarks z:3];
+            }
+            else
+            {
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(189,199);
+                [self addChild:perfectCheckmarks z:3];
+                
             }
         }
 
@@ -582,37 +717,48 @@
         
         
         
+        
         bool checklvl12stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl12comp"];
         
         if (checklvl12stat == true)
         {
             
-            NSLog(@"check if lvl12perf");
             
             
-            int isLevel12Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl12score"];
-            int perfectCount = 6;
+            int islevel12Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl12score"];
+            int perfectCount = 12;
             
             
             
-            if(isLevel12Perf == perfectCount)
+            if(islevel12Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(250,199);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel12Perf > perfectCount + 3 )
+            else if (islevel12Perf < perfectCount + 3 && islevel12Perf > perfectCount)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(250,199);
                 [self addChild:perfectCheckmarks z:3];
             }
+            else if(islevel12Perf > perfectCount + 2)
+            {
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(250,199);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+            
         }
 
         
@@ -637,32 +783,49 @@
         if (checklvl13stat == true)
         {
             
-            NSLog(@"check if lvl13perf");
             
             
-            int isLevel13Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl13score"];
+            int islevel13Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl13score"];
             int perfectCount = 6;
             
-            
-            
-            if(isLevel13Perf == perfectCount)
+            if(islevel13Perf == perfectCount)
             {
+                
+                
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(71,129);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel13Perf > perfectCount + 3 )
+            
+            
+            else if (islevel13Perf > perfectCount && islevel13Perf < perfectCount + 3)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
-                [self addChild:perfectCheckmarks z:3];
+                CCMenuItemImage *okayCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                         selectedImage:@"okaychecks.png" target:nil selector:nil];
+                
+                
+                okayCheckmarks.position = ccp(71,129);
+                [self addChild:okayCheckmarks z:3];
             }
+            else
+            {
+                
+                
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(71,129);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+            
+            
         }
 
         
@@ -687,32 +850,44 @@
         if (checklvl14stat == true)
         {
             
-            NSLog(@"check if lvl14perf");
             
             
-            int isLevel14Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl14score"];
-            int perfectCount = 6;
+            int islevel14Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl14score"];
+            int perfectCount = 20;
             
             
             
-            if(isLevel14Perf == perfectCount)
+            if(islevel14Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(131,129);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel14Perf > perfectCount + 3 )
+            else if (islevel14Perf > perfectCount && islevel14Perf < perfectCount + 3)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(131,129);
                 [self addChild:perfectCheckmarks z:3];
             }
+            else
+            {
+                
+                
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(131,129);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+            
         }
 
         
@@ -739,31 +914,40 @@
         if (checklvl15stat == true)
         {
             
-            NSLog(@"check if lvl15perf");
             
             
-            int isLevel15Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl15score"];
-            int perfectCount = 6;
+            int islevel15Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl15score"];
+            int perfectCount = 8;
             
             
             
-            if(isLevel15Perf == perfectCount)
+            if(islevel15Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(189,129);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel15Perf > perfectCount + 3 )
+            else if (islevel15Perf > perfectCount && islevel15Perf < perfectCount + 3)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(189,129);
                 [self addChild:perfectCheckmarks z:3];
+            }
+            else
+            {
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(189,129);
+                [self addChild:perfectCheckmarks z:3];
+                
             }
         }
 
@@ -782,37 +966,48 @@
         
         
         
+        
         bool checklvl16stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl16comp"];
         
         if (checklvl16stat == true)
         {
             
-            NSLog(@"check if lvl16perf");
             
             
-            int isLevel16Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl16score"];
-            int perfectCount = 6;
+            int islevel16Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl16score"];
+            int perfectCount = 8;
             
             
             
-            if(isLevel16Perf == perfectCount)
+            if(islevel16Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(250,129);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel16Perf > perfectCount + 3 )
+            else if (islevel16Perf < perfectCount + 3 && islevel16Perf > perfectCount)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(250,129);
                 [self addChild:perfectCheckmarks z:3];
             }
+            else if(islevel16Perf > perfectCount + 2)
+            {
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(250,129);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+            
         }
 
         
@@ -838,32 +1033,49 @@
         if (checklvl17stat == true)
         {
             
-            NSLog(@"check if lvl17perf");
             
             
-            int isLevel17Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl17score"];
-            int perfectCount = 6;
+            int islevel17Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl17score"];
+            int perfectCount = 10;
             
-            
-            
-            if(isLevel17Perf == perfectCount)
+            if(islevel17Perf == perfectCount)
             {
+                
+                
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(71,59);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel17Perf > perfectCount + 3 )
+            
+            
+            else if (islevel17Perf > perfectCount && islevel17Perf < perfectCount + 3)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
-                [self addChild:perfectCheckmarks z:3];
+                CCMenuItemImage *okayCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                         selectedImage:@"okaychecks.png" target:nil selector:nil];
+                
+                
+                okayCheckmarks.position = ccp(71,59);
+                [self addChild:okayCheckmarks z:3];
             }
+            else
+            {
+                
+                
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(71,59);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+            
+            
         }
 
         
@@ -889,32 +1101,44 @@
         if (checklvl18stat == true)
         {
             
-            NSLog(@"check if lvl18perf");
             
             
-            int isLevel18Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl18score"];
-            int perfectCount = 6;
+            int islevel18Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl18score"];
+            int perfectCount = 4;
             
             
             
-            if(isLevel18Perf == perfectCount)
+            if(islevel18Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(131,59);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel18Perf > perfectCount + 3 )
+            else if (islevel18Perf > perfectCount && islevel18Perf < perfectCount + 3)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(131,59);
                 [self addChild:perfectCheckmarks z:3];
             }
+            else
+            {
+                
+                
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(131,59);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+            
         }
 
         
@@ -940,31 +1164,40 @@
         if (checklvl19stat == true)
         {
             
-            NSLog(@"check if lvl19perf");
             
             
-            int isLevel19Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl19score"];
+            int islevel19Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl19score"];
             int perfectCount = 6;
             
             
             
-            if(isLevel19Perf == perfectCount)
+            if(islevel19Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(189,59);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel19Perf > perfectCount + 3 )
+            else if (islevel19Perf > perfectCount && islevel19Perf < perfectCount + 3)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(189,59);
                 [self addChild:perfectCheckmarks z:3];
+            }
+            else
+            {
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(189,59);
+                [self addChild:perfectCheckmarks z:3];
+                
             }
         }
 
@@ -985,40 +1218,50 @@
         
         
         
+        
         bool checklvl20stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl20comp"];
         
         if (checklvl20stat == true)
         {
             
-            NSLog(@"check if lvl20perf");
             
             
-            int isLevel20Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl20score"];
-            int perfectCount = 6;
+            int islevel20Perf = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl20score"];
+            int perfectCount = 12;
             
             
             
-            if(isLevel20Perf == perfectCount)
+            if(islevel20Perf == perfectCount)
             {
                 CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"perfectchecks.png"
                                                                             selectedImage:@"perfectChecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(250,59);
                 [self addChild:perfectCheckmarks z:3];
             }
-            else if (isLevel20Perf > perfectCount + 3 )
+            else if (islevel20Perf < perfectCount + 3 && islevel20Perf > perfectCount)
             {
-                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"mediocrechecks.png"
-                                                                            selectedImage:@"mediocrechecks.png" target:nil selector:nil];
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"okaychecks.png"
+                                                                            selectedImage:@"okaychecks.png" target:nil selector:nil];
                 
                 
-                perfectCheckmarks.position = ccp(131,340);
+                perfectCheckmarks.position = ccp(250,59);
                 [self addChild:perfectCheckmarks z:3];
             }
+            else if(islevel20Perf > perfectCount + 2)
+            {
+                CCMenuItemImage *perfectCheckmarks = [CCMenuItemImage itemWithNormalImage:@"check.png"
+                                                                            selectedImage:@"check.png" target:nil selector:nil];
+                
+                
+                perfectCheckmarks.position = ccp(250,59);
+                [self addChild:perfectCheckmarks z:3];
+                
+            }
+            
         }
 
-        
         
         
         

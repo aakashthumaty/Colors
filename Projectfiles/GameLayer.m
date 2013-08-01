@@ -29,6 +29,7 @@ bool neari4x3 = false;
 bool neari4x4 = false;
 
 
+int poo = 0;
 
 
 
@@ -49,6 +50,21 @@ bool neari4x4 = false;
         
     level = [[NSUserDefaults standardUserDefaults] integerForKey:@"level"];
     
+    bool timeTrial = [[NSUserDefaults standardUserDefaults] boolForKey:@"timeTrial"];
+
+        
+        levelTitleString = [NSString stringWithFormat:@"LEVEL %d", level];
+        
+        levelTitle = [CCLabelTTF labelWithString:levelTitleString
+                                            dimensions:CGSizeMake(150, 100) alignment:UITextAlignmentCenter
+                                              fontName:@"Arial" fontSize:25.0];
+        levelTitle.position = ccp(160,420);
+        
+        
+        
+        levelTitle.color=ccc3(255,255,0);
+        [self addChild:levelTitle];
+
     
     CCMenuItemImage *nextLevel = [CCMenuItemImage itemWithNormalImage:@"nextlevel.png"
                                                         selectedImage:@"nextlevelclicked.png" target:self selector:@selector(nextLevel)];
@@ -70,32 +86,52 @@ bool neari4x4 = false;
                                                            selectedImage:@"questiontapped.png" target:self selector:@selector(question:)];
         
         
-        question.position = ccp(90, 60);
+        question.position = ccp(120, 60);
         
 
     
     lvlButts = [CCMenu menuWithItems: nextLevel, prevLevel, question, nil];
-    [self addChild: lvlButts z:5];
+        
+        
+        
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"timeTrial"] == false)
+        {
+            [self addChild: lvlButts z:5];
+        }
+
     lvlButts.position = ccp(40,30);
 
 
+       
     
     CCMenuItemImage *backButton = [CCMenuItemImage itemWithNormalImage:@"prevlevel.png"
                                                          selectedImage:@"backButtonclicked.png" target:self selector:@selector(back:)];
     
     backButton.scale = -1;
 
-    backButton.position = ccp(10, 420);
-    CCMenu *back;
-    back = [CCMenu menuWithItems: backButton, nil];
-    [self addChild: back];
-    back.position = ccp(40,30);
+    backButton.position = ccp(10, 418);
+        
+        
+        CCMenuItemImage *restart = [CCMenuItemImage itemWithNormalImage:@"replay.png"
+                                                             selectedImage:@"backButtonclicked.png" target:self selector:@selector(restartButtonTapped:)];
+        
+        
+        restart.position = ccp(230, 415);
+        back = [CCMenu menuWithItems: backButton,restart,  nil];
+        
+        
+        
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"timeTrial"] == false)
+        {
+            [self addChild: back];
+        }
+
+        
+        back.position = ccp(40,30);
     
     
-        int poo = 0;
-if (poo == 0)
         //background
-{
+
     if (level == 1)
     {//perfect = 4
         perfectCount = 4;
@@ -177,7 +213,7 @@ if (poo == 0)
     }
     if (level == 11)
     {
-        perfectCount = 8;
+        perfectCount = 7;
         Background = [CCSprite spriteWithFile:@"gridlvl11.png"];
         Background.position = ccp(160,253);
         [self addChild:Background z:-1];
@@ -584,7 +620,7 @@ if (poo == 0)
         [self addChild:Background z:-1];
         
     }
-}
+
 
     
     //background
@@ -621,8 +657,14 @@ if (poo == 0)
         //pause
         pauseButton = [CCMenuItemImage itemWithNormalImage:@"pauseButt.png"
                                                               selectedImage:@"pauseButtSel.png" target:self selector:@selector(pauseButtonTapped:)];
-    pauseButton.position = ccp(50,410);
-
+            pauseButton.position = ccp(50,410);
+        
+//        if (timeTrial == true);
+//        {
+//            [self addChild:pauseButton];
+//        }
+//
+//
         //pause
     
     
@@ -630,8 +672,18 @@ if (poo == 0)
     
     
         //TIMER
+    
+    
         [self schedule:@selector(timerUpdate:) interval:1];
-    timerSeconds = 100;
+        
+        if ([[NSUserDefaults standardUserDefaults] integerForKey:@"time"] == nil) {
+            timerSeconds = 60;
+            [[NSUserDefaults standardUserDefaults] setInteger:timerSeconds forKey:@"time"];
+        } else if ([[NSUserDefaults standardUserDefaults] integerForKey:@"time"] != 60 && [[NSUserDefaults standardUserDefaults] integerForKey:@"time"] != nil) {
+            timerSeconds = [[NSUserDefaults standardUserDefaults] integerForKey:@"time"];
+        }
+//    timerSeconds = [[NSUserDefaults standardUserDefaults] integerForKey:@"time"];
+        
     timerSecondsString = [NSString stringWithFormat:@"%d", timerSeconds];
     
     timerLabel = [CCLabelTTF labelWithString:timerSecondsString
@@ -639,11 +691,20 @@ if (poo == 0)
                                     fontName:@"Arial" fontSize:25.0];
     timerLabel.position = ccp(295, 420);
     timerLabel.color=ccc3(255,255,255);
-    [self addChild:timerLabel];
+        
+        
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"timeTrial"] == true)
+        {
+            [self addChild:timerLabel];
+        }
+        
+        
     
     [self schedule:@selector(timerUpdate:) interval:1];
 
     [self scheduleUpdate];
+        
+    
     //TIMER
     
 //////////////////////// LVL 1 ////////////////////////////////
@@ -848,16 +909,16 @@ if (poo == 0)
                                            selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
     int4x4toggle.position = ccp(208.5,330);
     
-    game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+    game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
     
     
     game.position = ccp(40, 30);
+
     
     [self addChild: game];
 
-
 }
-    //////////////////////// LVL 1 ////////////////////////////////
+//////////////////////// LVL 1 ////////////////////////////////
     
     
     
@@ -1065,7 +1126,7 @@ if (poo == 0)
     int4x4toggle.position = ccp(208.5,330);
     
     
-    game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+    game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
     
     
     game.position = ccp(40, 30);
@@ -1284,7 +1345,7 @@ if (poo == 0)
                                                selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
         int4x4toggle.position = ccp(208.5,330);
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -1503,7 +1564,7 @@ if (poo == 0)
         int4x4toggle = [CCMenuItemToggle itemWithTarget:self
                                                selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
         int4x4toggle.position = ccp(208.5,330);
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -1725,7 +1786,7 @@ if (poo == 0)
                                                selector:@selector(int4x4ToggleTapped:) items:int4x4, int4x4Sel, nil];
         int4x4toggle.position = ccp(208.5,330);
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -1947,7 +2008,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
 
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -2170,7 +2231,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -2394,7 +2455,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -2615,7 +2676,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -2835,7 +2896,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -3056,7 +3117,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -3277,7 +3338,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -3498,7 +3559,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -3719,7 +3780,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -3941,7 +4002,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -4162,7 +4223,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -4382,7 +4443,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -4604,7 +4665,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -4824,7 +4885,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -5045,7 +5106,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -5265,7 +5326,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -5486,7 +5547,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -5708,7 +5769,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -5930,7 +5991,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -6153,7 +6214,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -6375,7 +6436,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -6597,7 +6658,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -6818,7 +6879,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -7039,7 +7100,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -7260,7 +7321,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -7480,7 +7541,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -7701,7 +7762,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -7923,7 +7984,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -8145,7 +8206,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -8367,7 +8428,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -8589,7 +8650,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -8811,7 +8872,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -9032,7 +9093,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -9253,7 +9314,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -9476,7 +9537,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -9697,7 +9758,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -9919,7 +9980,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -10141,7 +10202,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -10363,7 +10424,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -10586,7 +10647,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -10807,7 +10868,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -11029,7 +11090,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -11249,7 +11310,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -11471,7 +11532,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -11692,7 +11753,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -11912,7 +11973,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -12132,7 +12193,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -12352,7 +12413,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -12573,7 +12634,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -12793,7 +12854,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -13013,7 +13074,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -13233,7 +13294,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -13453,7 +13514,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -13674,7 +13735,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -13895,7 +13956,7 @@ if (poo == 0)
         int4x4toggle.position = ccp(208.5,330);
         
         
-        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle, pauseButton, nil];
+        game = [CCMenu menuWithItems:int1x1toggle, int1x2toggle, int1x3toggle, int1x4toggle, int2x1toggle, int2x2toggle, int2x3toggle, int2x4toggle, int3x1toggle, int3x2toggle, int3x3toggle, int3x4toggle, int4x1toggle, int4x2toggle, int4x3toggle, int4x4toggle,  nil];
         
         
         game.position = ccp(40, 30);
@@ -13905,10 +13966,17 @@ if (poo == 0)
     
     
     //////////////////////// LVL 320 ////////////////////////////////
+  
     return self;
-	
+
 }
 }
+
+
+
+
+
+
 
 -(void) nextLevel
 {   if(level != 20 && level != 220 && level != 320)
@@ -13937,8 +14005,6 @@ if (poo == 0)
 -(void) question: (id)sender
 
 {
-    [[CCDirector sharedDirector] pause];
-    
     
     
     
@@ -13946,71 +14012,79 @@ if (poo == 0)
     questionLayer.position = ccp(0,0);
     
     
+    
+    rectangle = [CCSprite spriteWithFile:@"rectangle.png"];
+    rectangle.position = ccp(160,240);
+    rectangle.opacity = 1;
+    [self addChild:rectangle z:100];
+
+    gameIsOver = true;
+
     int level = [[NSUserDefaults standardUserDefaults] integerForKey:@"level"];
     
     
     
     if(level < 200)
     {
-        CCSprite *colorCombo = [CCSprite spriteWithFile:@"3colorcombos.png"];
+        colorCombo = [CCMenuItemImage itemWithNormalImage:@"3colorcombos.png" selectedImage:@"3colorcombos.png"];
         colorCombo.position = ccp(160,240);
-        
-        
-        [self addChild:colorCombo z:11];
-        
-      
         
     }
     else if(level < 300)
     {
-        CCSprite *colorCombo = [CCSprite spriteWithFile:@"6colorcombo.png"];
+        colorCombo = [CCMenuItemImage itemWithNormalImage:@"6colorcombo.png" selectedImage:@"6colorcombo.png"];
         colorCombo.position = ccp(160,240);
-        [self addChild:colorCombo z:11];
     }
     else
     {
-        CCSprite *colorCombo = [CCSprite spriteWithFile:@"pack3combos.png"];
+        colorCombo = [CCMenuItemImage itemWithNormalImage:@"pack3combos.png" selectedImage:@"pack3combos.png"];
         colorCombo.position = ccp(160,240);
-        [self addChild:colorCombo z:11];
+
 
     }
 
     
-    [self dotsEffect:(colorCombo)];
     
-    id dropdown = [CCMoveTo actionWithDuration:6.0f position:ccp(160, 240 + 140)];
-    id jump = [CCJumpBy actionWithDuration:0.75f position:CGPointZero height:15 jumps:3];
-    id repeatJump = [CCRepeat actionWithAction:jump times:3];
-    [colorCombo runAction:[CCSequence actions:dropdown, repeatJump, nil]];
+   
 
 
+    
     
     
     questionMenu = [CCMenu menuWithItems:colorCombo, nil];
-    questionMenu.position = ccp(40,30);
-    [self addChild:questionMenu z:20];
     
+    questionMenu.position = ccp(0,30);
     
-    
-    
+    [self addChild:questionMenu z:9];
     
     [self addChild:questionLayer z:8];
-    
-    game.isTouchEnabled = NO;
-    lvlButts.isTouchEnabled = NO;
-    
-    
+
+  
     
 }
 
 
 
--(void) dotsEffect:(CCSprite *) colorCombo
+-(void) dotsEffect:(CCSprite *) spriteToJump
 {
-    id dropdown = [CCMoveTo actionWithDuration:6.0f position:ccp(160, 240 + 140)];
-    id jump = [CCJumpBy actionWithDuration:0.75f position:CGPointZero height:15 jumps:3];
-    id repeatJump = [CCRepeat actionWithAction:jump times:3];
-    [colorCombo runAction:[CCSequence actions:dropdown, repeatJump, nil]];
+//    id dropdown = [CCMoveTo actionWithDuration:6.0f position:ccp(200, 280 + 100)];
+//    id jump = [CCJumpBy actionWithDuration:5.0f position:CGPointZero height:15 jumps:3];
+//    id repeatJump = [CCRepeat actionWithAction:jump times:5];
+//    [spriteToJump runAction:repeatJump];
+//    [spriteToJump runAction:[CCFadeOut actionWithDuration: 3.0f]];
+    
+    
+    // Get a reference to the button that was tapped
+    
+    CCSprite *colorCombo ;
+    
+    
+    
+    // Have the button spin around!
+    
+    [colorCombo runAction:[CCRotateBy actionWithDuration:1 angle:360]];
+
+    
 }
 
 
@@ -14045,22 +14119,24 @@ if (poo == 0)
 //**************timer*******************
 
 -(void) timerUpdate:(ccTime)delta
-{    if(timerSeconds != 0 && timerBonusSeconds <= 0){
+{    if(timerSeconds != 0 && timerBonusSeconds <= 0)
+{
         timerSeconds--;
     
     
         timerSecondsString = [NSString stringWithFormat:@"%d", timerSeconds];
     
         [timerLabel setString:timerSecondsString];
+}
+    else if (timerSeconds == 0)
+    {
+        
 
-}
-else if(timerSeconds == 0)
-{
+        [[NSUserDefaults standardUserDefaults] setInteger:60 forKey:@"time"];
 
-    [self GameOverYouLose];
+    }
 }
-     
-}
+
 
 //**************timer*******************
 
@@ -14094,19 +14170,22 @@ else if(timerSeconds == 0)
     
     resumePause.position = ccp(0, 80);
     restartPause.position = ccp(0, 0);
+    next.position = ccp(0 , 40);
     mainMenuPause.position = ccp(0, -80);
     
     
-    [self addChild:pauseMenu z:10];
+    [self addChild:pauseMenu z:11];
     
     
     
-    [self addChild:pauseLayer z:8];
+    [self addChild:pauseLayer z:10];
    
     
     
     
     game.isTouchEnabled = NO;
+    back.isTouchEnabled = NO;
+    lvlButts.isTouchEnabled = NO;
     
     
 }
@@ -14132,7 +14211,7 @@ else if(timerSeconds == 0)
     [self removeChild:pauseMenu cleanup:YES];
     
     [self removeChild:pauseLayer cleanup:YES];
-    game.isTouchEnabled = YES;
+//    game.isTouchEnabled = YES;
     [[CCDirector sharedDirector] resume];
 }
 
@@ -14141,7 +14220,7 @@ else if(timerSeconds == 0)
     [self removeChild:pauseMenu cleanup:YES];
     
     
-    game.isTouchEnabled = YES;
+//    game.isTouchEnabled = YES;
     [[CCDirector sharedDirector] resume];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5f scene: [[GameLayer alloc] init]]];
    
@@ -14159,9 +14238,13 @@ else if(timerSeconds == 0)
     {
         if (i2x2 == 2 && i2x3 == 2 && i3x2 == 2 && i3x3 == 2)
         {
-        
+            if ([[NSUserDefaults standardUserDefaults] boolForKey:@"timeTrial"] == true)
+            {
+                [self gameOverTimerDone];
+                
+            }
+
             [self GameOverLevelCompleted];
-                        
             
             int lvl1score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl1score"];
            
@@ -14249,44 +14332,56 @@ else if(timerSeconds == 0)
         if(i3x2 == 2 && i3x3 == 2 && i2x2 == 1 && i2x3 == 1 )
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl4score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl4score"];
+            
+            int newlvl4score = operationCount;
+            
+            if (lvl4score == 0 || newlvl4score < lvl4score)
+                
+            {
+                lvl4score = newlvl4score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl4score forKey:@"lvl4score"];
+                
+            }
+            
             bool lvl4comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl4comp forKey:@"lvl4comp"];
             //read from storage
             bool checklvl4stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl4comp"];
-            int newlvl4score = operationCount;
-            
-            int lvl4score;
-            if(newlvl4score > lvl4score)
-            {
-                lvl4score = newlvl4score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl4score forKey:@"lvl4score"];
-                
-            }
-
-            
         }
+
     }
     if(level == 5)
     {
         if(i3x2 == 0 && i3x3 == 0 && i2x2 == 2 && i2x3 == 2 )
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl5score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl5score"];
+            
+            int newlvl5score = operationCount;
+            
+            if (lvl5score == 0 || newlvl5score < lvl5score)
+                
+            {
+                lvl5score = newlvl5score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl5score forKey:@"lvl5score"];
+                
+            }
+            
             bool lvl5comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl5comp forKey:@"lvl5comp"];
             //read from storage
             bool checklvl5stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl5comp"];
-            
-            int newlvl5score = operationCount;
-            
-            int lvl5score;
-            if(newlvl5score > lvl5score)
-            {
-                lvl5score = newlvl5score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl5score forKey:@"lvl5score"];
-                
-            }
         }
     }
     if(level == 6)
@@ -14294,22 +14389,27 @@ else if(timerSeconds == 0)
         if(i3x2 == 2 && i3x3 == 2 && i2x2 == 1 && i2x3 == 1 && i4x2 == 0 && i4x3 == 0)
         {
             [self GameOverLevelCompleted];
-            bool lvl6comp = true;
-            // write to storage
-            [[NSUserDefaults standardUserDefaults] setBool:lvl6comp forKey:@"lvl6comp"];
-            //read from storage
-            bool checklvl6stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl6comp"];
+            
+            
+            int lvl6score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl6score"];
             
             int newlvl6score = operationCount;
             
-            int lvl6score;
-            if(newlvl6score > lvl6score)
+            if (lvl6score == 0 || newlvl6score < lvl6score)
+                
             {
                 lvl6score = newlvl6score;
+                
                 [[NSUserDefaults standardUserDefaults] setInteger:lvl6score forKey:@"lvl6score"];
                 
             }
             
+            bool lvl6comp = true;
+            
+            // write to storage
+            [[NSUserDefaults standardUserDefaults] setBool:lvl6comp forKey:@"lvl6comp"];
+            //read from storage
+            bool checklvl6stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl6comp"];
         }
     }
     if(level == 7)
@@ -14317,22 +14417,30 @@ else if(timerSeconds == 0)
         if(i1x1 == 2 && i1x4 == 2 && i4x1 == 2 && i4x4 == 2)
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl7score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl7score"];
+            
+            int newlvl7score = operationCount;
+            
+            if (lvl7score == 0 || newlvl7score < lvl7score)
+                
+            {
+                lvl7score = newlvl7score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl7score forKey:@"lvl7score"];
+                
+            }
+            
             bool lvl7comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl7comp forKey:@"lvl7comp"];
             //read from storage
             bool checklvl7stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl7comp"];
-            
-            int newlvl7score = operationCount;
-            
-            int lvl7score;
-            if(newlvl7score > lvl7score)
-            {
-                lvl7score = newlvl7score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl7score forKey:@"lvl7score"];
-                
-            }
         }
+
+        
     }
 
     if(level == 8)
@@ -14340,21 +14448,27 @@ else if(timerSeconds == 0)
         if(i1x2 == 1 && i1x3 == 1 && i2x2 == 1 && i2x3 == 1 && i3x2 == 0 && i3x3 == 0 && i4x2 == 0 && i4x3 == 0 )
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl8score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl8score"];
+            
+            int newlvl8score = operationCount;
+            
+            if (lvl8score == 0 || newlvl8score < lvl8score)
+                
+            {
+                lvl8score = newlvl8score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl8score forKey:@"lvl8score"];
+                
+            }
+            
             bool lvl8comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl8comp forKey:@"lvl8comp"];
             //read from storage
             bool checklvl8stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl8comp"];
-            
-            int newlvl8score = operationCount;
-            
-            int lvl8score;
-            if(newlvl8score > lvl8score)
-            {
-                lvl8score = newlvl8score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl8score forKey:@"lvl8score"];
-                
-            }
         }
     }
     if(level == 9)
@@ -14362,21 +14476,27 @@ else if(timerSeconds == 0)
         if(i2x2 == 2 && i2x3 == 2 && i3x2 == 2 && i3x3 == 2)
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl9score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl9score"];
+            
+            int newlvl9score = operationCount;
+            
+            if (lvl9score == 0 || newlvl9score < lvl9score)
+                
+            {
+                lvl9score = newlvl9score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl9score forKey:@"lvl9score"];
+                
+            }
+            
             bool lvl9comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl9comp forKey:@"lvl9comp"];
             //read from storage
             bool checklvl9stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl9comp"];
-            
-            int newlvl9score = operationCount;
-            
-            int lvl9score;
-            if(newlvl9score > lvl9score)
-            {
-                lvl9score = newlvl9score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl9score forKey:@"lvl9score"];
-                
-            }
         }
     }
     if(level == 10)
@@ -14384,21 +14504,27 @@ else if(timerSeconds == 0)
         if(i2x2 == 0 && i2x3 == 0 && i3x2 == 0 && i3x3 == 0 && i4x2 == 0 && i4x3 == 0 )
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl10score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl10score"];
+            
+            int newlvl10score = operationCount;
+            
+            if (lvl10score == 0 || newlvl10score < lvl10score)
+                
+            {
+                lvl10score = newlvl10score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl10score forKey:@"lvl10score"];
+                
+            }
+            
             bool lvl10comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl10comp forKey:@"lvl10comp"];
             //read from storage
             bool checklvl10stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl10comp"];
-            
-            int newlvl10score = operationCount;
-            
-            int lvl10score;
-            if(newlvl10score > lvl10score)
-            {
-                lvl10score = newlvl10score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl10score forKey:@"lvl10score"];
-                
-            }
         }
     }
     if(level == 11)
@@ -14406,21 +14532,27 @@ else if(timerSeconds == 0)
         if(i2x2 == 0 && i2x3 == 0 && i3x2 == 0 && i3x3 == 0)
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl11score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl11score"];
+            
+            int newlvl11score = operationCount;
+            
+            if (lvl11score == 0 || newlvl11score < lvl11score)
+                
+            {
+                lvl11score = newlvl11score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl11score forKey:@"lvl11score"];
+                
+            }
+            
             bool lvl11comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl11comp forKey:@"lvl11comp"];
             //read from storage
             bool checklvl11stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl11comp"];
-            
-            int newlvl11score = operationCount;
-            
-            int lvl11score;
-            if(newlvl11score > lvl11score)
-            {
-                lvl11score = newlvl11score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl11score forKey:@"lvl11score"];
-                
-            }
         }
     }
     if(level == 12)
@@ -14428,21 +14560,27 @@ else if(timerSeconds == 0)
         if(i2x1 == 1 && i3x1 == 1 && i2x2 == 1 && i2x3 == 1 && i3x2 == 1 && i3x3 == 1 && i2x4 == 1 && i3x4 == 1 )
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl12score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl12score"];
+            
+            int newlvl12score = operationCount;
+            
+            if (lvl12score == 0 || newlvl12score < lvl12score)
+                
+            {
+                lvl12score = newlvl12score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl12score forKey:@"lvl12score"];
+                
+            }
+            
             bool lvl12comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl12comp forKey:@"lvl12comp"];
             //read from storage
             bool checklvl12stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl12comp"];
-            
-            int newlvl12score = operationCount;
-            
-            int lvl12score;
-            if(newlvl12score > lvl12score)
-            {
-                lvl12score = newlvl12score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl12score forKey:@"lvl12score"];
-                
-            }
         }
     }
     if(level == 13)
@@ -14450,21 +14588,27 @@ else if(timerSeconds == 0)
         if(i3x2 == 0 && i3x3 ==0 && i2x2 == 2 && i2x3 == 2)
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl13score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl13score"];
+            
+            int newlvl13score = operationCount;
+            
+            if (lvl13score == 0 || newlvl13score < lvl13score)
+                
+            {
+                lvl13score = newlvl13score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl13score forKey:@"lvl13score"];
+                
+            }
+            
             bool lvl13comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl13comp forKey:@"lvl13comp"];
             //read from storage
             bool checklvl13stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl13comp"];
-            
-            int newlvl13score = operationCount;
-            
-            int lvl13score;
-            if(newlvl13score > lvl13score)
-            {
-                lvl13score = newlvl13score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl13score forKey:@"lvl13score"];
-                
-            }
         }
     }
     if(level == 14)
@@ -14472,21 +14616,27 @@ else if(timerSeconds == 0)
         if(i1x2 == 1 && i1x3 == 1 && i2x1 == 0 && i3x1 == 0 && i4x2 == 1 && i4x3 == 1 && i2x4 == 2 && i3x4 == 2 )
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl14score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl14score"];
+            
+            int newlvl14score = operationCount;
+            
+            if (lvl14score == 0 || newlvl14score < lvl14score)
+                
+            {
+                lvl14score = newlvl14score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl14score forKey:@"lvl14score"];
+                
+            }
+            
             bool lvl14comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl14comp forKey:@"lvl14comp"];
             //read from storage
             bool checklvl14stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl14comp"];
-            
-            int newlvl14score = operationCount;
-            
-            int lvl14score;
-            if(newlvl14score > lvl14score)
-            {
-                lvl14score = newlvl14score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl14score forKey:@"lvl14score"];
-                
-            }
         }
     }
     if(level == 15)
@@ -14494,21 +14644,27 @@ else if(timerSeconds == 0)
         if(i4x1 == 2 && i4x2 == 2 && i4x3 == 2 && i4x4 == 2)
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl15score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl15score"];
+            
+            int newlvl15score = operationCount;
+            
+            if (lvl15score == 0 || newlvl15score < lvl15score)
+                
+            {
+                lvl15score = newlvl15score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl15score forKey:@"lvl15score"];
+                
+            }
+            
             bool lvl15comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl15comp forKey:@"lvl15comp"];
             //read from storage
             bool checklvl15stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl15comp"];
-            
-            int newlvl15score = operationCount;
-            
-            int lvl15score;
-            if(newlvl15score > lvl15score)
-            {
-                lvl15score = newlvl15score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl15score forKey:@"lvl15score"];
-                
-            }
         }
     }
     if(level == 16)
@@ -14516,21 +14672,27 @@ else if(timerSeconds == 0)
         if(i1x2 == 2 && i1x3 == 2 && i1x4 == 2 && i1x1 == 2 && i2x1 == 2 && i2x4 == 2 && i3x1 == 2 && i3x4 == 2 && i4x1 == 2 && i4x2 == 2 && i4x3 == 2 && i4x4 == 2)
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl16score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl16score"];
+            
+            int newlvl16score = operationCount;
+            
+            if (lvl16score == 0 || newlvl16score < lvl16score)
+                
+            {
+                lvl16score = newlvl16score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl16score forKey:@"lvl16score"];
+                
+            }
+            
             bool lvl16comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl16comp forKey:@"lvl16comp"];
             //read from storage
             bool checklvl16stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl16comp"];
-            
-            int newlvl16score = operationCount;
-            
-            int lvl16score;
-            if(newlvl16score > lvl16score)
-            {
-                lvl16score = newlvl16score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl16score forKey:@"lvl16score"];
-                
-            }
         }
     }
     if(level == 17)
@@ -14538,21 +14700,27 @@ else if(timerSeconds == 0)
         if(i2x1 == 0 && i3x1 == 0 && i3x4 == 2 && i2x4 == 2)
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl17score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl17score"];
+            
+            int newlvl17score = operationCount;
+            
+            if (lvl17score == 0 || newlvl17score < lvl17score)
+                
+            {
+                lvl17score = newlvl17score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl17score forKey:@"lvl17score"];
+                
+            }
+            
             bool lvl17comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl17comp forKey:@"lvl17comp"];
             //read from storage
             bool checklvl17stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl17comp"];
-            
-            int newlvl17score = operationCount;
-            
-            int lvl17score;
-            if(newlvl17score > lvl17score)
-            {
-                lvl17score = newlvl17score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl17score forKey:@"lvl17score"];
-                
-            }
         }
     }
     if(level == 18)
@@ -14560,21 +14728,27 @@ else if(timerSeconds == 0)
         if(i4x1 == 1 && i4x2 == 0 && i4x3 == 2 && i4x4 == 1)
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl18score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl18score"];
+            
+            int newlvl18score = operationCount;
+            
+            if (lvl18score == 0 || newlvl18score < lvl18score)
+                
+            {
+                lvl18score = newlvl18score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl18score forKey:@"lvl18score"];
+                
+            }
+            
             bool lvl18comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl18comp forKey:@"lvl18comp"];
             //read from storage
             bool checklvl18stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl18comp"];
-            
-            int newlvl18score = operationCount;
-            
-            int lvl18score;
-            if(newlvl18score > lvl18score)
-            {
-                lvl18score = newlvl18score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl18score forKey:@"lvl18score"];
-                
-            }
         }
     }
     if(level == 19)
@@ -14582,21 +14756,27 @@ else if(timerSeconds == 0)
         if(i1x1 == 2 && i2x2 == 2 && i3x3 == 2 && i4x4 == 2)
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl19score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl19score"];
+            
+            int newlvl19score = operationCount;
+            
+            if (lvl19score == 0 || newlvl19score < lvl19score)
+                
+            {
+                lvl19score = newlvl19score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl19score forKey:@"lvl19score"];
+                
+            }
+            
             bool lvl19comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl19comp forKey:@"lvl19comp"];
             //read from storage
             bool checklvl19stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl19comp"];
-            
-            int newlvl19score = operationCount;
-            
-            int lvl19score;
-            if(newlvl19score > lvl19score)
-            {
-                lvl19score = newlvl19score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl19score forKey:@"lvl19score"];
-                
-            }
         }
     }
     if(level == 20)
@@ -14604,21 +14784,27 @@ else if(timerSeconds == 0)
         if(i1x1 == 1 && i1x4 == 1 && i2x2 == 1 && i2x3 == 1 && i3x2 == 1 && i3x3 == 1 && i4x1 == 1 && i4x4 ==1 )
         {
             [self GameOverLevelCompleted];
+            
+            
+            int lvl20score = [[NSUserDefaults standardUserDefaults] integerForKey:@"lvl20score"];
+            
+            int newlvl20score = operationCount;
+            
+            if (lvl20score == 0 || newlvl20score < lvl20score)
+                
+            {
+                lvl20score = newlvl20score;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:lvl20score forKey:@"lvl20score"];
+                
+            }
+            
             bool lvl20comp = true;
+            
             // write to storage
             [[NSUserDefaults standardUserDefaults] setBool:lvl20comp forKey:@"lvl20comp"];
             //read from storage
             bool checklvl20stat = [[NSUserDefaults standardUserDefaults] boolForKey:@"lvl20comp"];
-            
-            int newlvl20score = operationCount;
-            
-            int lvl20score;
-            if(newlvl20score > lvl20score)
-            {
-                lvl20score = newlvl20score;
-                [[NSUserDefaults standardUserDefaults] setInteger:lvl20score forKey:@"lvl20score"];
-                
-            }
         }
     }
     if(level == 201)
@@ -15399,10 +15585,6 @@ if(level == 211)
             [[NSUserDefaults standardUserDefaults] setInteger:lvl320score forKey:@"lvl320score"];
         }
     }
-    
-    
-    
-
 
 
 }
@@ -15411,128 +15593,178 @@ if(level == 211)
 
 -(void) GameOverLevelCompleted
 {
-    [[CCDirector sharedDirector] pause];
-    
-     gameOverLayer = [CCLayerColor layerWithColor: ccc4(0, 0, 0, 0) width: 240 height: 320];
-    
-    gameOverLayer.position = ccp(15, 120);
-    
-    border = [CCSprite spriteWithFile:@"border.png" ];
-    border.position = ccp(160,240);
-    
 
-    
-    [self addChild:border z:8];
-    
-    [self addChild: gameOverLayer z:8];
-    
-
-    
-if(perfectCount == operationCount)
-{
-    gameOver = [CCLabelTTF labelWithString:@"PERFECT!" fontName:@"Arial" fontSize:20];
-    gameOver.position = ccp(160, 330);
-    [self addChild:gameOver z:9];
-    
-    
-    gameOver = [CCLabelTTF labelWithString:@"You owned this level!" fontName:@"Arial" fontSize:20];
-    gameOver.position = ccp(160, 300);
-    [self addChild:gameOver z:9];
-}
-else
-{
-        gameOver = [CCLabelTTF labelWithString:@"NICE JOB!" fontName:@"Arial" fontSize:20];
-        gameOver.position = ccp(160, 330);
-        [self addChild:gameOver z:9];
-    
-    
-    gameOver = [CCLabelTTF labelWithString:@"You passed the level!" dimensions:CGSizeMake(200,100) alignment:UITextAlignmentCenter
-        fontName:@"Arial" fontSize:20];
-        gameOver.position = ccp(160, 260);
-        [self addChild:gameOver z:9];
-    
-}
-    
-    
-    
-    
-    mainMenuPause = [CCMenuItemImage itemWithNormalImage:@"MainMenu.png" selectedImage:@"menuPausebuttonSel.png" target:self selector:@selector(menuButtonTapped:)];
-    
-    restartPause = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restartSel.png" target:self selector:@selector(restartButtonTapped:)];
-    
-    
-    GameOverMenu = [CCMenu menuWithItems: mainMenuPause,restartPause,  nil];
-    
-    mainMenuPause.position = ccp(0, -80);
-    
-    
-    [self addChild:GameOverMenu z:9];
-    
-    game.isTouchEnabled = NO;
-    lvlButts.isTouchEnabled = NO;
-    
-}
-
-//200 , 238
-
--(void) GameOverYouLose
-{
-    [[CCDirector sharedDirector] pause];
-    
-    
+   // [[CCDirector sharedDirector] pause];
     //background
     
     
     border = [CCSprite spriteWithFile:@"border.png"];
-    border.position = ccp(160,240);
+    border.position = ccp(160,255);
     [self addChild:border z:8];
+    border.opacity = 200;
     
+    rectangle = [CCSprite spriteWithFile:@"rectangle.png"];
+    rectangle.position = ccp(160,240);
+    rectangle.opacity = 1;
+    [self addChild:rectangle z:7];
     
     
     
     //background
     
     
-    gameOverLayer = [CCLayerColor layerWithColor: ccc4(0, 0, 0, 0) width: 200 height: 238];
+    gameOverLayer = [CCLayerColor layerWithColor: ccc4(0, 0, 0, 0) width: 320 height: 480];
     
-    gameOverLayer.position = ccp(40, 95);
+    gameOverLayer.position = ccp(0, 0);
     
     
+    
+
+    if(perfectCount == operationCount)
+    {
+        gameOver = [CCLabelTTF labelWithString:@"PERFECT! \n You owned this level!" fontName:@"Arial" fontSize:20];
+        gameOver.position = ccp(160, 330);
+        [self addChild: gameOver z:9];
+        
+//        gameOver = [CCLabelTTF labelWithString:@"You owned this level!" fontName:@"Arial" fontSize:20];
+//        gameOver.position = ccp(160, 300);
+        
+
+        
+    }
+    else
+    {
+        gameOver = [CCLabelTTF labelWithString:@"NICE JOB \n You passed the level!!" fontName:@"Arial" fontSize:20];
+        gameOver.position = ccp(160, 330);
+        
+        [self addChild: gameOver z:9];
+
+//        gameOver = [CCLabelTTF labelWithString:@"You passed the level!" dimensions:CGSizeMake(200,100) alignment:UITextAlignmentCenter
+//                                      fontName:@"Arial" fontSize:20];
+//        gameOver.position = ccp(160, 260);
+        
+    }
+    
+    mainMenuPause = [CCMenuItemImage itemWithNormalImage:@"MainMenu.png" selectedImage:@"menuPausebuttonSel.png" target:self selector:@selector(menuButtonTapped:)];
+    
+    restartPause = [CCMenuItemImage itemWithNormalImage:@"playAgain.png" selectedImage:@"restartSel.png" target:self selector:@selector(restartButtonTapped:)];
+   
+    
+     next = [CCMenuItemImage itemWithNormalImage:@"next.png" selectedImage:@"restartSel.png" target:self selector:@selector(nextLevel:)];
+    
+    GameOverMenu = [CCMenu menuWithItems: mainMenuPause, restartPause, next, nil];
+    
+    mainMenuPause.position = ccp(0, -80);
+    
+
+    [self addChild:GameOverMenu z:9];
+
     [self addChild: gameOverLayer z:8];
     
-    gameOver = [CCLabelTTF labelWithString:@"You Lose!" fontName:@"Arial" fontSize:20];
-    gameOver.position = ccp(160, 300);
-    [self addChild:gameOver z:9];
+    gameIsOver = true;
     
+    restartPause.position = ccp(0, 0);
+    next.position = ccp(0 , 40);
+    mainMenuPause.position = ccp(0, -40);
+   
+    
+}
 
-    gameOver = [CCLabelTTF labelWithString:@"GAME OVER" fontName:@"Arial" fontSize:30];
-    gameOver.position = ccp(160, 330);
-    [self addChild:gameOver z:9];
-    
 
-    gameOver.color=ccc3(200,0,0);
+-(void)leaveGOMenu
+{
+    CGRect rect = [rectangle boundingBox];
+    KKInput *input = [KKInput sharedInput];
+    CGPoint pos = [input locationOfAnyTouchInPhase:KKTouchPhaseBegan];
     
-        mainMenuPause = [CCMenuItemImage itemWithNormalImage:@"MainMenu.png" selectedImage:@"menuPausebuttonSel.png" target:self selector:@selector(menuButtonTapped:)];
+    if(pos.x != 0 && CGRectContainsPoint(rect,pos) == TRUE)
+    {
+        gameIsOver = FALSE;
+        GameOverMenu.visible = NO;
+        rectangle.visible = NO;
+        border.visible = NO;
+        gameOver.visible = NO;
+        questionLayer.visible = NO;
+        questionMenu.visible = FALSE;
+        [self removeChild:colorCombo];
+    }
+    
+}
+
+
+
+
+
+//200 , 238
+
+-(void)gameOverTimerDone
+{
+    
+    
+    //background
+    if(timerSeconds != 0 )
+    {
         
-        restartPause = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restartSel.png" target:self selector:@selector(restartButtonTapped:)];
-        
-        
-        GameOverMenu = [CCMenu menuWithItems: mainMenuPause, restartPause, nil];
-        
-        mainMenuPause.position = ccp(0, -80);
+    [self unschedule:@selector(timerUpdate:)];
     
+    [[NSUserDefaults standardUserDefaults] setInteger:timerSeconds forKey:@"time"];
     
-    [self addChild:GameOverMenu z:9];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionZoomFlipAngular transitionWithDuration:0.75 scene:[[GameLayer alloc]init]]];
+    }
     
-    game.isTouchEnabled = NO;
-    
-    
+//    border = [CCSprite spriteWithFile:@"border.png"];
+//    border.position = ccp(160,240);
+//    [self addChild:border z:8];
+//    
+//    rectangle = [CCSprite spriteWithFile:@"rectangle.png"];
+//    rectangle.position = ccp(160,240);
+//    rectangle.opacity = 100;
+//    [self addChild:rectangle z:7];
+//    
+//    
+//    //background
+//    
+//    
+//    gameOverLayer = [CCLayerColor layerWithColor: ccc4(0, 0, 0, 0) width: 320 height: 480];
+//    
+//    gameOverLayer.position = ccp(0, 0);
+//    
+//    
+//    [self addChild: gameOverLayer z:8];
+//    
+//    gameOver = [CCLabelTTF labelWithString:@"You Lose!" fontName:@"Arial" fontSize:20];
+//    gameOver.position = ccp(160, 300);
+//    [self addChild:gameOver z:9];
+//    
+//
+//    gameOver = [CCLabelTTF labelWithString:@"GAME OVER" fontName:@"Arial" fontSize:30];
+//    gameOver.position = ccp(160, 330);
+//    [self addChild:gameOver z:9];
+//
+//
+//    gameOver.color=ccc3(200,0,0);
+//    
+//        mainMenuPause = [CCMenuItemImage itemWithNormalImage:@"MainMenu.png" selectedImage:@"menuPausebuttonSel.png" target:self selector:@selector(menuButtonTapped:)];
+//        
+//        restartPause = [CCMenuItemImage itemWithNormalImage:@"restart.png" selectedImage:@"restartSel.png" target:self selector:@selector(restartButtonTapped:)];
+//        
+//        
+//        GameOverMenu = [CCMenu menuWithItems: mainMenuPause, restartPause, nil];
+//        
+//        mainMenuPause.position = ccp(0, -80);
+//    
+//    
+//    [self addChild:GameOverMenu z:9];
+//    
+//    gameIsOver = true;
 
 }
 
 
 
 //************************************IsGameOver?*****************************
+
+
 
 /////////////////////////GameLayer 1///////////////////////////
 -(void)int1x1ToggleTapped:(id)sender
@@ -19620,15 +19852,21 @@ else
 
 {
     
-    if(operationCount < perfectCount)
+    if(operationCount <= perfectCount)
     {
         perfectCountLabel.color=ccc3(0,255,0);
     }
-    else if(perfectCount <= operationCount)
+    else if(perfectCount < operationCount)
     {
         perfectCountLabel.color=ccc3(255,0,0);
     }
     
+    
+    
+    if (gameIsOver == true)
+    {
+        [self leaveGOMenu];
+    }
     
 }
 
